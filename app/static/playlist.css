@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+  }
+  
+  .playlist-label-body main {
+    display: table;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .playlist-label {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    padding: 3rem;
+  }
+  
+  .playlist-label-container {
+    border-style: solid;
+    border-width: 2px;
+    padding: 2rem;
+  }
+  
+  .playlist-label h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .playlist-label h2 {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  
+  .playlist-label h3 {
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+  
+  .playlist-label h3, .playlist-label h4, .playlist-label h5 {
+    opacity: 0.7;
+  }
+  
+  .playlist-label h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  
+  .playlist-label h5 {
+    font-size: 0.8rem;
+  }
+  
+  .playlist-label img {
+    max-width: 70%;
+    max-height: 18rem;
+  }
+  
+  .playlist-label .image-container {
+    text-align: right;
+  }
+  
+  /* Extra small devices (less than 768px) */
+  @media (max-width: 48rem) {
+    .playlist-label {
+      padding: 1rem;
+    }
+  
+    .playlist-label .image-container {
+      text-align: center;
+      margin: 1rem 0 2rem 0;
+    }
+  }
+  
