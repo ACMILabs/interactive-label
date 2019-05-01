@@ -17,8 +17,13 @@
                                 <h1>{{ item.label.title }}</h1>
                                 <h2>{{ item.label.publication }}</h2>
                             </div>
-                            <div class="col-sm">
+                            <div class="col-sm label-description">
                                 <p>{{ item.label.description }}</p>
+                                <div class="btn-group" role="group" aria-label="Font size">
+                                    <button type="button" class="btn btn-sm btn-outline-light" id="font-size-smaller">Smaller</button>
+                                    <button type="button" class="btn btn-sm btn-outline-light" id="current-font-size">20px</button>
+                                    <button type="button" class="btn btn-sm btn-outline-light" id="font-size-bigger">Bigger</button>
+                                </div>
                             </div>
                             <div class="col-sm image-container">
                                 <img src="{{ item.label.works.0.image }}" alt="{{ item.label.title }}" title="{{ item.label.title }}">
@@ -61,5 +66,31 @@
         "mqtt_username": "{{ mqtt.username }}",
         "mqtt_password": "{{ mqtt.password }}",
         "xos_playlist_endpoint": "{{ xos.playlist_endpoint }}"
-    };
+    }
+
+    // FOR PROTOTYPING - Allow the user to change the font size of the description
+    // Set initial font size button label
+    var initialFontSize = window.getComputedStyle(document.getElementsByClassName("label-description")[0]).fontSize;
+    initialFontSize = parseFloat(initialFontSize.replace(/[a-z]/g,''));
+    initialFontSize -= 1;
+    initialFontSize = Math.round( initialFontSize * 10 ) / 10;
+    document.getElementById("current-font-size").innerText = initialFontSize.toString() + "px";
+
+    // Update font size
+    document.getElementById("font-size-smaller").onclick = function() {
+        var fontSize = window.getComputedStyle(document.getElementsByClassName("label-description")[0]).fontSize;
+        fontSize = parseFloat(fontSize.replace(/[a-z]/g,''));
+        fontSize -= 1;
+        fontSize = Math.round( fontSize * 10 ) / 10;
+        document.getElementsByClassName("label-description")[0].style.fontSize = fontSize.toString() + "px";
+        document.getElementById("current-font-size").innerText = fontSize.toString() + "px";
+    }
+    document.getElementById("font-size-bigger").onclick = function() {
+        var fontSize = window.getComputedStyle(document.getElementsByClassName("label-description")[0]).fontSize;
+        fontSize = parseFloat(fontSize.replace(/[a-z]/g,''));
+        fontSize += 1;
+        fontSize = Math.round( fontSize * 10 ) / 10;
+        document.getElementsByClassName("label-description")[0].style.fontSize = fontSize.toString() + "px";
+        document.getElementById("current-font-size").innerText = fontSize.toString() + "px";
+    }
 </script>
