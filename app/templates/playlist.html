@@ -21,7 +21,7 @@
                                 <p>{{ item.label.description }}</p>
                                 <div class="btn-group" role="group" aria-label="Font size">
                                     <button type="button" class="btn btn-sm btn-outline-light" id="font-size-smaller">Smaller</button>
-                                    <button type="button" class="btn btn-sm btn-outline-light" id="current-font-size">20px</button>
+                                    <button type="button" class="btn btn-sm btn-outline-light" id="current-font-size">20pt (26.7px)</button>
                                     <button type="button" class="btn btn-sm btn-outline-light" id="font-size-bigger">Bigger</button>
                                 </div>
                             </div>
@@ -72,25 +72,30 @@
     // Set initial font size button label
     var initialFontSize = window.getComputedStyle(document.getElementsByClassName("label-description")[0]).fontSize;
     initialFontSize = parseFloat(initialFontSize.replace(/[a-z]/g,''));
-    initialFontSize -= 1;
+    // Convert to points
+    initialFontSize *= 0.75;
     initialFontSize = Math.round( initialFontSize * 10 ) / 10;
-    document.getElementById("current-font-size").innerText = initialFontSize.toString() + "px";
+    document.getElementById("current-font-size").innerText = initialFontSize.toString() + "pt (" + (Math.round((initialFontSize * 1.33333333333) * 10 ) / 10).toString() + "px)";
 
     // Update font size
     document.getElementById("font-size-smaller").onclick = function() {
         var fontSize = window.getComputedStyle(document.getElementsByClassName("label-description")[0]).fontSize;
         fontSize = parseFloat(fontSize.replace(/[a-z]/g,''));
-        fontSize -= 1;
+        // Convert to points
+        fontSize *= 0.75;
         fontSize = Math.round( fontSize * 10 ) / 10;
-        document.getElementsByClassName("label-description")[0].style.fontSize = fontSize.toString() + "px";
-        document.getElementById("current-font-size").innerText = fontSize.toString() + "px";
+        fontSize -= 1;
+        document.getElementsByClassName("label-description")[0].style.fontSize = fontSize.toString() + "pt";
+        document.getElementById("current-font-size").innerText = fontSize.toString() + "pt (" + (Math.round((fontSize * 1.33333333333) * 10 ) / 10).toString() + "px)";
     }
     document.getElementById("font-size-bigger").onclick = function() {
         var fontSize = window.getComputedStyle(document.getElementsByClassName("label-description")[0]).fontSize;
         fontSize = parseFloat(fontSize.replace(/[a-z]/g,''));
-        fontSize += 1;
+        // Convert to points
+        fontSize *= 0.75;
         fontSize = Math.round( fontSize * 10 ) / 10;
-        document.getElementsByClassName("label-description")[0].style.fontSize = fontSize.toString() + "px";
-        document.getElementById("current-font-size").innerText = fontSize.toString() + "px";
+        fontSize += 1;
+        document.getElementsByClassName("label-description")[0].style.fontSize = fontSize.toString() + "pt";
+        document.getElementById("current-font-size").innerText = fontSize.toString() + "pt (" + (Math.round((fontSize * 1.33333333333) * 10 ) / 10).toString() + "px)";
     }
 </script>
