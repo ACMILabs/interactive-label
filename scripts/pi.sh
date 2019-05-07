@@ -8,6 +8,9 @@ echo "Starting X in 2 seconds"
 sleep 2
 startx &
 
+# Hide the cursor
+unclutter -display :0 -idle 0.1 &
+
 # Start Flask
 python -u app/main.py &
 
