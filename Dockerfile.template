@@ -19,6 +19,9 @@ RUN echo "#!/bin/bash" > /etc/X11/xinit/xserverrc \
 
 ENV PYTHONUNBUFFERED 1
 
+# Enable udevd so that plugged dynamic hardware devices show up in our container.
+ENV UDEV=1
+
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install -Ur /code/requirements.txt
 
