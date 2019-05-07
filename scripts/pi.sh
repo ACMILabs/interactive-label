@@ -12,4 +12,4 @@ startx &
 python -u app/main.py &
 
 # Launch chromium browser in fullscreen on that page
-chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir
+chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk
