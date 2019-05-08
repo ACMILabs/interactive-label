@@ -79,7 +79,7 @@ export default class PlaylistLabelRenderer {
         onSuccess: () => {
           // Subscribe to the media player AMQP feed
           // TODO: Get the media player ID from XOS
-          client.subscribe('mediaplayer.1');
+          client.subscribe('mediaplayer.' + window.playlistLabelData.xos_media_player_id);
         }
       });
     }

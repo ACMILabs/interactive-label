@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 XOS_PLAYLIST_ENDPOINT = os.getenv('XOS_PLAYLIST_ENDPOINT')
 XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID')
+XOS_MEDIA_PLAYER_ID = os.getenv('XOS_MEDIA_PLAYER_ID')
 RABBITMQ_MQTT_HOST = os.getenv('RABBITMQ_MQTT_HOST')
 RABBITMQ_MQTT_PORT = os.getenv('RABBITMQ_MQTT_PORT')
 RABBITMQ_MEDIA_PLAYER_USER = os.getenv('RABBITMQ_MEDIA_PLAYER_USER')
@@ -44,7 +45,8 @@ def playlist_label(playlist_json=None, mqtt=None, xos=None):
             'password': RABBITMQ_MEDIA_PLAYER_PASS
         },
         xos={
-            'playlist_endpoint': XOS_PLAYLIST_ENDPOINT
+            'playlist_endpoint': XOS_PLAYLIST_ENDPOINT,
+            'media_player_id': XOS_MEDIA_PLAYER_ID
         }
     )
 
