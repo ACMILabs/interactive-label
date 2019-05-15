@@ -11,7 +11,15 @@ sleep 20
 unclutter -display :0 -idle 0.1 &
 
 # Start Flask
-python -u app/main.py
+python -u app/main.py &
+
+sleep 20
 
 # Launch chromium browser in fullscreen on that page
-#chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk
+chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk
+
+while :
+do
+	echo "startx failed, so we will just wait here while you debug!"
+	sleep 30
+done
