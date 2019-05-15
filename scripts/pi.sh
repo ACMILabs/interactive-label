@@ -11,7 +11,7 @@ sleep 20
 unclutter -display :0 -idle 0.1 &
 
 # Start Flask
-python -u app/main.py &
+python -u app/main.py
 
 # Launch chromium browser in fullscreen on that page
-chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk
+#chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk
