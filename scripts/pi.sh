@@ -2,10 +2,10 @@
 
 rm /tmp/.X0-lock &>/dev/null || true
 
-echo "Starting X in 5 seconds"
-sleep 5
+echo "Starting X in 2 seconds"
+sleep 2
 startx &
-sleep 10
+sleep 20
 
 # Hide the cursor
 unclutter -display :0 -idle 0.1 &
