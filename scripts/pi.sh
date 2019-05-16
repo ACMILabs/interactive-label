@@ -18,8 +18,7 @@ sleep 10
 # Launch chromium browser in fullscreen on that page
 chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk
 
-while :
-do
-	echo "startx failed, so we will just wait here while you debug!"
-	sleep 30
-done
+# For debugging
+echo "Chromium browser exited unexpectedly."
+free -h
+echo "End of pi.sh ..."
