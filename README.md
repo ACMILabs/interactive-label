@@ -19,3 +19,8 @@ To install and run on a Raspbian OS Raspberry Pi for prototyping:
 * Add the Balena remote `git remote add balena g_acmi_developer@git.balena-cloud.com:g_acmi_developer/playlist-label-pi.git`
 * Git push your changes
 * Push your edits to Balena `git push balena master`
+
+## Keyboard input from a shell
+
+* Install xdotool `sudo apt install xdotool`
+* To zoom out in the browser `xdotool key Ctrl+minus`
