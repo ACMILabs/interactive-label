@@ -71,7 +71,7 @@ export default class PlaylistLabelRenderer {
       );
   
       // set callback handlers
-      client.onConnectionLost = this.onConnectionLost;
+      client.onConnectionLost = this.onConnectionLost.bind(this);
       client.onMessageArrived = this.onMessageArrived.bind(this);
       client.connect({
         userName: window.playlistLabelData.mqtt_username,
@@ -86,8 +86,9 @@ export default class PlaylistLabelRenderer {
   
     onConnectionLost(responseObject) {
       if (responseObject.errorCode !== 0) {
-        // TODO: Try and re-connect, and if that fails 3 times then cycle automatically every x minutes?
         console.error(`MQTT connection lost: ${responseObject.errorMessage}`); // eslint-disable-line no-console
+        // Re-subscribe
+        this.subscribeToMediaPlayer();
       }
     }
   
