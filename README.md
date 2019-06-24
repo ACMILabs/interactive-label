@@ -24,3 +24,4 @@ To install and run on a Raspbian OS Raspberry Pi for prototyping:
 
 * Install xdotool `sudo apt install xdotool`
 * To zoom out in the browser `xdotool key Ctrl+minus`
+* To refresh the page `xdotool key "ctrl+F5"`
