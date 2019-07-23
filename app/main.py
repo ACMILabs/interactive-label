@@ -6,6 +6,8 @@ from threading import Thread
 import requests
 from flask import Flask, jsonify, render_template, request
 from kombu import Connection, Exchange, Queue
+from peewee import CharField, FloatField, IntegerField, Model, SqliteDatabase
+from playhouse.shortcuts import model_to_dict
 
 from errors import HTTPError
 
@@ -27,49 +29,21 @@ playback_queue = Queue(queue_name, exchange=media_player_exchange, routing_key=r
 
 app = Flask(__name__)
 cached_playlist_json = f'playlist_{XOS_PLAYLIST_ID}.json'
-# database_uri = 'file:messagedb?mode=memory&cache=shared'
-database_uri = 'file:messagedb.db'
+# instantiate the peewee database
+db = SqliteDatabase('message.db')
 
-def initialise_db():
-    """
-    Initialise the database.
-    """
-    connection = sqlite3.connect(database_uri, uri=True)
-    connection.execute('CREATE TABLE IF NOT EXISTS message(datetime text, playlist integer, mediaplayer integer, label integer, playback real, audiobuffer real, videobuffer real)')
-    connection.close()
 
-def get_record():
-    """
-    Get the latest record.
-    """
-    connection = sqlite3.connect(database_uri, uri=True)
-    connection.row_factory = sqlite3.Row
-    rows = connection.execute('SELECT * FROM message ORDER BY datetime DESC LIMIT 1')
-    return rows.fetchone()
+class Message(Model):
+    datetime = CharField(primary_key=True)
+    label_id = IntegerField()
+    playlist_id = IntegerField()
+    media_player_id = IntegerField()
+    playback_position = FloatField()
+    audio_buffer = FloatField(null=True)
+    video_buffer = FloatField(null=True)
+    class Meta:
+        database = db
 
-def write_record(values):
-    """
-    Write a record to the in memory database and remove the last one if more than one.
-    """
-    connection = sqlite3.connect(database_uri, uri=True)
-    print(values)
-    with connection:
-        connection.execute('INSERT INTO message VALUES (?, ?, ?, ?, ?, ?, ?)', values)
-    # delete all but 5 records
-    with connection:
-        connection.execute('DELETE FROM message WHERE datetime NOT IN (SELECT datetime FROM message ORDER BY datetime DESC LIMIT 5)')
-    connection.close()
-
-def process_media(body, message):
-    datetime = body['datetime']
-    playlist = body.get('playlist_id', 0)
-    media_player = body.get('media_player_id')
-    label = body.get('label_id', 0)
-    playback = body.get('playback_position', 0)
-    audio_buffer = body.get('audio_buffer', 0)
-    video_buffer = body.get('video_buffer', 0)
-    write_record([datetime, playlist, media_player, label, playback, audio_buffer, video_buffer])
-    message.ack()
 
 def download_playlist_label():
     # Download Playlist JSON from XOS
@@ -83,10 +57,27 @@ def download_playlist_label():
     except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as e:
         print(f'Error downloading playlist JSON from XOS: {e}')
 
+
+def process_media(body, message):
+    Message.create(
+        datetime = body['datetime'],
+        playlist_id = body.get('playlist_id', 0),
+        media_player_id = body.get('media_player_id', 0),
+        label_id = body.get('label_id', 0),
+        playback_position = body.get('playback_position', 0),
+        audio_buffer = body.get('audio_buffer', 0),
+        video_buffer = body.get('video_buffer', 0),       
+    )
+    # clear out other messages beyond the last 5
+    delete_records = Message.delete().where(
+        Message.datetime.not_in(Message.select(Message.datetime).order_by(Message.datetime.desc()).limit(5))
+    )
+    delete_records.execute()
+    message.ack()
+
 def get_events():
     # connections
     with Connection(AMQP_URL) as conn:
-
         # consume
         with conn.Consumer(playback_queue, callbacks=[process_media]) as consumer:
             # Process messages and handle events on all channels
@@ -140,20 +131,19 @@ def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
     """
-    tap = request.get_json()
     xos_tap_endpoint = f'{XOS_API_ENDPOINT}taps/'
-    xos_tap = dict(tap)
-    row = get_record()
-    xos_tap['label'] = dict(row)
-    # headers = {'Authorization': 'Token ' + AUTH_TOKEN}
-    # response = requests.post(xos_tap_endpoint, json=xos_tap, headers=headers)
-    # if response.status_code != requests.codes['created']:
-    #     raise HTTPError('Could not save tap to XOS.')
-    print(xos_tap)
+    xos_tap = dict(request.get_json())
+    record = model_to_dict(Message.select().order_by(Message.datetime.desc()).get())
+    xos_tap['label'] = record.pop('label_id', None)
+    xos_tap.setdefault('data', {})['playlist_info'] = record
+    headers = {'Authorization': 'Token ' + AUTH_TOKEN}
+    response = requests.post(xos_tap_endpoint, json=xos_tap, headers=headers)
+    if response.status_code != requests.codes['created']:
+        raise HTTPError('Could not save tap to XOS.')
     return jsonify(xos_tap)
 
 if __name__ == '__main__':
-    initialise_db()
+    db.create_tables([Message])
     download_playlist_label()
     Thread(target=get_events).start()
     app.run(host='0.0.0.0', port=8080)
