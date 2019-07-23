@@ -19,8 +19,10 @@ RABBITMQ_MQTT_HOST = os.getenv('RABBITMQ_MQTT_HOST')
 RABBITMQ_MQTT_PORT = os.getenv('RABBITMQ_MQTT_PORT')
 RABBITMQ_MEDIA_PLAYER_USER = os.getenv('RABBITMQ_MEDIA_PLAYER_USER')
 RABBITMQ_MEDIA_PLAYER_PASS = os.getenv('RABBITMQ_MEDIA_PLAYER_PASS')
-AMQP_URL = os.getenv('AMQP_URL')
+AMQP_PORT = os.getenv('AMQP_PORT')
 MEDIA_PLAYER_ID = os.getenv('XOS_MEDIA_PLAYER_ID')
+
+amqp_url = f'amqp://{RABBITMQ_MEDIA_PLAYER_USER}:{RABBITMQ_MEDIA_PLAYER_PASS}@{RABBITMQ_MQTT_HOST}:{AMQP_PORT}//'
 queue_name = f'mqtt-subscription-playback_{MEDIA_PLAYER_ID}'
 routing_key = f'mediaplayer.{MEDIA_PLAYER_ID}'
 
@@ -77,7 +79,7 @@ def process_media(body, message):
 
 def get_events():
     # connections
-    with Connection(AMQP_URL) as conn:
+    with Connection(amqp_url) as conn:
         # consume
         with conn.Consumer(playback_queue, callbacks=[process_media]) as consumer:
             # Process messages and handle events on all channels
