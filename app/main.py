@@ -142,7 +142,7 @@ def collect_item():
     response = requests.post(xos_tap_endpoint, json=xos_tap, headers=headers)
     if response.status_code != requests.codes['created']:
         raise HTTPError('Could not save tap to XOS.')
-    return jsonify(xos_tap)
+    return jsonify(xos_tap), response.status_code
 
 if __name__ == '__main__':
     db.create_tables([Message])
