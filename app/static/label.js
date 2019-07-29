@@ -1,48 +1,37 @@
 /**
- * Class grouping together all methods to render a playlist label in the client,
- * along with simple state to track the current playlist being played.
+ * Class grouping together all methods to render a label in the client.
  */
-export default class PlaylistLabelRenderer {
+export default class LabelRenderer {
     /**
      * Set an initial state for the renderer
      */
     constructor() {
       this.state = {
-        currentLabelId: null,
-        nextLabelId: null,
-        playlistJson: null
+        labelJson: null
       };
     }
   
     /**
-     * Init, parsing playlist id that should be made available on the
-     * rendered page via window.playlistLabelData.
+     * Init, parsing label id that should be made available on the
+     * rendered page via window.labelData.
      */
     init() {
       const id =
-        'id' in window.playlistLabelData ? window.playlistLabelData.id : null;
-      this.state.currentLabelId =
-        'current_label_id' in window.playlistLabelData
-          ? window.playlistLabelData.current_label_id
-          : null;
-      this.state.nextLabelId =
-        'next_label_id' in window.playlistLabelData
-          ? window.playlistLabelData.next_label_id
-          : null;
-  
+        'id' in window.labelData ? window.labelData.id : null;
+
       if (id != null) {
         const url = `/json`;
-        this.fetchPlaylist(url);
+        this.fetchLabel(url);
       } else {
         console.error('No valid id could be found on initial pageload.'); // eslint-disable-line no-console
       }
     }
   
     /**
-     * Fetch playlist makes API request to get playlist data and calls {@link subscribeToMediaPlayer}.
-     * @param {string} url - The nfcTag API endpoint with primary key already included.
+     * Fetch playlist makes API request to get playlist data.
+     * @param {string} url - The label API
      */
-    fetchPlaylist(url) {
+    fetchLabel(url) {
       fetch(url)
         .then(response => {
           if (!response.ok) {
@@ -51,8 +40,7 @@ export default class PlaylistLabelRenderer {
           return response.json();
         })
         .then(jsonData => {
-          this.state.playlistJson = jsonData;
-          this.subscribeToMediaPlayer(jsonData);
+          this.state.labelJson = jsonData;
         })
         .catch(error => console.error(error)); // eslint-disable-line no-console
     }
@@ -64,8 +52,8 @@ export default class PlaylistLabelRenderer {
       // Subscribe to the media player messages
       // TODO: get media_player id from XOS
       const client = new Paho.MQTT.Client( // eslint-disable-line no-undef
-        window.playlistLabelData.mqtt_host,
-        parseInt(window.playlistLabelData.mqtt_port, 10),
+        window.labelData.mqtt_host,
+        parseInt(window.labelData.mqtt_port, 10),
         '/ws',
         ''
       );
@@ -74,12 +62,12 @@ export default class PlaylistLabelRenderer {
       client.onConnectionLost = this.onConnectionLost.bind(this);
       client.onMessageArrived = this.onMessageArrived.bind(this);
       client.connect({
-        userName: window.playlistLabelData.mqtt_username,
-        password: window.playlistLabelData.mqtt_password,
+        userName: window.labelData.mqtt_username,
+        password: window.labelData.mqtt_password,
         onSuccess: () => {
           // Subscribe to the media player AMQP feed
           // TODO: Get the media player ID from XOS
-          client.subscribe('mediaplayer.' + window.playlistLabelData.xos_media_player_id);
+          client.subscribe('mediaplayer.' + window.labelData.xos_media_player_id);
         }
       });
     }
@@ -98,7 +86,7 @@ export default class PlaylistLabelRenderer {
       if (messageJson.label_id !== this.state.currentLabelId) {
         // Update the current state
         this.state.currentLabelId = messageJson.label_id;
-        const labels = this.state.playlistJson.playlist_labels;
+        const labels = this.state.labelJson.playlist_labels;
         for (let index = 0; index < labels.length; index++) {
           const element = labels[index];
           if (element.label.id === this.state.currentLabelId) {
@@ -138,14 +126,14 @@ export default class PlaylistLabelRenderer {
   }
   
   /**
-   * Init the PlaylistLabelRenderer app once the DOM has completed loading.
+   * Init the LabelRenderer app once the DOM has completed loading.
    */
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.playlistLabelData) {
-      const playlistLabelApp = new PlaylistLabelRenderer();
-      playlistLabelApp.init();
+    if (window.labelData) {
+      const labelApp = new LabelRenderer();
+      labelApp.init();
     } else {
-      console.error('No playlist label data could be found on initial pageload.'); // eslint-disable-line no-console
+      console.error('No label data could be found on initial pageload.'); // eslint-disable-line no-console
     }
   });
   

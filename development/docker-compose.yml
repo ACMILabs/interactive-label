@@ -1,14 +1,14 @@
 version: "3"
 
 services:
-  playlistlabel:
+  labelinteractive:
     build:
       context: "../"
       dockerfile: development/Dockerfile
       args:
         IS_LOCAL_ENV: "true"
-    hostname: playlistlabel
-    container_name: playlistlabel
+    hostname: labelinteractive
+    container_name: labelinteractive
     env_file: ../config.env
     volumes:
       - ../:/code        

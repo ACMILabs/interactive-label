@@ -1,7 +1,7 @@
-Playlist label
-==============
+Label interactive
+=================
 
-A playlist label prototype running on a Raspberry Pi connected to a 12.3" screen.
+An interactive label selector prototype running on a Raspberry Pi connected to a 12.3" screen.
 
 ## Installation on Raspbian
 
@@ -16,7 +16,7 @@ To install and run on a Raspbian OS Raspberry Pi for prototyping:
 ## Installation via Balena
 
 * Clone this repo.
-* Add the Balena remote `git remote add balena g_acmi_developer@git.balena-cloud.com:g_acmi_developer/playlist-label-pi.git`
+* Add the Balena remote
 * Git push your changes
 * Push your edits to Balena `git push balena master`
 
