@@ -1,38 +1,40 @@
 <!doctype html>
 
 <head>
-    <title>Label: {{ label_json.title }}</title>
+    <title>Playlist: {{ playlist_json.title }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='label.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='playlist.css') }}">
 </head>
 
-<body class="container label-body">
+<body class="container playlist-body">
     <main>
-        <article class="label">
-            <div class="label-container" id="label-js-hook">
+        <article class="playlist">
+            <div class="playlist-container" id="playlist-js-hook">
                 <h3>Select a video to play</h3>
-                {% for item in label_json.works %}
+                {% for item in playlist_json.playlist_labels %}
                     {% if loop.index == 1 %}
                         <div class="row">
                             <div class="col-sm">
-                                <h1>{{ item.title }}</h1>
-                                <h2>{{ item.get_first_production_year }}</h2>
+                                <h1>{{ item.label.title }}</h1>
+                                <h2>{{ item.label.publication }}</h2>
                             </div>
-                            <div class="col-sm label-description">
-                                <p>{{ item.brief_description }}</p>
+                            <div class="col-sm playlist-description">
+                                <p>{{ item.label.description }}</p>
                             </div>
                             <div class="col-sm image-container">
-                                <img src="{{ item.image }}" alt="{{ item.title }}" title="{{ item.title }}">
+                                {% if item.label.works|length > 0 %}
+                                    <img src="{{ item.label.works.0.image }}" alt="{{ item.label.title }}" title="{{ item.label.title }}">
+                                {% endif %}
                             </div>
                         </div>
+                        <h3>← Back</h3>
                     {% endif %}
-                    <h3>← Back</h3>
                 {% endfor %}
-                {% if not label_json %}
+                {% if not playlist_json %}
                 <div class="row">
                     <div class="col-sm">
-                        <h1>Label not found 😭</h1>
-                        <h2>Sorry, there isn't a label for that id.</h2>
+                        <h1>Playlist not found 😭</h1>
+                        <h2>Sorry, there isn't a playlist for that id.</h2>
                     </div>
                 </div>
                 {% endif %}
@@ -41,7 +43,7 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='label.js') }}" type="module"></script>
+    <script src="{{ url_for('static', filename='playlist.js') }}" type="module"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -49,8 +51,8 @@
 </body>
 
 <script>
-    window.labelData = {
-        "id": "{{ label_json.id }}",
-        "xos_label_endpoint": "{{ xos.label_endpoint }}"
+    window.playlistData = {
+        "id": "{{ playlist_json.id }}",
+        "xos_playlist_endpoint": "{{ xos.playlist_endpoint }}"
     }
 </script>

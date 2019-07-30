@@ -1,27 +1,27 @@
 /**
- * Class grouping together all methods to render a label in the client.
+ * Class grouping together all methods to render a playlist in the client.
  */
-export default class LabelRenderer {
+export default class PlaylistRenderer {
     /**
      * Set an initial state for the renderer
      */
     constructor() {
       this.state = {
-        labelJson: null
+        playlistJson: null
       };
     }
   
     /**
-     * Init, parsing label id that should be made available on the
-     * rendered page via window.labelData.
+     * Init, parsing playlist id that should be made available on the
+     * rendered page via window.playlistData.
      */
     init() {
       const id =
-        'id' in window.labelData ? window.labelData.id : null;
+        'id' in window.playlistData ? window.playlistData.id : null;
 
       if (id != null) {
         const url = `/json`;
-        this.fetchLabel(url);
+        this.fetchPlaylist(url);
       } else {
         console.error('No valid id could be found on initial pageload.'); // eslint-disable-line no-console
       }
@@ -29,9 +29,9 @@ export default class LabelRenderer {
   
     /**
      * Fetch playlist makes API request to get playlist data.
-     * @param {string} url - The label API
+     * @param {string} url - The playlist API
      */
-    fetchLabel(url) {
+    fetchPlaylist(url) {
       fetch(url)
         .then(response => {
           if (!response.ok) {
@@ -40,7 +40,7 @@ export default class LabelRenderer {
           return response.json();
         })
         .then(jsonData => {
-          this.state.labelJson = jsonData;
+          this.state.playlistJson = jsonData;
         })
         .catch(error => console.error(error)); // eslint-disable-line no-console
     }
@@ -52,8 +52,8 @@ export default class LabelRenderer {
       // Subscribe to the media player messages
       // TODO: get media_player id from XOS
       const client = new Paho.MQTT.Client( // eslint-disable-line no-undef
-        window.labelData.mqtt_host,
-        parseInt(window.labelData.mqtt_port, 10),
+        window.playlistData.mqtt_host,
+        parseInt(window.playlistData.mqtt_port, 10),
         '/ws',
         ''
       );
@@ -62,12 +62,12 @@ export default class LabelRenderer {
       client.onConnectionLost = this.onConnectionLost.bind(this);
       client.onMessageArrived = this.onMessageArrived.bind(this);
       client.connect({
-        userName: window.labelData.mqtt_username,
-        password: window.labelData.mqtt_password,
+        userName: window.playlistData.mqtt_username,
+        password: window.playlistData.mqtt_password,
         onSuccess: () => {
           // Subscribe to the media player AMQP feed
           // TODO: Get the media player ID from XOS
-          client.subscribe('mediaplayer.' + window.labelData.xos_media_player_id);
+          client.subscribe('mediaplayer.' + window.playlistData.xos_media_player_id);
         }
       });
     }
@@ -86,7 +86,7 @@ export default class LabelRenderer {
       if (messageJson.label_id !== this.state.currentLabelId) {
         // Update the current state
         this.state.currentLabelId = messageJson.label_id;
-        const labels = this.state.labelJson.playlist_labels;
+        const labels = this.state.playlistJson.playlist_labels;
         for (let index = 0; index < labels.length; index++) {
           const element = labels[index];
           if (element.label.id === this.state.currentLabelId) {
@@ -126,14 +126,14 @@ export default class LabelRenderer {
   }
   
   /**
-   * Init the LabelRenderer app once the DOM has completed loading.
+   * Init the PlaylistRenderer app once the DOM has completed loading.
    */
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.labelData) {
-      const labelApp = new LabelRenderer();
-      labelApp.init();
+    if (window.playlistData) {
+      const playlistApp = new PlaylistRenderer();
+      playlistApp.init();
     } else {
-      console.error('No label data could be found on initial pageload.'); // eslint-disable-line no-console
+      console.error('No playlist data could be found on initial pageload.'); // eslint-disable-line no-console
     }
   });
   
