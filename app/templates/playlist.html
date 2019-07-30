@@ -17,9 +17,11 @@
                     <div class="col-sm-8 playlist-label-tiles">
                         <div class="row">
                             {% for item in playlist_json.playlist_labels %}
+                                <!-- Label tiles -->
                                 <div class="col-sm-4 label-tile" data-toggle="modal" data-target="#labeltile{{ item.label.id }}"><h2>{{ item.label.title }}</h2></div>
                             {% endfor %}
                             {% for item in playlist_json.playlist_labels %}
+                                <!-- Label modals -->
                                 <div class="modal fade" id="labeltile{{ item.label.id }}" tabindex="-1" role="dialog" aria-labelledby="labeltile{{ item.label.id }}{{ item.label.title }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
                                         <div class="row label-modal-container">
@@ -37,21 +39,6 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <!-- <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="labeltile{{ item.label.id }}{{ item.label.title }}">{{ item.label.title }}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                {{ item.label.description }}
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                             {% endfor %}
