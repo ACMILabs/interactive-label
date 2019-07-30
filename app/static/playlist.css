@@ -60,10 +60,46 @@ html, body {
 
 .playlist .image-container {
   text-align: right;
+  padding-right: 0;
 }
 
 .playlist .playlist-description {
   font-size: 1rem;
+}
+
+.label-tile {
+  width: 30%;
+  height: 8rem;
+  padding: 1rem;
+  background-color: grey;
+}
+
+.label-tile:nth-child(even) {
+  background-color: lightgrey;
+}
+
+.label-tile:hover {
+  background-color: rgb(238, 112, 92);
+  cursor: pointer;
+}
+
+.label-tile h2 {
+  font-weight: 700;
+}
+
+.modal-dialog {
+  max-width: 50rem;
+}
+
+.label-modal-container {
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+}
+
+.label-modal-container h3 {
+  position: absolute;
+  bottom: 0;
 }
 
 /* Extra small devices (less than 768px) */
