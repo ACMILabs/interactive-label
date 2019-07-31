@@ -18,7 +18,7 @@
                         <div class="row">
                             {% for item in playlist_json.playlist_labels %}
                                 <!-- Label tiles -->
-                                <div class="col-sm-4 label-tile" data-toggle="modal" data-target="#labeltile{{ item.label.id }}"><h2>{{ item.label.title }}</h2></div>
+                                <div class="col-sm-4 label-tile" data-toggle="modal" data-target="#labeltile{{ item.label.id }}" onclick="save_label({{ item.label.id }}, {{ playlist_json.id }})"><h2>{{ item.label.title }}</h2></div>
                             {% endfor %}
                             {% for item in playlist_json.playlist_labels %}
                                 <!-- Label modals -->
@@ -69,5 +69,33 @@
     window.playlistData = {
         "id": "{{ playlist_json.id }}",
         "xos_playlist_endpoint": "{{ xos.playlist_endpoint }}"
+    }
+
+    function save_label(label_id, playlist_id) {
+        // Save label selected to the local database for a tap
+        postData('http://localhost:8080/label', {
+                datetime: Date.now(),
+                playlist_id: playlist_id,
+                label_id: label_id,
+            })
+            .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+            .catch(error => console.error(error));
+    }
+
+    function postData(url = '', data = {}) {
+    // Default options are marked with *
+        return fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, cors, *same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // no-referrer, *client
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        })
+        .then(response => response.json()); // parses JSON response into native JavaScript objects
     }
 </script>
