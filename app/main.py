@@ -48,7 +48,8 @@ def download_playlist():
             json.dump(playlist_json, outfile)
 
     except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as e:
-        print(f'Error downloading playlist JSON from XOS: {e}') 
+        print(f'Error downloading playlist JSON from XOS: {e}')
+        sentry_sdk.capture_exception(e)
 
 
 @app.errorhandler(HTTPError)
@@ -58,6 +59,7 @@ def handle_http_error(error):
     """
     response = jsonify(error.to_dict())
     response.status_code = error.status_code
+    sentry_sdk.capture_exception(error)
     return response
 
 
