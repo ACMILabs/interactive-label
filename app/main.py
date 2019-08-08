@@ -7,13 +7,21 @@ import requests
 from flask import Flask, jsonify, render_template, request
 from peewee import CharField, IntegerField, Model, SqliteDatabase
 from playhouse.shortcuts import model_to_dict
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 
 from errors import HTTPError
 
 XOS_API_ENDPOINT = os.getenv('XOS_API_ENDPOINT')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
 XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID')
+SENTRY_ID = os.getenv('SENTRY_ID')
 
+# Setup Sentry
+sentry_sdk.init(
+    dsn=SENTRY_ID,
+    integrations=[FlaskIntegration()]
+)
 
 app = Flask(__name__)
 cached_playlist_json = f'playlist_{XOS_PLAYLIST_ID}.json'

@@ -2,3 +2,4 @@ flask
 requests
 kombu
 peewee
+sentry-sdk[flask]
