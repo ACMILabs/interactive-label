@@ -11,7 +11,10 @@ RUN install_packages \
   raspberrypi-ui-mods rpd-icons \
   gtk2-engines-clearlookspix \
   matchbox-keyboard \
-  unclutter
+  unclutter \
+  # Support for Accuview gTouch 21.5" touchscreen
+  xserver-xorg-input-evdev \
+  xinput
 
 # disable lxpolkit popup warning
 RUN mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak
