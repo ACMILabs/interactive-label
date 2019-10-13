@@ -14,7 +14,7 @@ from errors import HTTPError
 
 XOS_API_ENDPOINT = os.getenv('XOS_API_ENDPOINT')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
-XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID')
+XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID', '1')
 SENTRY_ID = os.getenv('SENTRY_ID')
 
 # Setup Sentry
@@ -78,7 +78,7 @@ def playlist():
     )
 
 
-@app.route('/json')
+@app.route('/api/playlist_json/')
 def playlist_json():
     # Read in the cached JSON
     with open(cached_playlist_json, encoding='utf-8') as json_file:
@@ -87,7 +87,7 @@ def playlist_json():
     return jsonify(json_data)
 
 
-@app.route('/label', methods=['POST'])
+@app.route('/api/labels/', methods=['POST'])
 def select_label():
     """
     Save the Label ID that was selected to a local database with the Date, and Playlist ID.
@@ -109,7 +109,7 @@ def select_label():
     return jsonify(model_to_dict(label))
 
 
-@app.route('/tap', methods=['POST'])
+@app.route('/api/taps/', methods=['POST'])
 def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
