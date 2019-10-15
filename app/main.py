@@ -13,6 +13,7 @@ from sentry_sdk.integrations.flask import FlaskIntegration
 from errors import HTTPError
 
 XOS_API_ENDPOINT = os.getenv('XOS_API_ENDPOINT')
+XOS_TAPS_ENDPOINT = os.getenv('XOS_TAPS_ENDPOINT', f'{XOS_API_ENDPOINT}taps/')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
 XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID', '1')
 SENTRY_ID = os.getenv('SENTRY_ID')
@@ -78,7 +79,7 @@ def playlist():
     )
 
 
-@app.route('/api/playlist_json/')
+@app.route('/api/playlist/')
 def playlist_json():
     # Read in the cached JSON
     with open(cached_playlist_json, encoding='utf-8') as json_file:
@@ -114,13 +115,12 @@ def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
     """
-    xos_tap_endpoint = f'{XOS_API_ENDPOINT}taps/'
     xos_tap = dict(request.get_json())
     record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
     xos_tap['label'] = record.pop('label_id', None)
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}
-    response = requests.post(xos_tap_endpoint, json=xos_tap, headers=headers)
+    response = requests.post(XOS_TAPS_ENDPOINT, json=xos_tap, headers=headers)
     if response.status_code != requests.codes['created']:
         raise HTTPError('Could not save tap to XOS.')
     return jsonify(xos_tap), response.status_code
