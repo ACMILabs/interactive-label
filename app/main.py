@@ -4,8 +4,8 @@ import sqlite3
 from threading import Thread
 
 import requests
-from flask import Flask, jsonify, render_template, request
-from peewee import CharField, IntegerField, Model, SqliteDatabase
+from flask import Flask, abort, jsonify, render_template, request
+from peewee import CharField, DoesNotExist, IntegerField, IntegrityError, Model, SqliteDatabase
 from playhouse.shortcuts import model_to_dict
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
@@ -95,17 +95,27 @@ def select_label():
     """
     label_selected = dict(request.get_json())
 
-    # Save the label selected to the database
-    label = Label.create(
-        datetime = label_selected['datetime'],
-        playlist_id = label_selected.get('playlist_id', 0),
-        label_id = label_selected.get('label_id', 0),
-    )
-    # Clear out other messages beyond the last 5
-    delete_records = Label.delete().where(
-        Label.datetime.not_in(Label.select(Label.datetime).order_by(Label.datetime.desc()).limit(5))
-    )
-    delete_records.execute()
+    try:
+        # Save the label selected to the database
+        label = Label.create(
+            datetime = label_selected['datetime'],
+            playlist_id = label_selected.get('playlist_id', 0),
+            label_id = label_selected.get('label_id', 0),
+        )
+        # Clear out other messages beyond the last 5
+        delete_records = Label.delete().where(
+            Label.datetime.not_in(Label.select(Label.datetime).order_by(Label.datetime.desc()).limit(5))
+        )
+        delete_records.execute()
+
+    except IntegrityError:
+        # Label deselected, so delete the database
+        Label.delete().execute()
+        return jsonify({
+            'datetime': label_selected['datetime'],
+            'playlist_id': None,
+            'label_id': None
+        })
 
     return jsonify(model_to_dict(label))
 
@@ -116,7 +126,10 @@ def collect_item():
     Collect a tap and forward it on to XOS with the label ID.
     """
     xos_tap = dict(request.get_json())
-    record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
+    try:
+        record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
+    except DoesNotExist:
+        return HTTPError('No label selected.'), abort(404)
     xos_tap['label'] = record.pop('label_id', None)
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}
