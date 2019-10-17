@@ -109,7 +109,7 @@ def select_label():
         delete_records.execute()
 
     except IntegrityError:
-        # Label deselected, so delete the database
+        # Label deselected, so delete the data in the database
         Label.delete().execute()
         return jsonify({
             'datetime': label_selected['datetime'],
