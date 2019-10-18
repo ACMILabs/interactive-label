@@ -4,3 +4,6 @@ requests
 kombu
 peewee
 sentry-sdk[flask]
+flake8
+isort
+pylint
