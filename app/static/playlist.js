@@ -20,7 +20,7 @@ export default class PlaylistRenderer {
         'id' in window.playlistData ? window.playlistData.id : null;
 
       if (id != null) {
-        const url = `/json`;
+        const url = `/api/playlist/`;
         this.fetchPlaylist(url);
       } else {
         console.error('No valid id could be found on initial pageload.'); // eslint-disable-line no-console
