@@ -2,13 +2,11 @@ import json
 import os
 
 import requests
-from flask import Flask, abort, jsonify, render_template, request
-from flask_cors import CORS, cross_origin
-from peewee import CharField, DoesNotExist, IntegerField, IntegrityError, Model, SqliteDatabase
 import sentry_sdk
 from flask import Flask, abort, jsonify, render_template, request
 from flask_cors import CORS, cross_origin
-from peewee import CharField, DoesNotExist, IntegerField, IntegrityError, Model, SqliteDatabase
+from peewee import (CharField, DoesNotExist, IntegerField, IntegrityError,
+                    Model, SqliteDatabase)
 from playhouse.shortcuts import model_to_dict
 from sentry_sdk.integrations.flask import FlaskIntegration
 
@@ -97,6 +95,8 @@ def select_label():
     """
     Save the Label ID that was selected to a local database with the Date, and Playlist ID.
     """
+    # pylint: disable=E1120
+
     label_selected = dict(request.get_json())
 
     try:
@@ -108,7 +108,9 @@ def select_label():
         )
         # Clear out other messages beyond the last 5
         delete_records = Label.delete().where(
-            Label.datetime.not_in(Label.select(Label.datetime).order_by(Label.datetime.desc()).limit(5))
+            Label.datetime.not_in(
+                Label.select(Label.datetime).order_by(Label.datetime.desc()).limit(5)
+            )
         )
         delete_records.execute()
 
