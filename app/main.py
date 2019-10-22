@@ -16,6 +16,7 @@ XOS_API_ENDPOINT = os.getenv('XOS_API_ENDPOINT')
 XOS_TAPS_ENDPOINT = os.getenv('XOS_TAPS_ENDPOINT', f'{XOS_API_ENDPOINT}taps/')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
 XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID', '1')
+LABEL_INTERACTIVE_PORT = 8081
 SENTRY_ID = os.getenv('SENTRY_ID')
 CACHED_PLAYLIST_JSON = f'playlist_{XOS_PLAYLIST_ID}.json'
 
@@ -149,4 +150,4 @@ def collect_item():
 if __name__ == '__main__':
     db.create_tables([Label])
     download_playlist()
-    app.run(host='0.0.0.0', port=8081)
+    app.run(host='0.0.0.0', port=LABEL_INTERACTIVE_PORT)
