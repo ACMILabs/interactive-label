@@ -73,7 +73,7 @@
 
     function save_label(label_id, playlist_id) {
         // Save label selected to the local database for a tap
-        postData('http://localhost:8080/api/labels/', {
+        postData('http://localhost:8081/api/labels/', {
                 datetime: Date.now(),
                 playlist_id: playlist_id,
                 label_id: label_id,
