@@ -5,6 +5,7 @@ from threading import Thread
 
 import requests
 from flask import Flask, abort, jsonify, render_template, request
+from flask_cors import CORS, cross_origin
 from peewee import CharField, DoesNotExist, IntegerField, IntegrityError, Model, SqliteDatabase
 from playhouse.shortcuts import model_to_dict
 import sentry_sdk
@@ -25,6 +26,7 @@ sentry_sdk.init(
 )
 
 app = Flask(__name__)
+CORS(app)
 cached_playlist_json = f'playlist_{XOS_PLAYLIST_ID}.json'
 
 # instantiate the peewee database
@@ -89,6 +91,7 @@ def playlist_json():
 
 
 @app.route('/api/labels/', methods=['POST'])
+@cross_origin()
 def select_label():
     """
     Save the Label ID that was selected to a local database with the Date, and Playlist ID.
@@ -121,6 +124,7 @@ def select_label():
 
 
 @app.route('/api/taps/', methods=['POST'])
+@cross_origin()
 def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
