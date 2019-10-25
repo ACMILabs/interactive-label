@@ -25,7 +25,7 @@ sleep 10
 
 # Launch chromium browser in fullscreen on that page
 SCREEN_SCALE="${SCREEN_SCALE:-default 1.0}"
-chromium-browser --app=http://localhost:8080 --start-fullscreen --no-sandbox --user-data-dir --kiosk --force-device-scale-factor=$SCREEN_SCALE
+chromium-browser --app=http://localhost:8081 --start-fullscreen --no-sandbox --user-data-dir --kiosk --force-device-scale-factor=$SCREEN_SCALE
 
 # For debugging
 echo "Chromium browser exited unexpectedly."

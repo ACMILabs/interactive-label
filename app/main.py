@@ -141,4 +141,4 @@ def collect_item():
 if __name__ == '__main__':
     db.create_tables([Label])
     download_playlist()
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8081)
