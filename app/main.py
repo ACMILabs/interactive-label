@@ -4,7 +4,7 @@ import sqlite3
 from threading import Thread
 
 import requests
-from flask import Flask, abort, jsonify, render_template, request
+from flask import Flask, abort, jsonify, render_template, request, send_from_directory
 from flask_cors import CORS, cross_origin
 from peewee import CharField, DoesNotExist, IntegerField, IntegrityError, Model, SqliteDatabase
 from playhouse.shortcuts import model_to_dict
@@ -73,7 +73,7 @@ def playlist():
         json_data = json.load(json_file)
 
     return render_template(
-        'playlist.html',
+        'index.html',
         playlist_json=json_data,
         xos={
             'playlist_endpoint': f'{XOS_API_ENDPOINT}playlists/',
@@ -142,7 +142,13 @@ def collect_item():
         raise HTTPError('Could not save tap to XOS.')
     return jsonify(xos_tap), response.status_code
 
+@app.route('/cache/<path:filename>')
+def cache(filename):
+    print('here')
+    return send_from_directory('/data/', filename)
+
 if __name__ == '__main__':
     db.create_tables([Label])
     download_playlist()
     app.run(host='0.0.0.0', port=8081)
+
