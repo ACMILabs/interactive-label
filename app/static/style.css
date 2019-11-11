@@ -37,12 +37,14 @@ body {
 .modal {
   position: fixed;
   background: #fff;
-  top: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 300px;
   left: 70px;
   right: 70px;
-  bottom: 70px;
   opacity: 0;
   pointer-events: none;
+  overflow: auto;
 }
 
 .modal_blind {
@@ -64,10 +66,14 @@ body {
   background: top/contain no-repeat;
   float: left;
   margin-right: 30px;
-  margin-bottom: 30px;
 }
 
 .modal_title {
   font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.modal_publication {
+  font-size: 20px;
   margin-bottom: 20px;
 }

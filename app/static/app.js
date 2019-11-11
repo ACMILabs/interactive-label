@@ -3,9 +3,10 @@ const labels = paths.map(function (_, i) {
   return {
     id: x.label.id,
     title: x.label.title,
+    publication: x.label.publication,
     description: x.label.description,
     video_url: x.resource,
-    image_url: x.image,
+    image_url: x.label.works[0].image,
     subtitles: 'data:text/vtt;base64,'+btoa(x.subtitles),
   }
 })
@@ -66,7 +67,7 @@ for (let i=0; i<labels.length; i++) {
 
 
 for (let i=0; i<labels.length; i++) {
-  const item_data = labels[i]
+  const label = labels[i]
 
   const item = document.createElement('div')
   modals[i].appendChild(item)
@@ -75,15 +76,20 @@ for (let i=0; i<labels.length; i++) {
   const image = document.createElement('div')
   item.appendChild(image)
   image.className = 'modal_image'
-  image.style.backgroundImage = 'url('+item_data.image_url+')'
+  image.style.backgroundImage = 'url('+label.image_url+')'
 
   const title = document.createElement('div')
   item.appendChild(title)
   title.className = 'modal_title'
-  title.innerHTML = item_data.title
+  title.innerHTML = label.title
+
+  const publication = document.createElement('div')
+  item.appendChild(publication)
+  publication.className = 'modal_publication'
+  publication.innerHTML = label.publication
 
   const description = document.createElement('div')
   item.appendChild(description)
   description.className = 'modal_description'
-  description.innerHTML = item_data.description
+  description.innerHTML = label.description
 }

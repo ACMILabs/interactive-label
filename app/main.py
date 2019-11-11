@@ -144,7 +144,6 @@ def collect_item():
 
 @app.route('/cache/<path:filename>')
 def cache(filename):
-    print('here')
     return send_from_directory('/data/', filename)
 
 if __name__ == '__main__':
