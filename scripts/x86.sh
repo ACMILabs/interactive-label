@@ -11,7 +11,6 @@ python -u app/main.py &
 
 sleep 5
 
-#chromium --app=http://localhost:8081 --enable-accelerated-video --enable-accelerated-mjpeg-decode --ignore-gpu-blacklist --enable-gpu-rasterization --enable-oop-rasterization --enable-zero-copy --enable-native-gpu-memory-buffers --test-type --start-fullscreen --user-data-dir --kiosk --disable-application-cache --incognito --no-sandbox
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --no-sandbox \
   --enable-native-gpu-memory-buffers --force-gpu-rasterization --enable-oop-rasterization --enable-zero-copy \
