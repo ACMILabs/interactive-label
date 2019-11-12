@@ -1,20 +1,24 @@
 # base-image for python on any machine using a template variable,
 # see more about dockerfile templates here: https://www.balena.io/docs/learn/develop/dockerfile/
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7.2-stretch-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-buster-run
 
 # use `install_packages` if you need to install dependencies,
 # for instance if you need git, just uncomment the line below.
 RUN install_packages \
-  chromium-browser \
-  lsb-release xserver-xorg \
+  chromium \
+  lsb-release xserver-xorg-video-intel \
   xinit lxsession desktop-file-utils \
-  raspberrypi-ui-mods rpd-icons \
-  gtk2-engines-clearlookspix \
   matchbox-keyboard \
   unclutter \
   # Support for Accuview gTouch 21.5" touchscreen
   xserver-xorg-input-evdev \
-  xinput
+  xinput \
+  # xrandr
+  x11-xserver-utils \
+  vim \
+  intel-media-va-driver
+
+COPY ./conf/20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
 
 # disable lxpolkit popup warning
 RUN mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak
@@ -39,4 +43,4 @@ COPY . /code/
 WORKDIR /code/
 
 # main.py will run when container starts up on the device
-CMD ["bash","scripts/pi.sh"]
+CMD ["bash","scripts/x86.sh"]
