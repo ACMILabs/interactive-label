@@ -7,11 +7,19 @@ help:
 	@echo 'Grouped commands:'
 	@echo ' linttest         - Run lint and test'	
 lint:
-    # Lint the code and check imports have been sorted correctly
+    # Lint the python code
 	pylint *
 	flake8
 	isort -rc --check-only .
 test:
-	# Run tests
+	# Run python tests
 	pytest -v
+lintjs:
+	# Lint the javascript code
+	npm run lint
+testjs:
+	# Run javascript tests
+	npm run test
 linttest: lint test
+linttestjs: lintjs testjs
+linttestall: lint test lintjs testjs
