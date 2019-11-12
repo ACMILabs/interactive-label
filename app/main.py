@@ -136,7 +136,7 @@ def collect_item():
     try:
         record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
     except DoesNotExist:
-        return HTTPError('No label selected.'), abort(404)
+        return HTTPError('No label selected.'), abort(404, 'No label selected.')
     xos_tap['label'] = record.pop('label_id', None)
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}

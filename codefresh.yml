@@ -12,19 +12,32 @@ steps:
     revision: '${{CF_REVISION}}'
     stage: checkout
   labelinteractive_image:
-    title: Building Docker Image
+    title: Building Label Interactive Docker Image
     type: build
     stage: package
     image_name: labelinteractive
     working_directory: ./
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     dockerfile: ./development/Dockerfile
+  javascript_tests_image:
+    title: Building Javascript Test Docker Image
+    type: build
+    stage: package
+    image_name: javascripttests
+    tag: ${{CF_BRANCH_TAG_NORMALIZED}}-javascript
+    dockerfile: ./testing/Dockerfile.node
   unit_test:
-    title: Running Unit tests
+    title: Running Python Unit tests
     image: '${{labelinteractive_image}}'
-    stage: test 
+    stage: test
     commands:
       - make linttest
+  unit_test_javascript:
+    title: Running Javascript Unit tests
+    image: '${{javascript_tests_image}}'
+    stage: test
+    commands:
+      - npm install && npm run lint-test
   deploy_to_Balena:
     title: Deploying repository to Balena
     image: acmilabs/balena-cli:arm

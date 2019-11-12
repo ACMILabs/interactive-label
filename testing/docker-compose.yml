@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  javascripttests:
+    build:
+      context: "../"
+      dockerfile: testing/Dockerfile.node
+      args:
+        IS_LOCAL_ENV: "true"
+    hostname: javascripttests
+    container_name: javascripttests
+    volumes:
+      - ../:/code        
+    command: ./scripts/test.sh

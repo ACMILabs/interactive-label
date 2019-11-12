@@ -1,0 +1,6 @@
+FROM node:10.15.3
+
+RUN echo 'Setting up Node image'
+
+COPY . /code/
+WORKDIR /code/
