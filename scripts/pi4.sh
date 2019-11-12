@@ -19,13 +19,14 @@ sleep 20
 unclutter -display :0 -idle 0.1 &
 
 # Start Flask
-python3 -u app/main.py &
+python3 -u -m app.main &
 
 sleep 10
 
 # Launch chromium browser in fullscreen on that page
 SCREEN_SCALE="${SCREEN_SCALE:-default 1.0}"
-chromium-browser --app=http://localhost:8081 --start-fullscreen --no-sandbox --user-data-dir --kiosk --force-device-scale-factor=$SCREEN_SCALE
+LABEL_INTERACTIVE_PORT="${LABEL_INTERACTIVE_PORT:-default 8081}"
+chromium-browser --app=http://localhost:$LABEL_INTERACTIVE_PORT --start-fullscreen --no-sandbox --user-data-dir --kiosk --force-device-scale-factor=$SCREEN_SCALE
 
 # For debugging
 echo "Chromium browser exited unexpectedly."

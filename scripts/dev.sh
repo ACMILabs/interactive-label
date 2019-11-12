@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Start Flask
-python -u app/main.py
+python -u -m app.main
