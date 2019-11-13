@@ -1,0 +1,11 @@
+{
+  "id": 2,
+  "title": "No label",
+  "playlist_labels": [
+    {
+      "label": null,
+      "resource": "file://../../data/sample.mp4",
+      "subtitles": "file://../../data/sample.srt"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ config.env
 .DS_Store
 .venv
 playlist_*.json
+!playlist_no_label.json
 *.db
 *.db-journal
 
