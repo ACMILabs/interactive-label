@@ -134,7 +134,7 @@ def test_tap_received_set_label(mocked_requests_post, database, client):
     lens_tap_data = file_to_string_strip_new_lines('data/lens_tap.json')
     response = client.post('/api/taps/', data=lens_tap_data, headers={'Content-Type': 'application/json'})
 
-    assert b'"label":10' in response.data
+    assert response.json['label'] == 10
     assert response.status_code == 201
 
 
@@ -160,5 +160,5 @@ def test_select_label(mocked_requests_post, database, client):
     lens_tap_data = file_to_string_strip_new_lines('data/label.json')
     response = client.post('/api/labels/', data=lens_tap_data, headers={'Content-Type': 'application/json'})
 
-    assert b'"label_id":17' in response.data
+    assert response.json['label_id'] == 17
     assert response.status_code == 200
