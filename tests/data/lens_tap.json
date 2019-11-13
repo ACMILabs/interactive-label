@@ -1,0 +1,13 @@
+{
+  "nfc_tag": { "uid": "lensuid" },
+  "tap_datetime": "2019-10-22T10:51:53.688459+11:00",
+  "label": "1",
+  "data": {
+    "nfc_reader": {
+      "mac_address": "00:00:00:00:00:00",
+      "reader_ip": "127.0.0.666",
+      "reader_model": "IDTech Kiosk IV",
+      "reader_name": "nfc-666"
+    }
+  }
+}

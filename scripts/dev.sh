@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # Start Flask
-python -u app/main.py
+export FLASK_DEBUG=1
+python -u -m app.main

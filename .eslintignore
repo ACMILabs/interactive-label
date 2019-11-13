@@ -1,0 +1,7 @@
+node_modules
+**/node_modules/**
+exhibitions/node_modules/**
+frontends/react/constellations/build/**
+frontends/react/constellations/node_modules/**
+frontends/static/**
+venv/**
