@@ -146,7 +146,7 @@ def test_route_playlist_json(client):
 
 
 @patch('requests.get', side_effect=mocked_requests_get)
-def test_route_playlist_json_with_no_label(mocked_requests_get, client):
+def test_route_playlist_label_with_no_label(mocked_requests_get, client):
     """
     Test that the playlist route returns the expected data
     when a playlist item doesn't have a label.
