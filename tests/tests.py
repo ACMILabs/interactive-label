@@ -45,46 +45,30 @@ def file_to_string_strip_new_lines(filename):
     return file_as_string
 
 
+class MockResponse:
+    def __init__(self, json_data, status_code):
+        self.content = json.loads(json_data)
+        self.status_code = status_code
+
+    def json(self):
+        return self.content
+
+    def raise_for_status(self):
+        return None
+
+
 def mocked_requests_get(*args, **kwargs):
-    """
-    Thanks to https://stackoverflow.com/questions/15753390/how-can-i-mock-requests-and-the-response
-    """
-    class MockResponse:
-        def __init__(self, json_data, status_code):
-            self.content = json.loads(json_data)
-            self.status_code = status_code
-
-        def json(self):
-            return self.content
-
-        def raise_for_status(self):
-            return None
-
-    if args[0].startswith('https://xos.acmi.net.au/api/playlists/'):
+    if '/api/playlists/' in args[0]:
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
 
-    return MockResponse(None, 404)
+    raise Exception("No mocked sample data for request: "+args[0])
 
 
 def mocked_requests_post(*args, **kwargs):
-    """
-    Thanks to https://stackoverflow.com/questions/15753390/how-can-i-mock-requests-and-the-response
-    """
-    class MockResponse:
-        def __init__(self, json_data, status_code):
-            self.content = json.loads(json_data)
-            self.status_code = status_code
-
-        def json(self):
-            return self.content
-
-        def raise_for_status(self):
-            return None
-
-    if args[0].startswith('https://xos.acmi.net.au/api/taps/'):
+    if '/api/taps/' in args[0]:
         return MockResponse(file_to_string_strip_new_lines('data/xos_tap.json'), 201)
 
-    return MockResponse(None, 404)
+    raise Exception("No mocked sample data for request: "+args[0])
 
 
 def test_label(database):
