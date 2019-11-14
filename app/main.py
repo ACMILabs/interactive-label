@@ -72,9 +72,9 @@ def playlist():
         json_data = json.load(json_file)
 
     # Remove playlist items that don't have a label
-    for idx, item in enumerate(json_data['playlist_labels']):
+    for item in list(json_data['playlist_labels']):
         if item['label'] is None:
-            json_data['playlist_labels'].pop(idx)
+            json_data['playlist_labels'].remove(item)
 
     return render_template(
         'playlist.html',
