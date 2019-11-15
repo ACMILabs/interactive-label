@@ -39,9 +39,9 @@ body {
   background: #fff;
   top: 50%;
   transform: translateY(-50%);
-  height: 300px;
-  left: 70px;
-  right: 70px;
+  height: 450px;
+  left: 100px;
+  right: 100px;
   opacity: 0;
   pointer-events: none;
   overflow: auto;
@@ -57,19 +57,19 @@ body {
 }
 
 .modal_item {
-  padding: 50px;
 }
 
-.modal_image {
-  width: 200px;
-  height: 200px;
-  background: top/contain no-repeat;
+.modal_left_col {
   float: left;
-  margin-right: 30px;
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 150px;
+  padding-right: 60px;
+  padding-top: 50px;
 }
 
 .modal_title {
-  font-size: 30px;
+  font-size: 23px;
   margin-bottom: 20px;
 }
 
@@ -77,3 +77,59 @@ body {
   font-size: 20px;
   margin-bottom: 20px;
 }
+
+.modal_description {
+  line-height: 1.3;
+}
+
+.modal_image_list {
+  float: left;
+  width: 50%;
+  padding: 30px 50px 30px 90px;
+  box-sizing: border-box;
+}
+
+.modal_image {
+  float: left;
+  width: 25.33%;
+  height: 0px;
+  padding-top: 25.33%;
+  margin: 3.5% 4%;
+  background: center/contain no-repeat;
+}
+
+
+.lightbox_cont {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.lightbox_blind {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.lightbox {
+  background: #222;
+  position: fixed;
+  top: 20px;
+  bottom: 20px;
+  left: 15px;
+  right: 15px;
+}
+
+.lightbox_image {
+  width: 200px;
+  height: 200px;
+  background: center/contain no-repeat;
+  float: left;
+}
+
