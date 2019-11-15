@@ -16,7 +16,7 @@ body {
   transform: translateY(-50%);
 }
 
-.svg {
+.paths_svg {
   position: absolute;
   top: 0;
   left: 0;
@@ -124,12 +124,34 @@ body {
   bottom: 20px;
   left: 15px;
   right: 15px;
+  overflow: hidden;
+}
+
+.lightbox_image_list_cont {
+  margin-left: 50%;
+  user-select: none;
+}
+
+.lightbox_image_list {
+  margin-top: 70px;
+  height: 450px;
+  white-space: nowrap;
+  position: relative;
+  transition: transform 200ms;
 }
 
 .lightbox_image {
-  width: 200px;
-  height: 200px;
-  background: center/contain no-repeat;
-  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 40px 0 0;
+  opacity: 0.3;
 }
 
+.lightbox_close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: url('./close.svg') center/contain;
+}

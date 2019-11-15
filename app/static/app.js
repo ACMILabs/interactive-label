@@ -1,3 +1,6 @@
+const MAX_IMAGE_HEIGHT = 450
+const MAX_IMAGE_WIDTH = 800
+
 // CONTENT
 
 const labels = paths.map(function (_, i) {
@@ -17,11 +20,21 @@ const labels = paths.map(function (_, i) {
 
 // STATE
 
-let current_modal = null
 const modals = []
+let current_modal = null
 let current_lightbox = null
-const lightboxes = []
 
+const lightboxes = new Array(labels.length)
+for (let i=0; i<lightboxes.length; i++) {
+  lightboxes[i] = {
+    element: null,
+    image_list: null,
+    images: new Array(labels[i].works.length),
+    image_centers: new Array(labels[i].works.length),
+    num_images_loaded: 0,
+    current_image: null,
+  }
+}
 
 
 // DOM
@@ -33,16 +46,16 @@ root.appendChild(background)
 background.className = 'background'
 background.style.backgroundImage = 'url(/static/bg.jpg)'
 
-const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-svg.className = 'svg'
-svg.setAttribute("viewBox", '0 0 2386 1226')
+const paths_svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+paths_svg.className = 'paths_svg'
+paths_svg.setAttribute("viewBox", '0 0 2386 1226')
 
 for (let i=0; i<paths.length; i++) {
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
   path.setAttribute('d', paths[i])
   path.setAttribute('class', 'path')
-  svg.appendChild(path)
-  background.appendChild(svg)
+  paths_svg.appendChild(path)
+  background.appendChild(paths_svg)
 
   path.addEventListener('click', function () {
     current_lightbox = lightboxes[i]
@@ -61,14 +74,12 @@ root.appendChild(modal_cont)
 const modal_blind = document.createElement('div')
 modal_blind.className = 'modal_blind'
 modal_cont.appendChild(modal_blind)
-
-function close_modal () {
-    current_modal.style.opacity = 0
-    current_modal.style.pointerEvents = 'none'
-    modal_cont.style.opacity = 0
-    modal_cont.style.pointerEvents = 'none'
-}
-modal_blind.addEventListener('click', close_modal)
+modal_blind.addEventListener('click', function close_modal () {
+  current_modal.style.opacity = 0
+  current_modal.style.pointerEvents = 'none'
+  modal_cont.style.opacity = 0
+  modal_cont.style.pointerEvents = 'none'
+})
 
 for (let i=0; i<labels.length; i++) {
   const modal = document.createElement('div')
@@ -117,39 +128,93 @@ for (let i=0; i<labels.length; i++) {
   }
 }
 
+function create_image_load_handler (image, lightbox_index, image_index) {
+  // This is a closure for image onload
+  return function () {
+    let new_width
+    let new_height
+    if (image.naturalWidth / image.naturalHeight > (MAX_IMAGE_WIDTH / MAX_IMAGE_HEIGHT)) {
+      new_width = MAX_IMAGE_WIDTH
+      new_height = image.naturalHeight / image.naturalWidth * MAX_IMAGE_WIDTH
+    } else {
+      new_width = image.naturalWidth / image.naturalHeight * MAX_IMAGE_HEIGHT
+      new_height = MAX_IMAGE_HEIGHT
+    }
+    image.style.width = new_width + 'px'
+    image.style.height = new_height + 'px'
+
+    lightboxes[lightbox_index].num_images_loaded += 1
+
+    const num_works = labels[lightbox_index].works.length
+    if (lightboxes[lightbox_index].num_images_loaded == num_works) {
+      const images = lightboxes[lightbox_index].images
+      for (let i=0; i<images.length; i++) {
+        lightboxes[lightbox_index].image_centers[i] = images[i].offsetLeft + images[i].clientWidth / 2
+      }
+      set_lightbox_target(lightboxes[lightbox_index], 0)
+    }
+  }
+}
+
+
 for (let i=0; i<labels.length; i++) {
   const label = labels[i]
 
   const lightbox_cont = document.createElement('div')
   lightbox_cont.className = 'lightbox_cont'
   root.appendChild(lightbox_cont)
-  lightboxes[i] = lightbox_cont
+  lightboxes[i].element = lightbox_cont
 
   const lightbox_blind = document.createElement('div')
   lightbox_blind.className = 'lightbox_blind'
   lightbox_cont.appendChild(lightbox_blind)
-  lightbox_blind.addEventListener('click', close_lightbox )
+  lightbox_blind.addEventListener('click', close_lightbox)
 
   const lightbox = document.createElement('div')
   lightbox.className = 'lightbox'
   lightbox_cont.appendChild(lightbox)
 
-  for (let i=0; i<label.works.length; i++) {
-    const image = document.createElement('div')
-    lightbox.appendChild(image)
+  const image_list_cont = document.createElement('div')
+  lightbox.appendChild(image_list_cont)
+  image_list_cont.className = 'lightbox_image_list_cont'
+
+  const image_list = document.createElement('div')
+  image_list_cont.appendChild(image_list)
+  image_list.className = 'lightbox_image_list'
+  lightboxes[i].image_list = image_list
+
+  const close = document.createElement('div')
+  lightbox.appendChild(close)
+  close.className = 'lightbox_close'
+  close.addEventListener('click', close_lightbox)
+
+
+  for (let j=0; j<label.works.length; j++) {
+    var image = new Image();
+    lightboxes[i].images[j] = image
     image.className = 'lightbox_image'
-    image.style.backgroundImage = 'url('+label.works[i].image+')'
-    image.addEventListener('click', function () { set_lightbox_target(i) })
+    image_list.appendChild(image)
+    image.onload = create_image_load_handler(image, i, j)
+    image.src = label.works[j].image
+    image.addEventListener('click', function () { set_lightbox_target(lightboxes[i], j) })
   }
 }
 
 function open_lightbox () {
-  current_lightbox.style.opacity = 1
-  current_lightbox.style.pointerEvents = 'all'
+  current_lightbox.element.style.opacity = 1
+  current_lightbox.element.style.pointerEvents = 'all'
 }
 
 function close_lightbox () {
-  current_lightbox.style.opacity = 0
-  current_lightbox.style.pointerEvents = 'none'
+  current_lightbox.element.style.opacity = 0
+  current_lightbox.element.style.pointerEvents = 'none'
 }
-// INIT
+
+function set_lightbox_target (lightbox, index) {
+  if (lightbox.current_image) {
+    lightbox.current_image.style.opacity = ''
+  }
+  lightbox.image_list.style.transform = 'translateX('+(-lightbox.image_centers[index])+'px)'
+  lightbox.current_image = lightbox.images[index]
+  lightbox.current_image.style.opacity = 1
+}
