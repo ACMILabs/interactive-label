@@ -124,7 +124,7 @@ for (let i=0; i<labels.length; i++) {
     image_list.appendChild(image)
     image.className = 'modal_image'
     image.style.backgroundImage = 'url('+label.works[i].image+')'
-    image.addEventListener('click', open_lightbox)
+    image.addEventListener('click', function () {console.log(i); open_lightbox(i) })
   }
 }
 
@@ -151,7 +151,6 @@ function create_image_load_handler (image, lightbox_index, image_index) {
       for (let i=0; i<images.length; i++) {
         lightboxes[lightbox_index].image_centers[i] = images[i].offsetLeft + images[i].clientWidth / 2
       }
-      set_lightbox_target(lightboxes[lightbox_index], 0)
     }
   }
 }
@@ -200,9 +199,14 @@ for (let i=0; i<labels.length; i++) {
   }
 }
 
-function open_lightbox () {
+function open_lightbox (to_index) {
+  current_lightbox.image_list.style.transition = 'transform 0ms';
   current_lightbox.element.style.opacity = 1
   current_lightbox.element.style.pointerEvents = 'all'
+  set_lightbox_target(current_lightbox, to_index)
+  window.setTimeout((function () {
+    current_lightbox.image_list.style.transition = '';
+  }), 0)
 }
 
 function close_lightbox () {
