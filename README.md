@@ -30,6 +30,7 @@ To install and run on a Raspbian OS Raspberry Pi for prototyping:
 
 ```
 $ virtualenv .venv
+$ pwd > ./.venv/lib/python3.7/site-packages/the.pth
 $ pip install -r requirements/test.txt
 $ source .venv/bin/activate
 $ env $(cat config.env | xargs) make test
