@@ -6,6 +6,7 @@ from unittest.mock import patch
 import pytest
 from peewee import SqliteDatabase
 
+from app import main
 from app.main import XOS_PLAYLIST_ID, Label, download_playlist
 
 
@@ -58,7 +59,9 @@ class MockResponse:
 
 
 def mocked_requests_get(*args, **kwargs):
-    if '/api/playlists/' in args[0]:
+    if '/api/playlists/2/' in args[0]:
+        return MockResponse(file_to_string_strip_new_lines('data/playlist_no_label.json'), 200)
+    elif '/api/playlists/' in args[0]:
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
 
     raise Exception("No mocked sample data for request: "+args[0])
@@ -123,6 +126,22 @@ def test_route_playlist_json(client):
     response = client.get('/api/playlist/')
 
     assert b'Dracula' in response.data
+    assert response.status_code == 200
+
+
+@patch('requests.get', side_effect=mocked_requests_get)
+def test_route_playlist_label_with_no_label(mocked_requests_get, client):
+    """
+    Test that the playlist route returns the expected data
+    when a playlist item doesn't have a label.
+    """
+
+    main.XOS_PLAYLIST_ID = 2
+    download_playlist()
+    response = client.get('/')
+    response_data = response.data.decode('utf-8')
+
+    assert 'resource' not in response_data
     assert response.status_code == 200
 
 
