@@ -102,9 +102,9 @@ def select_label():
     try:
         # Save the label selected to the database
         label = Label.create(
-            datetime = label_selected['datetime'],
-            playlist_id = XOS_PLAYLIST_ID,
-            label_id = label_selected.get('label_id', 0),
+            datetime=label_selected['datetime'],
+            playlist_id=XOS_PLAYLIST_ID,
+            label_id=label_selected.get('label_id', 0),
         )
         # Clear out other messages beyond the last 5
         delete_records = Label.delete().where(
@@ -153,4 +153,3 @@ if __name__ == '__main__':
     db.create_tables([Label])
     download_playlist()
     app.run(host='0.0.0.0', port=8081)
-
