@@ -1,0 +1,57 @@
+{
+  "name": "labelinteractive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "''",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "lint-test": "npm run lint && npm run test"
+  },
+  "devDependencies": {
+    "jest": "*",
+    "jest-fetch-mock": "*"
+  },
+  "jest": {
+    "cacheDirectory": "/tmp/jest_0",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACMILabs/label-interactive-pi.git"
+  },
+  "author": "ACMILabs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ACMILabs/label-interactive-pi/issues"
+  },
+  "homepage": "https://github.com/ACMILabs/label-interactive-pi#readme",
+  "dependencies": {
+    "babel-jest": "*",
+    "babel-plugin-transform-es2015-modules-commonjs": "*",
+    "moment": "*",
+    "babel-eslint": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-prettier": "*",
+    "eslint-config-react-app": "*",
+    "eslint-plugin-flowtype": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jest": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-prettier": "*",
+    "eslint-plugin-react": "*",
+    "prettier": "*"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
+  }
+}

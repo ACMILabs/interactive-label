@@ -1,12 +1,17 @@
 config.env
 .DS_Store
 .venv
-playlist*.json
+playlist_*.json
 *.db
+*.db-journal
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
+# VSCode
+.vscode
 
+# Node
+node_modules/
