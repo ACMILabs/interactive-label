@@ -22,6 +22,8 @@ const labels = paths.map(function (_, i) {
 
 const modals = []
 let current_modal = null
+/*
+ * @LightboxesAreOff
 let current_lightbox = null
 
 const lightboxes = new Array(labels.length)
@@ -35,6 +37,7 @@ for (let i=0; i<lightboxes.length; i++) {
     current_image: null,
   }
 }
+*/
 
 
 // DOM
@@ -58,7 +61,10 @@ for (let i=0; i<paths.length; i++) {
   background.appendChild(paths_svg)
 
   path.addEventListener('click', function () {
+    /*
+     * @LightboxesAreOff
     current_lightbox = lightboxes[i]
+    */
     current_modal = modals[i]
     current_modal.style.opacity = 1
     current_modal.style.pointerEvents = 'all'
@@ -124,10 +130,15 @@ for (let i=0; i<labels.length; i++) {
     image_list.appendChild(image)
     image.className = 'modal_image'
     image.style.backgroundImage = 'url('+label.works[i].image+')'
+    /*
+     * @LightboxesAreOff
     image.addEventListener('click', function () {console.log(i); open_lightbox(i) })
+    */
   }
 }
 
+/*
+ * @LightboxesAreOff
 function create_image_load_handler (image, lightbox_index, image_index) {
   // This is a closure for image onload
   return function () {
@@ -222,3 +233,4 @@ function set_lightbox_target (lightbox, index) {
   lightbox.current_image = lightbox.images[index]
   lightbox.current_image.style.opacity = 1
 }
+*/
