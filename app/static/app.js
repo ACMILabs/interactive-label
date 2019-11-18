@@ -1,6 +1,32 @@
 const MAX_IMAGE_HEIGHT = 450
 const MAX_IMAGE_WIDTH = 800
 
+
+function postData(url = '', data = {}) {
+}
+
+
+function save_label(label_id) {
+  // Save label selected to the local database for a tap
+  fetch('http://localhost:8081/api/labels/', {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
+    redirect: 'follow',
+    referrer: 'no-referrer',
+    body: JSON.stringify({
+      datetime: Date.now(),
+      label_id: label_id,
+    }),
+  })
+    .then(response => response.json())
+    .then(data => console.log(JSON.stringify(data)))
+    .catch(error => console.error(error))
+}
+
+
 // CONTENT
 
 const labels = paths.map(function (_, i) {
@@ -70,6 +96,7 @@ for (let i=0; i<paths.length; i++) {
     current_modal.style.pointerEvents = 'all'
     modal_cont.style.opacity = 1
     modal_cont.style.pointerEvents = 'all'
+    save_label(labels[i].id)
   })
 }
 
@@ -85,6 +112,7 @@ modal_blind.addEventListener('click', function close_modal () {
   current_modal.style.pointerEvents = 'none'
   modal_cont.style.opacity = 0
   modal_cont.style.pointerEvents = 'none'
+  save_label(null)
 })
 
 for (let i=0; i<labels.length; i++) {

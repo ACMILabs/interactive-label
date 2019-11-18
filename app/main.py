@@ -102,7 +102,7 @@ def select_label():
         # Save the label selected to the database
         label = Label.create(
             datetime = label_selected['datetime'],
-            playlist_id = label_selected.get('playlist_id', 0),
+            playlist_id = XOS_PLAYLIST_ID,
             label_id = label_selected.get('label_id', 0),
         )
         # Clear out other messages beyond the last 5
