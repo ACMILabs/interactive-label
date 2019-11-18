@@ -8,6 +8,7 @@ from peewee import (CharField, DoesNotExist, IntegerField, IntegrityError,
                     Model, SqliteDatabase)
 from playhouse.shortcuts import model_to_dict
 from sentry_sdk.integrations.flask import FlaskIntegration
+import sentry_sdk
 
 from app.errors import HTTPError
 
