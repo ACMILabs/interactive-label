@@ -109,9 +109,9 @@ def test_route_playlist_label(client):
 
     response = client.get('/')
 
-    assert b'#labeltile17' in response.data
-    assert b'#labeltile18' in response.data
-    assert b'#labeltile19' in response.data
+    assert b'<!doctype html>' in response.data
+    assert b"<div id='root'>" in response.data
+    assert b"<script src='/static/app.js'>" in response.data
     assert response.status_code == 200
 
 
