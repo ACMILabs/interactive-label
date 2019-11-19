@@ -1,0 +1,15 @@
+{
+  "env": {
+    "es2017": true,
+    "browser": true
+  },
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "strict": 0,
+    "comma-dangle" : 0,
+    "no-unused-vars": 1,
+    "no-console": 1,
+    "no-undef": 1,
+    "array-callback-return": 1
+  }
+}
