@@ -2,13 +2,14 @@ import json
 import os
 
 import requests
-from flask import Flask, abort, jsonify, render_template, request, send_from_directory
+import sentry_sdk
+from flask import (Flask, abort, jsonify, render_template, request,
+                   send_from_directory)
 from flask_cors import CORS, cross_origin
 from peewee import (CharField, DoesNotExist, IntegerField, IntegrityError,
                     Model, SqliteDatabase)
 from playhouse.shortcuts import model_to_dict
 from sentry_sdk.integrations.flask import FlaskIntegration
-import sentry_sdk
 
 from app.errors import HTTPError
 
@@ -145,9 +146,11 @@ def collect_item():
         raise HTTPError('Could not save tap to XOS.')
     return jsonify(xos_tap), response.status_code
 
+
 @app.route('/cache/<path:filename>')
 def cache(filename):
     return send_from_directory('/data/', filename)
+
 
 if __name__ == '__main__':
     db.create_tables([Label])
