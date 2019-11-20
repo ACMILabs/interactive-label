@@ -6,7 +6,7 @@ from unittest.mock import patch
 import pytest
 from peewee import SqliteDatabase
 
-from app.main import XOS_PLAYLIST_ID, Label, download_playlist
+from app.main import Label, download_playlist
 
 
 @pytest.fixture
@@ -58,14 +58,14 @@ class MockResponse:
 
 
 def mocked_requests_get(*args, **kwargs):
-    if '/api/playlists/' in args[0]:
+    if args[0] == 'https://xos.acmi.net.au/api/playlists/1/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
 
     raise Exception("No mocked sample data for request: "+args[0])
 
 
 def mocked_requests_post(*args, **kwargs):
-    if '/api/taps/' in args[0]:
+    if args[0] == 'https://xos.acmi.net.au/api/taps/':
         return MockResponse(file_to_string_strip_new_lines('data/xos_tap.json'), 201)
 
     raise Exception("No mocked sample data for request: "+args[0])
@@ -94,8 +94,8 @@ def test_download_playlist_label(mocked_requests_get):
     """
 
     download_playlist()
-    file_exists = os.path.isfile(f'playlist_{XOS_PLAYLIST_ID}.json')
-    playlist = json.loads(file_to_string_strip_new_lines(f'../playlist_{XOS_PLAYLIST_ID}.json'))['playlist_labels']
+    file_exists = os.path.isfile(f'playlist_1.json')
+    playlist = json.loads(file_to_string_strip_new_lines(f'../playlist_1.json'))['playlist_labels']
 
     assert file_exists is True
     assert len(playlist) == 3
