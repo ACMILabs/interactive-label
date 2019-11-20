@@ -48,6 +48,11 @@ const labels = paths.map(function (_, i) {
 const modals = []
 let current_modal = null
 
+const active_images = []
+for (let i=0; i<labels.length; i++) {
+  active_images[i] = new Array(labels[i].works.length)
+}
+let current_active_image = null
 
 // DOM
 
@@ -70,6 +75,8 @@ for (let i=0; i<paths.length; i++) {
   background.appendChild(paths_svg)
 
   path.addEventListener('click', function () {
+    current_active_image = active_images[i][0]
+    current_active_image.style.opacity = 1
     current_modal = modals[i]
     current_modal.style.opacity = 1
     current_modal.style.pointerEvents = 'all'
@@ -132,27 +139,38 @@ for (let i=0; i<labels.length; i++) {
   item.appendChild(active_image_cont)
   active_image_cont.className = 'modal_active_image_cont'
 
-  const active_image = document.createElement('div')
-  active_image_cont.appendChild(active_image)
-  active_image.className = 'modal_active_image'
-  active_image.style.backgroundImage = 'url('+label.works[0].image+')'
-
-  const caption = document.createElement('div')
-  active_image_cont.appendChild(caption)
-  caption.className = 'modal_caption'
-  caption.innerHTML = "Slide 5, 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)"
-
   const image_list = document.createElement('div')
   item.appendChild(image_list)
   image_list.className = 'modal_image_list'
 
-  for (let i=0; i<label.works.length; i++) {
+
+  for (let j=0; j<label.works.length; j++) {
+    const work = label.works[j]
+
+    const active_image_and_caption = document.createElement('div')
+    active_image_cont.appendChild(active_image_and_caption)
+    active_image_and_caption.className = 'modal_active_image_and_caption'
+
+    active_images[i][j] = active_image_and_caption
+
+    const active_image = document.createElement('div')
+    active_image_and_caption.appendChild(active_image)
+    active_image.className = 'modal_active_image'
+    active_image.style.backgroundImage = 'url('+work.image+')'
+
+    const caption = document.createElement('div')
+    active_image_and_caption.appendChild(caption)
+    caption.className = 'modal_caption'
+    caption.innerHTML = "Slide "+j+", 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)"
+
     const image = document.createElement('div')
     image_list.appendChild(image)
     image.className = 'modal_image'
-    image.style.backgroundImage = 'url('+label.works[i].image+')'
+    image.style.backgroundImage = 'url('+work.image+')'
     image.addEventListener('click', function () {
-      active_image.style.backgroundImage = 'url('+label.works[i].image+')'
+      current_active_image.style.opacity = 0
+      current_active_image = active_image_and_caption
+      current_active_image.style.opacity = 1
     })
   }
 }
