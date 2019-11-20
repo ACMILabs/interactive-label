@@ -2,10 +2,6 @@ const MAX_IMAGE_HEIGHT = 450
 const MAX_IMAGE_WIDTH = 800
 
 
-function postData(url = '', data = {}) {
-}
-
-
 function save_label(label_id) {
   // Save label selected to the local database for a tap
   fetch('http://localhost:8081/api/labels/', {
@@ -161,7 +157,7 @@ for (let i=0; i<labels.length; i++) {
     const caption = document.createElement('div')
     active_image_and_caption.appendChild(caption)
     caption.className = 'modal_caption'
-    caption.innerHTML = "Slide "+j+", 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)"
+    caption.innerHTML = work.title+", 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)"
 
     const image = document.createElement('div')
     image_list.appendChild(image)
