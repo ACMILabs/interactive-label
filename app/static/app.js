@@ -37,33 +37,16 @@ const labels = paths.map(function (_, i) {
     publication: x.label.publication,
     description: x.label.description,
     video_url: x.resource,
-    works: [...x.label.works, ...x.label.works],
+    works: x.label.works,
     subtitles: 'data:text/vtt;base64,'+btoa(x.subtitles),
   }
 })
-
 
 
 // STATE
 
 const modals = []
 let current_modal = null
-/*
- * @LightboxesAreOff
-let current_lightbox = null
-
-const lightboxes = new Array(labels.length)
-for (let i=0; i<lightboxes.length; i++) {
-  lightboxes[i] = {
-    element: null,
-    image_list: null,
-    images: new Array(labels[i].works.length),
-    image_centers: new Array(labels[i].works.length),
-    num_images_loaded: 0,
-    current_image: null,
-  }
-}
-*/
 
 
 // DOM
@@ -87,10 +70,6 @@ for (let i=0; i<paths.length; i++) {
   background.appendChild(paths_svg)
 
   path.addEventListener('click', function () {
-    /*
-     * @LightboxesAreOff
-    current_lightbox = lightboxes[i]
-    */
     current_modal = modals[i]
     current_modal.style.opacity = 1
     current_modal.style.pointerEvents = 'all'
@@ -149,6 +128,20 @@ for (let i=0; i<labels.length; i++) {
   description.className = 'modal_description'
   description.innerHTML = label.description
 
+  const active_image_cont = document.createElement('div')
+  item.appendChild(active_image_cont)
+  active_image_cont.className = 'modal_active_image_cont'
+
+  const active_image = document.createElement('div')
+  active_image_cont.appendChild(active_image)
+  active_image.className = 'modal_active_image'
+  active_image.style.backgroundImage = 'url('+label.works[0].image+')'
+
+  const caption = document.createElement('div')
+  active_image_cont.appendChild(caption)
+  caption.className = 'modal_caption'
+  caption.innerHTML = "Slide 5, 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)"
+
   const image_list = document.createElement('div')
   item.appendChild(image_list)
   image_list.className = 'modal_image_list'
@@ -158,107 +151,8 @@ for (let i=0; i<labels.length; i++) {
     image_list.appendChild(image)
     image.className = 'modal_image'
     image.style.backgroundImage = 'url('+label.works[i].image+')'
-    /*
-     * @LightboxesAreOff
-    image.addEventListener('click', function () {console.log(i); open_lightbox(i) })
-    */
+    image.addEventListener('click', function () {
+      active_image.style.backgroundImage = 'url('+label.works[i].image+')'
+    })
   }
 }
-
-/*
- * @LightboxesAreOff
-function create_image_load_handler (image, lightbox_index, image_index) {
-  // This is a closure for image onload
-  return function () {
-    let new_width
-    let new_height
-    if (image.naturalWidth / image.naturalHeight > (MAX_IMAGE_WIDTH / MAX_IMAGE_HEIGHT)) {
-      new_width = MAX_IMAGE_WIDTH
-      new_height = image.naturalHeight / image.naturalWidth * MAX_IMAGE_WIDTH
-    } else {
-      new_width = image.naturalWidth / image.naturalHeight * MAX_IMAGE_HEIGHT
-      new_height = MAX_IMAGE_HEIGHT
-    }
-    image.style.width = new_width + 'px'
-    image.style.height = new_height + 'px'
-
-    lightboxes[lightbox_index].num_images_loaded += 1
-
-    const num_works = labels[lightbox_index].works.length
-    if (lightboxes[lightbox_index].num_images_loaded == num_works) {
-      const images = lightboxes[lightbox_index].images
-      for (let i=0; i<images.length; i++) {
-        lightboxes[lightbox_index].image_centers[i] = images[i].offsetLeft + images[i].clientWidth / 2
-      }
-    }
-  }
-}
-
-
-for (let i=0; i<labels.length; i++) {
-  const label = labels[i]
-
-  const lightbox_cont = document.createElement('div')
-  lightbox_cont.className = 'lightbox_cont'
-  root.appendChild(lightbox_cont)
-  lightboxes[i].element = lightbox_cont
-
-  const lightbox_blind = document.createElement('div')
-  lightbox_blind.className = 'lightbox_blind'
-  lightbox_cont.appendChild(lightbox_blind)
-  lightbox_blind.addEventListener('click', close_lightbox)
-
-  const lightbox = document.createElement('div')
-  lightbox.className = 'lightbox'
-  lightbox_cont.appendChild(lightbox)
-
-  const image_list_cont = document.createElement('div')
-  lightbox.appendChild(image_list_cont)
-  image_list_cont.className = 'lightbox_image_list_cont'
-
-  const image_list = document.createElement('div')
-  image_list_cont.appendChild(image_list)
-  image_list.className = 'lightbox_image_list'
-  lightboxes[i].image_list = image_list
-
-  const close = document.createElement('div')
-  lightbox.appendChild(close)
-  close.className = 'lightbox_close'
-  close.addEventListener('click', close_lightbox)
-
-
-  for (let j=0; j<label.works.length; j++) {
-    var image = new Image();
-    lightboxes[i].images[j] = image
-    image.className = 'lightbox_image'
-    image_list.appendChild(image)
-    image.onload = create_image_load_handler(image, i, j)
-    image.src = label.works[j].image
-    image.addEventListener('click', function () { set_lightbox_target(lightboxes[i], j) })
-  }
-}
-
-function open_lightbox (to_index) {
-  current_lightbox.image_list.style.transition = 'transform 0ms';
-  current_lightbox.element.style.opacity = 1
-  current_lightbox.element.style.pointerEvents = 'all'
-  set_lightbox_target(current_lightbox, to_index)
-  window.setTimeout((function () {
-    current_lightbox.image_list.style.transition = '';
-  }), 0)
-}
-
-function close_lightbox () {
-  current_lightbox.element.style.opacity = 0
-  current_lightbox.element.style.pointerEvents = 'none'
-}
-
-function set_lightbox_target (lightbox, index) {
-  if (lightbox.current_image) {
-    lightbox.current_image.style.opacity = ''
-  }
-  lightbox.image_list.style.transform = 'translateX('+(-lightbox.image_centers[index])+'px)'
-  lightbox.current_image = lightbox.images[index]
-  lightbox.current_image.style.opacity = 1
-}
-*/
