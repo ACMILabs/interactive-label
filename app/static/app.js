@@ -25,6 +25,8 @@ function save_label(label_id) {
 
 // CONTENT
 
+// @Incomplete Create a paths model that links them to labels. The paths are
+// currently hardcoded so this ensures they all open a label
 const labels = paths.map(function (_, i) {
   const x = window._labels[i%window._labels.length]
   return {
