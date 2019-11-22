@@ -72,6 +72,11 @@ def playlist():
     with open(CACHED_PLAYLIST_JSON, encoding='utf-8') as json_file:
         json_data = json.load(json_file)
 
+    # Remove playlist items that don't have a label
+    for item in list(json_data['playlist_labels']):
+        if item['label'] is None:
+            json_data['playlist_labels'].remove(item)
+
     return render_template(
         'index.html',
         playlist_json=json_data,
