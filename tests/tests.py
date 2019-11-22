@@ -6,8 +6,8 @@ from unittest.mock import patch
 import pytest
 from peewee import SqliteDatabase
 
-from app.main import Label, download_playlist
 from app import main
+from app.main import Label, download_playlist
 
 
 @pytest.fixture
