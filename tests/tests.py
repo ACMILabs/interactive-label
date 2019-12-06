@@ -1,30 +1,12 @@
 import datetime
 import json
 import os
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
-from peewee import SqliteDatabase
 
 from app import main
 from app.main import XOS_PLAYLIST_ID, Label, download_playlist
-
-
-@pytest.fixture
-def database():
-    """
-    Setup the test database.
-    """
-    test_db = SqliteDatabase(':memory:')
-    test_db.bind([Label], bind_refs=False, bind_backrefs=False)
-    test_db.connect()
-    test_db.create_tables([Label])
-
-    Label.create(
-        datetime=datetime.datetime.now().timestamp(),
-        playlist_id=10,
-        label_id=10,
-    )
 
 
 def file_to_string_strip_new_lines(filename):
@@ -61,7 +43,7 @@ class MockResponse:
 def mocked_requests_get(*args, **kwargs):
     if '/api/playlists/2/' in args[0]:
         return MockResponse(file_to_string_strip_new_lines('data/playlist_no_label.json'), 200)
-    elif '/api/playlists/' in args[0]:
+    if '/api/playlists/' in args[0]:
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
 
     raise Exception("No mocked sample data for request: "+args[0])
@@ -74,7 +56,8 @@ def mocked_requests_post(*args, **kwargs):
     raise Exception("No mocked sample data for request: "+args[0])
 
 
-def test_label(database):
+@pytest.mark.usefixtures('database')
+def test_label():
     """
     Test the Label class initialises.
     """
@@ -89,8 +72,8 @@ def test_label(database):
     assert label.datetime is timestamp
 
 
-@patch('requests.get', side_effect=mocked_requests_get)
-def test_download_playlist_label(mocked_requests_get):
+@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
+def test_download_playlist_label():
     """
     Test that downloading the playlist from XOS
     successfully saves it to the filesystem.
@@ -98,7 +81,9 @@ def test_download_playlist_label(mocked_requests_get):
 
     download_playlist()
     file_exists = os.path.isfile(f'playlist_{XOS_PLAYLIST_ID}.json')
-    playlist = json.loads(file_to_string_strip_new_lines(f'../playlist_{XOS_PLAYLIST_ID}.json'))['playlist_labels']
+    playlist = json.loads(
+        file_to_string_strip_new_lines(f'../playlist_{XOS_PLAYLIST_ID}.json')
+    )['playlist_labels']
 
     assert file_exists is True
     assert len(playlist) == 3
@@ -129,8 +114,8 @@ def test_route_playlist_json(client):
     assert response.status_code == 200
 
 
-@patch('requests.get', side_effect=mocked_requests_get)
-def test_route_playlist_label_with_no_label(mocked_requests_get, client):
+@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
+def test_route_playlist_label_with_no_label(client):
     """
     Test that the playlist route returns the expected data
     when a playlist item doesn't have a label.
@@ -145,39 +130,56 @@ def test_route_playlist_label_with_no_label(mocked_requests_get, client):
     assert response.status_code == 200
 
 
-@patch('requests.post', side_effect=mocked_requests_post)
-def test_tap_received_set_label(mocked_requests_post, database, client):
+@pytest.mark.usefixtures('database')
+@patch('requests.post', MagicMock(side_effect=mocked_requests_post))
+def test_tap_received_set_label(client):
     """
     Test that a tap is received and the correct label id is added.
     """
     lens_tap_data = file_to_string_strip_new_lines('data/lens_tap.json')
-    response = client.post('/api/taps/', data=lens_tap_data, headers={'Content-Type': 'application/json'})
+    response = client.post(
+        '/api/taps/',
+        data=lens_tap_data,
+        headers={'Content-Type': 'application/json'}
+    )
 
     assert response.json['label'] == 10
     assert response.status_code == 201
 
 
-@patch('requests.post', side_effect=mocked_requests_post)
-def test_tap_received_no_label(mocked_requests_post, database, client):
+@pytest.mark.usefixtures('database')
+@patch('requests.post', MagicMock(side_effect=mocked_requests_post))
+def test_tap_received_no_label(client):
     """
     Test appropriate response when that a tap is received but no label is selected.
     """
+    # pylint: disable=E1120
     Label.delete().execute()
     lens_tap_data = file_to_string_strip_new_lines('data/lens_tap.json')
-    response = client.post('/api/taps/', data=lens_tap_data, headers={'Content-Type': 'application/json'})
+    response = client.post(
+        '/api/taps/',
+        data=lens_tap_data,
+        headers={'Content-Type': 'application/json'}
+    )
 
     assert b'No label selected.' in response.data
     assert response.status_code == 404
 
 
-@patch('requests.post', side_effect=mocked_requests_post)
-def test_select_label(mocked_requests_post, database, client):
+@pytest.mark.usefixtures('database')
+@patch('requests.post', MagicMock(side_effect=mocked_requests_post))
+def test_select_label(client):
     """
     Test that a label is correctly selected.
     """
+    # pylint: disable=E1120
     Label.delete().execute()
     lens_tap_data = file_to_string_strip_new_lines('data/label.json')
-    response = client.post('/api/labels/', data=lens_tap_data, headers={'Content-Type': 'application/json'})
+    response = client.post(
+        '/api/labels/',
+        data=lens_tap_data,
+        headers={'Content-Type': 'application/json'}
+    )
 
     assert response.json['label_id'] == 17
     assert response.status_code == 200
