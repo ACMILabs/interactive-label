@@ -43,7 +43,7 @@ class MockResponse:
 def mocked_requests_get(*args, **kwargs):
     if args[0] == 'https://xos.acmi.net.au/api/playlists/2/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist_no_label.json'), 200)
-    elif args[0] == 'https://xos.acmi.net.au/api/playlists/1/':
+    if args[0] == 'https://xos.acmi.net.au/api/playlists/1/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
 
     raise Exception("No mocked sample data for request: "+args[0])
