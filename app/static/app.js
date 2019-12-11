@@ -68,7 +68,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
   background.appendChild(paths_svg);
 
   path.addEventListener("click", function path_click() {
-    current_active_image = active_images[i][0];
+    [current_active_image] = active_images[i];
     current_active_image.style.opacity = 1;
     current_modal = modals[i];
     current_modal.style.opacity = 1;
