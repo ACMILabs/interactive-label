@@ -20,7 +20,7 @@ function save_label(label_id) {
 
 // CONTENT
 
-const labels = window.data.playlist_labels.map(function(x) {
+const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
   return {
     id: x.label.id,
     title: x.label.title,
@@ -67,7 +67,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
   paths_svg.appendChild(path);
   background.appendChild(paths_svg);
 
-  path.addEventListener("click", function() {
+  path.addEventListener("click", function path_click() {
     current_active_image = active_images[i][0];
     current_active_image.style.opacity = 1;
     current_modal = modals[i];
@@ -154,7 +154,7 @@ for (let i = 0; i < labels.length; i++) {
     image_list.appendChild(image);
     image.className = "modal_image";
     image.style.backgroundImage = `url(${work.image})`;
-    image.addEventListener("click", function() {
+    image.addEventListener("click", function image_click() {
       current_active_image.style.opacity = 0;
       current_active_image = active_image_and_caption;
       current_active_image.style.opacity = 1;
