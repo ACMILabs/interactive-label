@@ -27,8 +27,9 @@ function save_label(label_id) {
 
 // @Incomplete Create a paths model that links them to labels. The paths are
 // currently hardcoded so this ensures they all open a label
+const paths = window.data.playlist_labels.map(function (x) {return x.region_svg})
 const labels = paths.map(function (_, i) {
-  const x = window._labels[i%window._labels.length]
+  const x = window.data.playlist_labels[i%window.data.playlist_labels.length]
   return {
     id: x.label.id,
     title: x.label.title,
@@ -59,7 +60,7 @@ const root = document.getElementById('root')
 const background = document.createElement('div')
 root.appendChild(background)
 background.className = 'background'
-background.style.backgroundImage = 'url(/static/bg.jpg)'
+background.style.backgroundImage = 'url('+window.data.background+')'
 
 const paths_svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 paths_svg.className = 'paths_svg'
