@@ -15,10 +15,7 @@ function save_label(label_id) {
       datetime: Date.now(),
       label_id
     })
-  })
-    .then(response => response.json())
-    .then(data => console.log(JSON.stringify(data)))
-    .catch(error => console.error(error));
+  }).then(response => response.json());
 }
 
 // CONTENT

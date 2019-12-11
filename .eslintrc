@@ -8,7 +8,6 @@
   },
   "rules": {
     "camelcase": 0,
-    "no-underscore-dangle": 0,
     "no-loop-func": 0,
     "prefer-destructuring": 0,
     "func-names": 0,
