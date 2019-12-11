@@ -52,32 +52,9 @@ root.appendChild(background);
 background.className = "background";
 background.style.backgroundImage = `url(${window.data.background})`;
 
-const paths_svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-paths_svg.className = "paths_svg";
-paths_svg.setAttribute("viewBox", "0 0 2386 1226");
-
 const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
 root.appendChild(modal_cont);
-
-for (let i = 0; i < window.data.playlist_labels.length; i++) {
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("d", window.data.playlist_labels[i].region_svg);
-  path.setAttribute("class", "path");
-  paths_svg.appendChild(path);
-  background.appendChild(paths_svg);
-
-  path.addEventListener("click", function path_click() {
-    [current_active_image] = active_images[i];
-    current_active_image.style.opacity = 1;
-    current_modal = modals[i];
-    current_modal.style.opacity = 1;
-    current_modal.style.pointerEvents = "all";
-    modal_cont.style.opacity = 1;
-    modal_cont.style.pointerEvents = "all";
-    save_label(labels[i].id);
-  });
-}
 
 const modal_blind = document.createElement("div");
 modal_blind.className = "modal_blind";
@@ -160,4 +137,27 @@ for (let i = 0; i < labels.length; i++) {
       current_active_image.style.opacity = 1;
     });
   }
+}
+
+const paths_svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+paths_svg.className = "paths_svg";
+paths_svg.setAttribute("viewBox", "0 0 2386 1226");
+
+for (let i = 0; i < window.data.playlist_labels.length; i++) {
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", window.data.playlist_labels[i].region_svg);
+  path.setAttribute("class", "path");
+  paths_svg.appendChild(path);
+  background.appendChild(paths_svg);
+
+  path.addEventListener("click", function path_click() {
+    [current_active_image] = active_images[i];
+    current_active_image.style.opacity = 1;
+    current_modal = modals[i];
+    current_modal.style.opacity = 1;
+    current_modal.style.pointerEvents = "all";
+    modal_cont.style.opacity = 1;
+    modal_cont.style.pointerEvents = "all";
+    save_label(labels[i].id);
+  });
 }
