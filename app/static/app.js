@@ -1,6 +1,3 @@
-// const MAX_IMAGE_HEIGHT = 450;
-// const MAX_IMAGE_WIDTH = 800;
-
 function save_label(label_id) {
   // Save label selected to the local database for a tap
   fetch("http://localhost:8081/api/labels/", {
