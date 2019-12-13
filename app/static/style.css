@@ -128,3 +128,13 @@ body {
 .modal_image:nth-of-type(even) {
   margin-right: 0;
 }
+
+.error {
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+  text-align: center;
+  transform: -50%;
+  top: 50%;
+  position: absolute;
+  width: 100%;
+}
