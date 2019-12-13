@@ -8,12 +8,9 @@
   },
   "rules": {
     "camelcase": 0,
-    "no-underscore-dangle": 0,
     "no-loop-func": 0,
-    "prefer-destructuring": 0,
-    "func-names": 0,
     "class-methods-use-this": 0,
-    "no-console": 0,
+    "no-console": "error",
     "no-restricted-syntax": 0,
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "operator-linebreak": [
