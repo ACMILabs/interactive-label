@@ -47,7 +47,7 @@ const root = document.getElementById("root");
 const background = document.createElement("div");
 root.appendChild(background);
 background.className = "background";
-background.style.backgroundImage = `url(${window.data.background})`;
+background.style.backgroundImage = `url(${window.data.background}), url("/static/no_background.jpg")`;
 
 const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
@@ -142,6 +142,14 @@ paths_svg.setAttribute("viewBox", `0 0 ${window.data.background_dimensions[0]} $
 
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  if (!window.data.playlist_labels[i].region_svg) {
+    const error = document.createElement('div');
+    error.className = 'error';
+    error.innerHTML = `Missing region_svg for label ${i}`;
+    document.body.innerHTML = '';
+    document.body.appendChild(error);
+    break;
+  }
   path.setAttribute("d", window.data.playlist_labels[i].region_svg);
   path.setAttribute("class", "path");
   paths_svg.appendChild(path);
