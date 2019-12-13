@@ -49,16 +49,16 @@ root.appendChild(background);
 background.className = "background";
 
 fetch(window.data.background)
-.then(function make_background() {
-  background.style.backgroundImage = `url(${window.data.background})`;
-})
-.catch(function no_background(){
-  const error = document.createElement('div');
-  error.className = 'error';
-  error.innerHTML = `No background`;
-  document.body.innerHTML = '';
-  document.body.appendChild(error);
-})
+  .then(function make_background() {
+    background.style.backgroundImage = `url(${window.data.background})`;
+  })
+  .catch(function no_background() {
+    const error = document.createElement("div");
+    error.className = "error";
+    error.innerHTML = `No background`;
+    document.body.innerHTML = "";
+    document.body.appendChild(error);
+  });
 
 const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
@@ -149,15 +149,18 @@ for (let i = 0; i < labels.length; i++) {
 
 const paths_svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 paths_svg.className = "paths_svg";
-paths_svg.setAttribute("viewBox", `0 0 ${window.data.background_dimensions[0]} ${window.data.background_dimensions[1]}`);
+paths_svg.setAttribute(
+  "viewBox",
+  `0 0 ${window.data.background_dimensions[0]} ${window.data.background_dimensions[1]}`
+);
 
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   if (!window.data.playlist_labels[i].region_svg) {
-    const error = document.createElement('div');
-    error.className = 'error';
+    const error = document.createElement("div");
+    error.className = "error";
     error.innerHTML = `Missing region_svg for label ${i}`;
-    document.body.innerHTML = '';
+    document.body.innerHTML = "";
     document.body.appendChild(error);
     break;
   }
