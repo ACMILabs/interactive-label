@@ -48,17 +48,24 @@ const background = document.createElement("div");
 root.appendChild(background);
 background.className = "background";
 
-fetch(window.data.background)
-  .then(function make_background() {
-    background.style.backgroundImage = `url(${window.data.background})`;
-  })
-  .catch(function no_background() {
-    const error = document.createElement("div");
-    error.className = "error";
-    error.innerHTML = `No background`;
-    document.body.innerHTML = "";
-    document.body.appendChild(error);
-  });
+function no_background() {
+  const error = document.createElement("div");
+  error.className = "error";
+  error.innerHTML = `No background`;
+  document.body.innerHTML = "";
+  document.body.appendChild(error);
+}
+
+if (!window.data.background) {
+  no_background();
+}
+else {
+  fetch(window.data.background)
+    .then(function make_background() {
+      background.style.backgroundImage = `url(${window.data.background})`;
+    })
+    .catch(no_background);
+}
 
 const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
