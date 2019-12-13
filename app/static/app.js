@@ -58,8 +58,7 @@ function no_background() {
 
 if (!window.data.background) {
   no_background();
-}
-else {
+} else {
   fetch(window.data.background)
     .then(function make_background() {
       background.style.backgroundImage = `url(${window.data.background})`;
