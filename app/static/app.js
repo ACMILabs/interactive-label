@@ -138,7 +138,7 @@ for (let i = 0; i < labels.length; i++) {
 
 const paths_svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 paths_svg.className = "paths_svg";
-paths_svg.setAttribute("viewBox", "0 0 2386 1226");
+paths_svg.setAttribute("viewBox", `0 0 ${window.data.background_dimensions[0]} ${window.data.background_dimensions[1]}`);
 
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
