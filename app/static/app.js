@@ -47,7 +47,18 @@ const root = document.getElementById("root");
 const background = document.createElement("div");
 root.appendChild(background);
 background.className = "background";
-background.style.backgroundImage = `url(${window.data.background}), url("/static/no_background.jpg")`;
+
+fetch(window.data.background)
+.then(function make_background() {
+  background.style.backgroundImage = `url(${window.data.background})`;
+})
+.catch(function no_background(){
+  const error = document.createElement('div');
+  error.className = 'error';
+  error.innerHTML = `No background`;
+  document.body.innerHTML = '';
+  document.body.appendChild(error);
+})
 
 const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
