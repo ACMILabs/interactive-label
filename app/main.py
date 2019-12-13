@@ -3,7 +3,8 @@ import os
 
 import requests
 import sentry_sdk
-from flask import Flask, abort, jsonify, render_template, request
+from flask import (Flask, abort, jsonify, render_template, request,
+                   send_from_directory)
 from flask_cors import CORS, cross_origin
 from peewee import (CharField, DoesNotExist, IntegerField, IntegrityError,
                     Model, SqliteDatabase)
@@ -77,7 +78,7 @@ def playlist():
             json_data['playlist_labels'].remove(item)
 
     return render_template(
-        'playlist.html',
+        'index.html',
         playlist_json=json_data,
         xos={
             'playlist_endpoint': f'{XOS_API_ENDPOINT}playlists/',
@@ -108,7 +109,7 @@ def select_label():
         # Save the label selected to the database
         label = Label.create(
             datetime=label_selected['datetime'],
-            playlist_id=label_selected.get('playlist_id', 0),
+            playlist_id=XOS_PLAYLIST_ID,
             label_id=label_selected.get('label_id', 0),
         )
         # Clear out other messages beyond the last 5
@@ -149,6 +150,11 @@ def collect_item():
     if response.status_code != requests.codes['created']:
         raise HTTPError('Could not save tap to XOS.')
     return jsonify(xos_tap), response.status_code
+
+
+@app.route('/cache/<path:filename>')
+def cache(filename):
+    return send_from_directory('/data/', filename)
 
 
 if __name__ == '__main__':

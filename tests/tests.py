@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from app import main
-from app.main import XOS_PLAYLIST_ID, Label, download_playlist
+from app.main import Label, download_playlist
 
 
 def file_to_string_strip_new_lines(filename):
@@ -41,16 +41,16 @@ class MockResponse:
 
 
 def mocked_requests_get(*args, **kwargs):
-    if '/api/playlists/2/' in args[0]:
+    if args[0] == 'https://xos.acmi.net.au/api/playlists/2/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist_no_label.json'), 200)
-    if '/api/playlists/' in args[0]:
+    if args[0] == 'https://xos.acmi.net.au/api/playlists/1/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
 
     raise Exception("No mocked sample data for request: "+args[0])
 
 
 def mocked_requests_post(*args, **kwargs):
-    if '/api/taps/' in args[0]:
+    if args[0] == 'https://xos.acmi.net.au/api/taps/':
         return MockResponse(file_to_string_strip_new_lines('data/xos_tap.json'), 201)
 
     raise Exception("No mocked sample data for request: "+args[0])
@@ -80,10 +80,8 @@ def test_download_playlist_label():
     """
 
     download_playlist()
-    file_exists = os.path.isfile(f'playlist_{XOS_PLAYLIST_ID}.json')
-    playlist = json.loads(
-        file_to_string_strip_new_lines(f'../playlist_{XOS_PLAYLIST_ID}.json')
-    )['playlist_labels']
+    file_exists = os.path.isfile(f'playlist_1.json')
+    playlist = json.loads(file_to_string_strip_new_lines(f'../playlist_1.json'))['playlist_labels']
 
     assert file_exists is True
     assert len(playlist) == 3
@@ -97,9 +95,9 @@ def test_route_playlist_label(client):
 
     response = client.get('/')
 
-    assert b'#labeltile17' in response.data
-    assert b'#labeltile18' in response.data
-    assert b'#labeltile19' in response.data
+    assert b'<!doctype html>' in response.data
+    assert b"<div id='root'>" in response.data
+    assert b"<script src='/static/app.js'>" in response.data
     assert response.status_code == 200
 
 

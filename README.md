@@ -25,3 +25,13 @@ To install and run on a Raspbian OS Raspberry Pi for prototyping:
 * Install xdotool `sudo apt install xdotool`
 * To zoom out in the browser `xdotool key Ctrl+minus`
 * To refresh the page `xdotool key "ctrl+F5"`
+
+## Run tests without docker
+
+```
+$ virtualenv .venv
+$ pwd > ./.venv/lib/python3.7/site-packages/the.pth
+$ pip install -r requirements/test.txt
+$ source .venv/bin/activate
+$ env $(cat config.env | xargs) make test
+```

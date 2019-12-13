@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/static/style.css'/>
+  </head>
+  <body>
+    <div id='root'></div>
+    <script>window.data = {{ playlist_json|tojson }}</script>
+    <script src='/static/app.js'></script>
+  </body>
+</html>
