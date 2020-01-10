@@ -32,6 +32,8 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
 // STATE
 
 const modals = [];
+let active_collect_element = null;
+const collect_elements = [];
 let current_modal = null;
 
 const active_images = [];
@@ -59,11 +61,20 @@ function no_background() {
 if (!window.data.background) {
   no_background();
 } else {
-  fetch(window.data.background)
+  fetch(window.data.background, {mode: 'no-cors'})
     .then(function make_background() {
       background.style.backgroundImage = `url(${window.data.background})`;
     })
     .catch(no_background);
+}
+
+function close_modal() {
+  current_modal.style.opacity = 0;
+  current_modal.style.pointerEvents = "none";
+  modal_cont.style.opacity = 0;
+  modal_cont.style.pointerEvents = "none";
+  active_collect_element = null
+  save_label(null);
 }
 
 const modal_cont = document.createElement("div");
@@ -73,13 +84,7 @@ root.appendChild(modal_cont);
 const modal_blind = document.createElement("div");
 modal_blind.className = "modal_blind";
 modal_cont.appendChild(modal_blind);
-modal_blind.addEventListener("click", function close_modal() {
-  current_modal.style.opacity = 0;
-  current_modal.style.pointerEvents = "none";
-  modal_cont.style.opacity = 0;
-  modal_cont.style.pointerEvents = "none";
-  save_label(null);
-});
+modal_blind.addEventListener("click", close_modal);
 
 for (let i = 0; i < labels.length; i++) {
   const modal = document.createElement("div");
@@ -121,6 +126,18 @@ for (let i = 0; i < labels.length; i++) {
   const image_list = document.createElement("div");
   item.appendChild(image_list);
   image_list.className = "modal_image_list";
+
+  const back_button = document.createElement("div");
+  item.appendChild(back_button);
+  back_button.className = "modal_back_button";
+  back_button.innerHTML = "BACK"
+  back_button.addEventListener('click', close_modal)
+
+  const collect = document.createElement("div");
+  item.appendChild(collect);
+  collect.className = "modal_collect";
+  collect.innerHTML = "COLLECT";
+  collect_elements.push(collect);
 
   for (let j = 0; j < label.works.length; j++) {
     const work = label.works[j];
@@ -183,6 +200,25 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
     current_modal.style.pointerEvents = "all";
     modal_cont.style.opacity = 1;
     modal_cont.style.pointerEvents = "all";
+    active_collect_element = collect_elements[i]
     save_label(labels[i].id);
   });
+}
+
+const tap_source = new EventSource("/api/tap-source");
+tap_source.onmessage = function(e) {
+  if (active_collect_element) {
+    active_collect_element.className = 'modal_collect hidden'
+    window.setTimeout(function () {
+      active_collect_element.innerHTML = 'COLLECTED'
+      active_collect_element.className = 'modal_collect active'
+    }, 1000)
+    window.setTimeout(function () {
+      active_collect_element.className = 'modal_collect active hidden'
+    }, 3000)
+    window.setTimeout(function () {
+      active_collect_element.className = 'modal_collect'
+      active_collect_element.innerHTML = 'COLLECT'
+    }, 4000)
+  }
 }

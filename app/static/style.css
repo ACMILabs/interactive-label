@@ -1,7 +1,44 @@
+@font-face {
+  font-family: FaktPro;
+  src: url("FaktPro-Normal.otf") format("opentype");
+}
+
+@font-face {
+  font-family: FaktPro;
+  font-style: italic;
+  src: url("FaktPro-NormalItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: FaktPro;
+  font-weight: bold;
+  src: url("FaktPro-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: FaktPro;
+  font-weight: bold;
+  font-style: italic;
+  src: url("FaktPro-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: PxGrotesk;
+  src: url("PxGrotesk-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: PxGrotesk;
+  font-style: italic;
+  src: url("PxGrotesk-BoldIta.otf") format("opentype");
+}
+
 body {
   margin: 0;
   background: #000;
-  font-family: Helvetica;
+  font-family: FaktPro;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .background {
@@ -36,15 +73,16 @@ body {
 
 .modal {
   position: fixed;
-  background: #fff;
+  background: #000;
   top: 50%;
   transform: translateY(-50%);
-  height: 620px;
-  left: 100px;
-  right: 100px;
+  height: calc(100vh - 160px);
+  left: 80px;
+  right: 80px;
   opacity: 0;
   pointer-events: none;
   overflow: auto;
+  color: #fff;
 }
 
 .modal_blind {
@@ -53,7 +91,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.3);
 }
 
 .modal_item {
@@ -62,32 +100,38 @@ body {
 
 .modal_left_col {
   float: left;
-  width: 46%;
+  width: 880px;
   box-sizing: border-box;
-  padding-left: 8%;
-  padding-right: 8%;
-  padding-top: 80px;
+  padding: 45px;
+  padding-bottom: 0;
+  height: calc(100% - 185px);
+  overflow: auto;
 }
 
 .modal_title {
-  font-size: 23px;
-  margin-bottom: 20px;
+  font-size: 34px;
+  line-height: 40px;
+  font-family: PxGrotesk;
 }
 
 .modal_publication {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 25px;
 }
 
 .modal_description {
   line-height: 1.3;
-  font-size: 18px;
+  font-size: 26px;
+  line-height: 36px;
+  margin-top: 36px;
 }
 
 .modal_active_image_cont {
   height: 100%;
   float: left;
-  width: 32%;
+  width: 395px;
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -101,19 +145,24 @@ body {
   transition: opacity 200ms;
 }
 
+.modal_caption {
+  font-size: 18px;
+  line-height: 25px;
+}
+
 .modal_active_image {
-  height: calc(100% - 200px);
-  margin: 30px 0;
-  background: top left/contain no-repeat;
+  height: 50%;
+  margin: 60px 0 25px;
+  background: center/contain no-repeat;
 }
 
 .modal_image_list {
   float: left;
-  width: 20%;
-  padding: 30px 0 0 60px;
+  width: 485px;
+  padding: 45px;
   padding-bottom: 0;
   box-sizing: border-box;
-  height: 100%;
+  height: calc(100% - 185px);
   overflow: auto;
 }
 
@@ -129,6 +178,27 @@ body {
   margin-right: 0;
 }
 
+.modal_back_button {
+  font-family: PxGrotesk;
+  font-size: 23px;
+  padding: 30px 36px 26px 26px;
+  position: absolute;
+  left: 45px;
+  bottom: 45px;
+  background: #fff;
+  color: #000;
+}
+
+.modal_back_button:before {
+  width: 30px;
+  height: 30px;
+  background: url('back.svg') center/contain no-repeat;
+  margin-right: 10px;
+  content: " ";
+  display: inline-block;
+  vertical-align: -7px;
+}
+
 .error {
   color: #fff;
   text-shadow: 2px 2px 0 #000;
@@ -137,4 +207,42 @@ body {
   top: 50%;
   position: absolute;
   width: 100%;
+}
+
+.modal_collect {
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+  color: #fff;
+  padding: 30px 40px 20px;
+  font-family: PxGrotesk;
+  font-size: 23px;
+  transition: background 1s, color 1s;
+}
+
+.modal_collect:after {
+  content: "→";
+  font-size: 26px;
+  margin-left: 10px;
+  line-height: 0;
+}
+
+.modal_collect.active:after  {
+  background: url('tick.png') center/contain no-repeat;
+  content: " ";
+  width: 13.5px;
+  height: 10.5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modal_collect.active.hidden,
+.modal_collect.hidden {
+  color: rgba(0,0,0,0);
+  background: rgba(0,0,0,0);
+}
+
+.modal_collect.active {
+  background: #fff;
+  color: #000;
 }
