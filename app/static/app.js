@@ -206,19 +206,27 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
 }
 
 const tap_source = new EventSource("/api/tap-source");
-tap_source.onmessage = function(e) {
+tap_source.onopen = function() {
+  console.log('opened')
+}
+tap_source.onmessage = function() {
+  console.log('message')
   if (active_collect_element) {
-    active_collect_element.className = 'modal_collect hidden'
+    const element = active_collect_element
+    element.className = 'modal_collect hidden'
     window.setTimeout(function () {
-      active_collect_element.innerHTML = 'COLLECTED'
-      active_collect_element.className = 'modal_collect active'
+      element.innerHTML = 'COLLECTED'
+      element.className = 'modal_collect active'
     }, 1000)
     window.setTimeout(function () {
-      active_collect_element.className = 'modal_collect active hidden'
+      element.className = 'modal_collect active hidden'
     }, 3000)
     window.setTimeout(function () {
-      active_collect_element.className = 'modal_collect'
-      active_collect_element.innerHTML = 'COLLECT'
+      element.className = 'modal_collect'
+      element.innerHTML = 'COLLECT'
     }, 4000)
   }
 }
+tap_source.onerror = function(err) {
+  console.error("EventSource failed:", err);
+};

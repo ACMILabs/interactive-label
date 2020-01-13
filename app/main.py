@@ -33,9 +33,6 @@ app = Flask(__name__)  # pylint: disable=C0103
 CORS(app)
 
 
-has_tapped_bool = False
-
-
 class Label(Model):
     datetime = CharField(primary_key=True)
     label_id = IntegerField()
@@ -44,6 +41,12 @@ class Label(Model):
     class Meta:  # pylint: disable=R0903
         database = db
 
+
+class HasTapped(Model):
+    has_tapped = IntegerField()
+
+    class Meta:  # pylint: disable=R0903
+        database = db
 
 def download_playlist():
     # Download Playlist JSON from XOS
@@ -142,6 +145,9 @@ def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
     """
+    has_tapped = HasTapped.get_or_none(has_tapped=0)
+    has_tapped.has_tapped = 1
+    has_tapped.save()
     xos_tap = dict(request.get_json())
     try:
         record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
@@ -151,8 +157,6 @@ def collect_item():
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}
     response = requests.post(XOS_TAPS_ENDPOINT, json=xos_tap, headers=headers)
-    global has_tapped_bool
-    has_tapped_bool = True
     if response.status_code != requests.codes['created']:
         raise HTTPError('Could not save tap to XOS.')
     return jsonify(xos_tap), response.status_code
@@ -164,11 +168,12 @@ def cache(filename):
 
 
 def eventStream():
-    global has_tapped_bool
     while True:
         time.sleep(0.1)
-        if has_tapped_bool:
-            has_tapped_bool = False
+        has_tapped = HasTapped.get_or_none(has_tapped=1)
+        if has_tapped:
+            has_tapped.has_tapped = 0
+            has_tapped.save()
             yield 'data: {}\n\n'
 
 
@@ -178,6 +183,7 @@ def tap_source():
 
 
 if __name__ == '__main__':
-    db.create_tables([Label])
+    db.create_tables([Label, HasTapped])
+    HasTapped.create(has_tapped=0)
     download_playlist()
-    app.run(host='0.0.0.0', port=8081, threaded=True)
+    app.run(host='0.0.0.0', port=8081, use_reloader=False, debug=False)

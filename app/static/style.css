@@ -190,13 +190,12 @@ body {
 }
 
 .modal_back_button:before {
-  width: 30px;
-  height: 30px;
+  width: 17px;
+  height: 17px;
   background: url('back.svg') center/contain no-repeat;
   margin-right: 10px;
   content: " ";
   display: inline-block;
-  vertical-align: -7px;
 }
 
 .error {
@@ -221,25 +220,32 @@ body {
 }
 
 .modal_collect:after {
-  content: "→";
-  font-size: 26px;
+  width: 18px;
+  height: 24px;
+  display: inline-block;
+  background: url('right.svg') center/contain no-repeat;
+  content: " ";
   margin-left: 10px;
-  line-height: 0;
+  vertical-align: -4px;
+  transition: opacity 1s;
 }
 
 .modal_collect.active:after  {
-  background: url('tick.png') center/contain no-repeat;
-  content: " ";
-  width: 13.5px;
-  height: 10.5px;
-  display: inline-block;
-  vertical-align: middle;
+  background: url('tick.svg') center/contain no-repeat;
+  width: 18px;
+  height: 14px;
+  vertical-align: 0px;
 }
 
 .modal_collect.active.hidden,
 .modal_collect.hidden {
   color: rgba(0,0,0,0);
   background: rgba(0,0,0,0);
+}
+
+.modal_collect.active.hidden:after,
+.modal_collect.hidden:after {
+  opacity: 0;
 }
 
 .modal_collect.active {
