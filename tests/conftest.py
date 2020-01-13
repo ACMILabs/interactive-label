@@ -4,7 +4,7 @@ import pytest
 from peewee import SqliteDatabase
 
 from app import main
-from app.main import Label, HasTapped
+from app.main import HasTapped, Label
 
 
 @pytest.fixture
