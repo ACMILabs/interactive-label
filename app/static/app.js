@@ -122,7 +122,7 @@ for (let i = 0; i < labels.length; i++) {
 
   const active_image_cont = document.createElement("div");
   item.appendChild(active_image_cont);
-  active_image_cont.className = "modal_active_image_cont";
+  active_image_cont.className = "modal_active_image_cont" + (label.works.length < 2 ? " large_image_cont" : "");
 
   const image_list = document.createElement("div");
   item.appendChild(image_list);
@@ -151,7 +151,7 @@ for (let i = 0; i < labels.length; i++) {
 
     const active_image = document.createElement("div");
     active_image_and_caption.appendChild(active_image);
-    active_image.className = "modal_active_image";
+    active_image.className = "modal_active_image" + (label.works.length < 2 ? " large_image" : "")
     active_image.style.backgroundImage = `url(${work.image})`;
 
     const caption = document.createElement("div");
@@ -159,15 +159,17 @@ for (let i = 0; i < labels.length; i++) {
     caption.className = "modal_caption";
     caption.innerHTML = `${work.title}, 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)`;
 
-    const image = document.createElement("div");
-    image_list.appendChild(image);
-    image.className = "modal_image" + (label.works.length > 6 ? " small_image" : "");
-    image.style.backgroundImage = `url(${work.image})`;
-    image.addEventListener("click", function image_click() {
-      current_active_image.style.opacity = 0;
-      current_active_image = active_image_and_caption;
-      current_active_image.style.opacity = 1;
-    });
+    if (label.works.length > 1) {
+      const image = document.createElement("div");
+      image_list.appendChild(image);
+      image.className = "modal_image" + (label.works.length > 6 ? " small_image" : "");
+      image.style.backgroundImage = `url(${work.image})`;
+      image.addEventListener("click", function image_click() {
+        current_active_image.style.opacity = 0;
+        current_active_image = active_image_and_caption;
+        current_active_image.style.opacity = 1;
+      });
+    }
   }
 }
 

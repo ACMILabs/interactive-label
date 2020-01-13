@@ -61,8 +61,8 @@ body {
 }
 
 .path {
-  fill: rgba(0,0,0,0);
-  stroke: #f0f;
+  fill: rgba(255,255,255,0.15);
+  stroke: rgba(0,0,0,0);
 }
 
 .modal_cont {
@@ -135,6 +135,10 @@ body {
   position: relative;
 }
 
+.large_image_cont {
+  width: 633px;
+}
+
 .modal_active_image_and_caption {
   position: absolute;
   top: 0;
@@ -154,6 +158,10 @@ body {
   height: 50%;
   margin: 60px 0 25px;
   background: center/contain no-repeat;
+}
+
+.large_image {
+  height: 65%;
 }
 
 .modal_image_list {
