@@ -27,3 +27,5 @@ def database():
         playlist_id=10,
         label_id=10,
     )
+
+    HasTapped.create(has_tapped=0)
