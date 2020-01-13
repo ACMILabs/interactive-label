@@ -161,7 +161,7 @@ for (let i = 0; i < labels.length; i++) {
 
     const image = document.createElement("div");
     image_list.appendChild(image);
-    image.className = "modal_image";
+    image.className = "modal_image" + (label.works.length > 6 ? " small_image" : "");
     image.style.backgroundImage = `url(${work.image})`;
     image.addEventListener("click", function image_click() {
       current_active_image.style.opacity = 0;
