@@ -33,6 +33,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
 
 const modals = [];
 let active_collect_element = null;
+let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
 
@@ -207,8 +208,9 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
 
 const tap_source = new EventSource("/api/tap-source");
 tap_source.onmessage = function() {
-  if (active_collect_element) {
+  if (active_collect_element && !is_animating_collect) {
     const element = active_collect_element;
+    is_animating_collect = true
     element.className = 'modal_collect hidden';
     window.setTimeout(function() {
       element.innerHTML = 'COLLECTED';
@@ -220,6 +222,7 @@ tap_source.onmessage = function() {
     window.setTimeout(function() {
       element.className = 'modal_collect';
       element.innerHTML = 'COLLECT';
+      is_animating_collect = false
     }, 4000);
   }
 }
