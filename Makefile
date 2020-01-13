@@ -13,7 +13,7 @@ lint:
 	isort -rc --check-only .
 test:
 	# Run python tests
-	env `cat /code/config.test.env | xargs` pytest -v
+	env `cat /code/config.test.env` pytest -v
 lintjs:
 	# Lint the javascript code
 	npm run lint
