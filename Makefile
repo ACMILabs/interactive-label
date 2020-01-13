@@ -9,7 +9,7 @@ help:
 lint:
     # Lint the python code
 	pylint *
-	flake8
+	flake8  --exclude .venv
 	isort -rc --check-only .
 test:
 	# Run python tests

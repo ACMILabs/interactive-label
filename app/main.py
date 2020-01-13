@@ -4,8 +4,8 @@ import time
 
 import requests
 import sentry_sdk
-from flask import (Flask, abort, jsonify, render_template, request,
-                   send_from_directory, Response)
+from flask import (Flask, Response, abort, jsonify, render_template, request,
+                   send_from_directory)
 from flask_cors import CORS, cross_origin
 from peewee import (CharField, DoesNotExist, IntegerField, IntegrityError,
                     Model, SqliteDatabase)
@@ -47,6 +47,7 @@ class HasTapped(Model):
 
     class Meta:  # pylint: disable=R0903
         database = db
+
 
 def download_playlist():
     # Download Playlist JSON from XOS
@@ -167,7 +168,7 @@ def cache(filename):
     return send_from_directory('/data/', filename)
 
 
-def eventStream():
+def event_stream():
     while True:
         time.sleep(0.1)
         has_tapped = HasTapped.get_or_none(has_tapped=1)
@@ -179,7 +180,7 @@ def eventStream():
 
 @app.route('/api/tap-source/')
 def tap_source():
-    return Response(eventStream(), mimetype="text/event-stream")
+    return Response(event_stream(), mimetype="text/event-stream")
 
 
 if __name__ == '__main__':
