@@ -62,25 +62,25 @@ function no_background() {
 if (!window.data.background) {
   no_background();
 } else {
-  fetch(window.data.background, {mode: 'no-cors'})
+  fetch(window.data.background, { mode: "no-cors" })
     .then(function make_background() {
       background.style.backgroundImage = `url(${window.data.background})`;
     })
     .catch(no_background);
 }
 
+const modal_cont = document.createElement("div");
+modal_cont.className = "modal_cont";
+root.appendChild(modal_cont);
+
 function close_modal() {
   current_modal.style.opacity = 0;
   current_modal.style.pointerEvents = "none";
   modal_cont.style.opacity = 0;
   modal_cont.style.pointerEvents = "none";
-  active_collect_element = null
+  active_collect_element = null;
   save_label(null);
 }
-
-const modal_cont = document.createElement("div");
-modal_cont.className = "modal_cont";
-root.appendChild(modal_cont);
 
 const modal_blind = document.createElement("div");
 modal_blind.className = "modal_blind";
@@ -122,7 +122,9 @@ for (let i = 0; i < labels.length; i++) {
 
   const active_image_cont = document.createElement("div");
   item.appendChild(active_image_cont);
-  active_image_cont.className = "modal_active_image_cont" + (label.works.length < 2 ? " large_image_cont" : "");
+  active_image_cont.className = `modal_active_image_cont${
+    label.works.length < 2 ? " large_image_cont" : ""
+  }`;
 
   const image_list = document.createElement("div");
   item.appendChild(image_list);
@@ -131,8 +133,8 @@ for (let i = 0; i < labels.length; i++) {
   const back_button = document.createElement("div");
   item.appendChild(back_button);
   back_button.className = "modal_back_button";
-  back_button.innerHTML = "BACK"
-  back_button.addEventListener('click', close_modal)
+  back_button.innerHTML = "BACK";
+  back_button.addEventListener("click", close_modal);
 
   const collect = document.createElement("div");
   item.appendChild(collect);
@@ -151,7 +153,9 @@ for (let i = 0; i < labels.length; i++) {
 
     const active_image = document.createElement("div");
     active_image_and_caption.appendChild(active_image);
-    active_image.className = "modal_active_image" + (label.works.length < 2 ? " large_image" : "")
+    active_image.className = `modal_active_image${
+      label.works.length < 2 ? " large_image" : ""
+    }`;
     active_image.style.backgroundImage = `url(${work.image})`;
 
     const caption = document.createElement("div");
@@ -162,7 +166,9 @@ for (let i = 0; i < labels.length; i++) {
     if (label.works.length > 1) {
       const image = document.createElement("div");
       image_list.appendChild(image);
-      image.className = "modal_image" + (label.works.length > 6 ? " small_image" : "");
+      image.className = `modal_image${
+        label.works.length > 6 ? " small_image" : ""
+      }`;
       image.style.backgroundImage = `url(${work.image})`;
       image.addEventListener("click", function image_click() {
         current_active_image.style.opacity = 0;
@@ -203,7 +209,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
     current_modal.style.pointerEvents = "all";
     modal_cont.style.opacity = 1;
     modal_cont.style.pointerEvents = "all";
-    active_collect_element = collect_elements[i]
+    active_collect_element = collect_elements[i];
     save_label(labels[i].id);
   });
 }
@@ -212,19 +218,19 @@ const tap_source = new EventSource("/api/tap-source");
 tap_source.onmessage = function() {
   if (active_collect_element && !is_animating_collect) {
     const element = active_collect_element;
-    is_animating_collect = true
-    element.className = 'modal_collect hidden';
+    is_animating_collect = true;
+    element.className = "modal_collect hidden";
     window.setTimeout(function() {
-      element.innerHTML = 'COLLECTED';
-      element.className = 'modal_collect active';
+      element.innerHTML = "COLLECTED";
+      element.className = "modal_collect active";
     }, 1000);
     window.setTimeout(function() {
-      element.className = 'modal_collect active hidden';
+      element.className = "modal_collect active hidden";
     }, 3000);
     window.setTimeout(function() {
-      element.className = 'modal_collect';
-      element.innerHTML = 'COLLECT';
-      is_animating_collect = false
+      element.className = "modal_collect";
+      element.innerHTML = "COLLECT";
+      is_animating_collect = false;
     }, 4000);
   }
-}
+};
