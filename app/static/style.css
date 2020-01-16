@@ -61,14 +61,17 @@ body {
 }
 
 .path {
-  fill: rgba(255,255,255,0.15);
   stroke: rgba(0,0,0,0);
+  fill: rgba(255,255,255,0.0);
+}
+.path.active {
+  fill: rgba(255,255,255,0.15);
 }
 
 .modal_cont {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 200ms;
+  transition: opacity 400ms;
 }
 
 .modal {
@@ -83,6 +86,7 @@ body {
   pointer-events: none;
   overflow: auto;
   color: #fff;
+  transition: opacity 400ms;
 }
 
 .modal_blind {

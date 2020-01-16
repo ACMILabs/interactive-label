@@ -69,6 +69,7 @@ if (!window.data.background) {
     .catch(no_background);
 }
 
+let active_path = null;
 const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
 root.appendChild(modal_cont);
@@ -79,6 +80,8 @@ function close_modal() {
   modal_cont.style.opacity = 0;
   modal_cont.style.pointerEvents = "none";
   active_collect_element = null;
+  active_path.classList.remove('active');
+  active_path = null;
   save_label(null);
 }
 
@@ -127,8 +130,10 @@ for (let i = 0; i < labels.length; i++) {
   }`;
 
   const image_list = document.createElement("div");
-  item.appendChild(image_list);
-  image_list.className = "modal_image_list";
+  if (label.works.length > 1) {
+    item.appendChild(image_list);
+    image_list.className = "modal_image_list";
+  }
 
   const back_button = document.createElement("div");
   item.appendChild(back_button);
@@ -202,6 +207,8 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
   background.appendChild(paths_svg);
 
   path.addEventListener("click", function path_click() {
+    active_path = path;
+    active_path.classList.add('active');
     [current_active_image] = active_images[i];
     current_active_image.style.opacity = 1;
     current_modal = modals[i];
