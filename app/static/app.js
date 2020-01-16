@@ -80,7 +80,7 @@ function close_modal() {
   modal_cont.style.opacity = 0;
   modal_cont.style.pointerEvents = "none";
   active_collect_element = null;
-  active_path.classList.remove('active');
+  active_path.classList.remove("active");
   active_path = null;
   save_label(null);
 }
@@ -208,7 +208,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
 
   path.addEventListener("click", function path_click() {
     active_path = path;
-    active_path.classList.add('active');
+    active_path.classList.add("active");
     [current_active_image] = active_images[i];
     current_active_image.style.opacity = 1;
     current_modal = modals[i];
