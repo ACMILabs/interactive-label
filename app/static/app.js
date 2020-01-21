@@ -105,9 +105,18 @@ for (let i = 0; i < labels.length; i++) {
 for (let i = 0; i < labels.length; i++) {
   const label = labels[i];
 
-  const num_description_columns = label.description_column_3.length ? 3 : label.description_column_2.length ? 2 : 1
-  const should_show_image_list = label.works.length > 1 && num_description_columns === 1
-  const should_show_image_and_caption = num_description_columns < 3
+  let num_description_columns;
+  if (label.description_column_3.length) {
+    num_description_columns = 3;
+  } else if (label.description_column_2.length) {
+    num_description_columns = 2;
+  } else {
+    num_description_columns = 1;
+  }
+
+  const should_show_image_list =
+    label.works.length > 1 && num_description_columns === 1;
+  const should_show_image_and_caption = num_description_columns < 3;
 
   const item = document.createElement("div");
   modals[i].appendChild(item);
@@ -142,9 +151,11 @@ for (let i = 0; i < labels.length; i++) {
     description_2.className = `
       modal_description
       modal_desc_col_${num_description_columns}
-      ${label.description_style_2 === "smaller" ? "modal_small_description" : ""}
+      ${
+        label.description_style_2 === "smaller" ? "modal_small_description" : ""
+      }
     `;
-    description_2.innerHTML = label.description_column_2
+    description_2.innerHTML = label.description_column_2;
   }
 
   if (num_description_columns === 3) {
@@ -153,7 +164,9 @@ for (let i = 0; i < labels.length; i++) {
     description_3.className = `
       modal_description
       modal_desc_col_${num_description_columns}
-      ${label.description_style_3 === "smaller" ? "modal_small_description" : ""}
+      ${
+        label.description_style_3 === "smaller" ? "modal_small_description" : ""
+      }
     `;
     description_3.innerHTML = label.description_column_3;
   }
@@ -161,7 +174,9 @@ for (let i = 0; i < labels.length; i++) {
   const active_image_cont = document.createElement("div");
   item.appendChild(active_image_cont);
   active_image_cont.className = `modal_active_image_cont ${
-    !should_show_image_list && num_description_columns == 1 ? "large_image_cont" : ""
+    !should_show_image_list && num_description_columns === 1
+      ? "large_image_cont"
+      : ""
   }`;
 
   const image_list = document.createElement("div");
@@ -202,20 +217,20 @@ for (let i = 0; i < labels.length; i++) {
       active_image_and_caption.appendChild(caption);
       caption.className = "modal_caption";
       caption.innerHTML = `<b>${work.title}, [YEAR?]</b><br/>[CREATOR?]<br/>${work.brief_description}`;
-    }
 
-    if (should_show_image_list) {
-      const image = document.createElement("div");
-      image_list.appendChild(image);
-      image.className = `modal_image${
-        label.works.length > 6 ? " small_image" : ""
-      }`;
-      image.style.backgroundImage = `url(${work.image})`;
-      image.addEventListener("click", function image_click() {
-        current_active_image.style.opacity = 0;
-        current_active_image = active_image_and_caption;
-        current_active_image.style.opacity = 1;
-      });
+      if (should_show_image_list) {
+        const image = document.createElement("div");
+        image_list.appendChild(image);
+        image.className = `modal_image${
+          label.works.length > 6 ? " small_image" : ""
+        }`;
+        image.style.backgroundImage = `url(${work.image})`;
+        image.addEventListener("click", function image_click() {
+          current_active_image.style.opacity = 0;
+          current_active_image = active_image_and_caption;
+          current_active_image.style.opacity = 1;
+        });
+      }
     }
   }
 }
