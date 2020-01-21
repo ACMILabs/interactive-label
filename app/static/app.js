@@ -21,7 +21,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
   return {
     id: x.label.id,
     title: x.label.title,
-    publication: x.label.publication,
+    publication: x.label.subtitles,
     description_column_1: x.label.columns[0].content,
     description_column_2: x.label.columns[1].content,
     description_column_3: x.label.columns[2].content,
