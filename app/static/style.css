@@ -102,14 +102,24 @@ body {
   height: 100%;
 }
 
-.modal_left_col {
+.modal_left_col_1,
+.modal_left_col_2,
+.modal_left_col_3 {
   float: left;
-  width: 880px;
   box-sizing: border-box;
   padding: 45px;
   padding-bottom: 0;
   height: calc(100% - 185px);
   overflow: auto;
+}
+.modal_left_col_1 {
+  width: 880px;
+}
+.modal_left_col_2 {
+  width: 1300px;
+}
+.modal_left_col_3 {
+  width: auto;
 }
 
 .modal_title {
@@ -273,4 +283,24 @@ body {
 .modal_collect.active {
   background: #fff;
   color: #000;
+}
+
+.modal_desc_col_1 {
+}
+.modal_desc_col_2 {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 30px;
+}
+.modal_desc_col_3 {
+  float: left;
+  width: 33%;
+  box-sizing: border-box;
+  padding-right: 30px;
+}
+
+.modal_small_description {
+  font-size: 18px;
+  line-height: 25px;
 }

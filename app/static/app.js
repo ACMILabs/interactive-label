@@ -22,7 +22,12 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     id: x.label.id,
     title: x.label.title,
     publication: x.label.publication,
-    description: x.label.description,
+    description_column_1: x.label.columns[0].content,
+    description_column_2: x.label.columns[1].content,
+    description_column_3: x.label.columns[2].content,
+    description_style_1: x.label.columns[0].style,
+    description_style_2: x.label.columns[1].style,
+    description_style_3: x.label.columns[2].style,
     video_url: x.resource,
     works: x.label.works,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`
@@ -100,13 +105,17 @@ for (let i = 0; i < labels.length; i++) {
 for (let i = 0; i < labels.length; i++) {
   const label = labels[i];
 
+  const num_description_columns = label.description_column_3.length ? 3 : label.description_column_2.length ? 2 : 1
+  const should_show_image_list = label.works.length > 1 && num_description_columns === 1
+  const should_show_image_and_caption = num_description_columns < 3
+
   const item = document.createElement("div");
   modals[i].appendChild(item);
   item.className = "modal_item";
 
   const left_col = document.createElement("div");
   item.appendChild(left_col);
-  left_col.className = "modal_left_col";
+  left_col.className = `modal_left_col_${num_description_columns}`;
 
   const title = document.createElement("div");
   left_col.appendChild(title);
@@ -118,19 +127,45 @@ for (let i = 0; i < labels.length; i++) {
   publication.className = "modal_publication";
   publication.innerHTML = label.publication;
 
-  const description = document.createElement("div");
-  left_col.appendChild(description);
-  description.className = "modal_description";
-  description.innerHTML = label.description;
+  const description_1 = document.createElement("div");
+  left_col.appendChild(description_1);
+  description_1.className = `
+    modal_description
+    modal_desc_col_${num_description_columns}
+    ${label.description_style_1 === "smaller" ? "modal_small_description" : ""}
+  `;
+  description_1.innerHTML = label.description_column_1;
+
+  if (num_description_columns > 1) {
+    const description_2 = document.createElement("div");
+    left_col.appendChild(description_2);
+    description_2.className = `
+      modal_description
+      modal_desc_col_${num_description_columns}
+      ${label.description_style_2 === "smaller" ? "modal_small_description" : ""}
+    `;
+    description_2.innerHTML = label.description_column_2
+  }
+
+  if (num_description_columns === 3) {
+    const description_3 = document.createElement("div");
+    left_col.appendChild(description_3);
+    description_3.className = `
+      modal_description
+      modal_desc_col_${num_description_columns}
+      ${label.description_style_3 === "smaller" ? "modal_small_description" : ""}
+    `;
+    description_3.innerHTML = label.description_column_3;
+  }
 
   const active_image_cont = document.createElement("div");
   item.appendChild(active_image_cont);
-  active_image_cont.className = `modal_active_image_cont${
-    label.works.length < 2 ? " large_image_cont" : ""
+  active_image_cont.className = `modal_active_image_cont ${
+    !should_show_image_list && num_description_columns == 1 ? "large_image_cont" : ""
   }`;
 
   const image_list = document.createElement("div");
-  if (label.works.length > 1) {
+  if (should_show_image_list) {
     item.appendChild(image_list);
     image_list.className = "modal_image_list";
   }
@@ -150,25 +185,26 @@ for (let i = 0; i < labels.length; i++) {
   for (let j = 0; j < label.works.length; j++) {
     const work = label.works[j];
 
-    const active_image_and_caption = document.createElement("div");
-    active_image_cont.appendChild(active_image_and_caption);
-    active_image_and_caption.className = "modal_active_image_and_caption";
+    if (should_show_image_and_caption) {
+      const active_image_and_caption = document.createElement("div");
+      active_image_cont.appendChild(active_image_and_caption);
+      active_image_and_caption.className = "modal_active_image_and_caption";
+      active_images[i][j] = active_image_and_caption;
 
-    active_images[i][j] = active_image_and_caption;
+      const active_image = document.createElement("div");
+      active_image_and_caption.appendChild(active_image);
+      active_image.className = `modal_active_image${
+        !should_show_image_list ? " large_image" : ""
+      }`;
+      active_image.style.backgroundImage = `url(${work.image})`;
 
-    const active_image = document.createElement("div");
-    active_image_and_caption.appendChild(active_image);
-    active_image.className = `modal_active_image${
-      label.works.length < 2 ? " large_image" : ""
-    }`;
-    active_image.style.backgroundImage = `url(${work.image})`;
+      const caption = document.createElement("div");
+      active_image_and_caption.appendChild(caption);
+      caption.className = "modal_caption";
+      caption.innerHTML = `<b>${work.title}, [YEAR?]</b><br/>[CREATOR?]<br/>${work.brief_description}`;
+    }
 
-    const caption = document.createElement("div");
-    active_image_and_caption.appendChild(caption);
-    caption.className = "modal_caption";
-    caption.innerHTML = `${work.title}, 1908<br/>Sir John Tenniel<br/>The Pierpont Morgan Library, New York. (edited)`;
-
-    if (label.works.length > 1) {
+    if (should_show_image_list) {
       const image = document.createElement("div");
       image_list.appendChild(image);
       image.className = `modal_image${
@@ -210,7 +246,9 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
     active_path = path;
     active_path.classList.add("active");
     [current_active_image] = active_images[i];
-    current_active_image.style.opacity = 1;
+    if (current_active_image) {
+      current_active_image.style.opacity = 1;
+    }
     current_modal = modals[i];
     current_modal.style.opacity = 1;
     current_modal.style.pointerEvents = "all";
