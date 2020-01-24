@@ -105,6 +105,9 @@ for (let i = 0; i < labels.length; i++) {
 for (let i = 0; i < labels.length; i++) {
   const label = labels[i];
 
+  // If there are 3 columns don't show images on the label.
+  // If there are 2 columns, only show the first, main image on the label.
+  // If there is 1 column, show the main image and the image list (pulled from the works)
   let num_description_columns;
   if (label.description_column_3.length) {
     num_description_columns = 3;
@@ -216,6 +219,8 @@ for (let i = 0; i < labels.length; i++) {
       const caption = document.createElement("div");
       active_image_and_caption.appendChild(caption);
       caption.className = "modal_caption";
+      //TODO: Can we get 'year' and 'creator' in the work API?
+      //      Need to establish how the captions work, consitently with the website.
       caption.innerHTML = `<b>${work.title}, [YEAR?]</b><br/>[CREATOR?]<br/>${work.brief_description}`;
 
       if (should_show_image_list) {
