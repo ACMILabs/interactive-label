@@ -219,8 +219,8 @@ for (let i = 0; i < labels.length; i++) {
       const caption = document.createElement("div");
       active_image_and_caption.appendChild(caption);
       caption.className = "modal_caption";
-      //TODO: Can we get 'year' and 'creator' in the work API?
-      //      Need to establish how the captions work, consitently with the website.
+      // TODO: Can we get 'year' and 'creator' in the work API?
+      //       Need to establish how the captions work, consitently with the website.
       caption.innerHTML = `<b>${work.title}, [YEAR?]</b><br/>[CREATOR?]<br/>${work.brief_description}`;
 
       if (should_show_image_list) {
