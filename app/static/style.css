@@ -120,6 +120,7 @@ body {
 }
 .modal_left_col_3 {
   width: auto;
+  float: none;
 }
 
 .modal_title {
