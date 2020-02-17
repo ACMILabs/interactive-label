@@ -31,7 +31,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     video_url: x.resource,
     works: x.label.works,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
-    public_images: x.label.public_images
+    images: x.label.images
   };
 });
 
@@ -204,12 +204,12 @@ for (let i = 0; i < labels.length; i++) {
   collect_elements.push(collect);
 
   let label_images = [];
-  if (label.public_images.length) {
-    label_images = label.public_images;
+  if (label.images.length) {
+    label_images = label.images;
   } else {
     for (let j = 0; j < label.works.length; j++) {
-      for (let k = 0; k < label.works[j].public_images.length; k++) {
-        label_images.push(label.works[j].public_images[k]);
+      for (let k = 0; k < label.works[j].images.length; k++) {
+        label_images.push(label.works[j].images[k]);
       }
     }
   }
