@@ -53,7 +53,10 @@ def download_playlist():
     # Download Playlist JSON from XOS
     try:
         headers = {'Authorization': 'Token ' + AUTH_TOKEN}
-        playlist_json_data = requests.get(f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/', headers=headers).json()
+        playlist_json_data = requests.get(
+            f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/',
+            headers=headers
+        ).json()
 
         # Write it to the file system
         with open(CACHED_PLAYLIST_JSON, 'w') as outfile:
