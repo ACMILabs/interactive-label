@@ -30,7 +30,8 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     description_style_3: x.label.columns[2].style,
     video_url: x.resource,
     works: x.label.works,
-    subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`
+    subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
+    images: x.label.images
   };
 });
 
@@ -175,12 +176,14 @@ for (let i = 0; i < labels.length; i++) {
   }
 
   const active_image_cont = document.createElement("div");
-  item.appendChild(active_image_cont);
-  active_image_cont.className = `modal_active_image_cont ${
-    !should_show_image_list && num_description_columns === 1
-      ? "large_image_cont"
-      : ""
-  }`;
+  if (should_show_image_and_caption) {
+    item.appendChild(active_image_cont);
+    active_image_cont.className = `modal_active_image_cont ${
+      !should_show_image_list && num_description_columns === 1
+        ? "large_image_cont"
+        : ""
+    }`;
+  }
 
   const image_list = document.createElement("div");
   if (should_show_image_list) {
@@ -200,8 +203,19 @@ for (let i = 0; i < labels.length; i++) {
   collect.innerHTML = "COLLECT";
   collect_elements.push(collect);
 
-  for (let j = 0; j < label.works.length; j++) {
-    const work = label.works[j];
+  let label_images = [];
+  if (label.images.length) {
+    label_images = label.images;
+  } else {
+    for (let j = 0; j < label.works.length; j++) {
+      for (let k = 0; k < label.works[j].images.length; k++) {
+        label_images.push(label.works[j].images[k]);
+      }
+    }
+  }
+
+  for (let j = 0; j < label_images.length; j++) {
+    const label_image = label_images[j];
 
     if (should_show_image_and_caption) {
       const active_image_and_caption = document.createElement("div");
@@ -214,22 +228,20 @@ for (let i = 0; i < labels.length; i++) {
       active_image.className = `modal_active_image${
         !should_show_image_list ? " large_image" : ""
       }`;
-      active_image.style.backgroundImage = `url(${work.image})`;
+      active_image.style.backgroundImage = `url(${label_image.image_file})`;
 
       const caption = document.createElement("div");
       active_image_and_caption.appendChild(caption);
       caption.className = "modal_caption";
-      // TODO: Can we get 'year' and 'creator' in the work API?
-      //       Need to establish how the captions work, consitently with the website.
-      caption.innerHTML = `<b>${work.title}, [YEAR?]</b><br/>[CREATOR?]<br/>${work.brief_description}`;
+      caption.innerHTML = `${label_image.caption}`;
 
       if (should_show_image_list) {
         const image = document.createElement("div");
         image_list.appendChild(image);
         image.className = `modal_image${
-          label.works.length > 6 ? " small_image" : ""
+          label_images.length > 6 ? " small_image" : ""
         }`;
-        image.style.backgroundImage = `url(${work.image})`;
+        image.style.backgroundImage = `url(${label_image.image_file})`;
         image.addEventListener("click", function image_click() {
           current_active_image.style.opacity = 0;
           current_active_image = active_image_and_caption;
