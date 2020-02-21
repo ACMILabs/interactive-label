@@ -46,8 +46,8 @@ body {
   position: fixed;
   top: 50%;
   left: 0;
-  width: 100%;
-  padding-bottom: 51.38%;
+  width: 1920px;
+  padding-bottom: 1080px;
   height: 0;
   box-sizing: border-box;
   transform: translateY(-50%);

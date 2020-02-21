@@ -1,3 +1,17 @@
+/*
+const debug_el = document.createElement('div')
+debug_el.style.position = 'fixed'
+debug_el.style.top = '0'
+debug_el.style.right = '0'
+debug_el.style.background = '#fff'
+debug_el.style.zIndex = 1
+document.body.appendChild(debug_el)
+
+window.addEventListener('error', function (e) {
+  debug_el.innerHTML += e.message +'. l'+ e.lineno +':c'+ e.colno
+})
+*/
+
 function save_label(label_id) {
   // Save label selected to the local database for a tap
   fetch("http://localhost:8081/api/labels/", {
@@ -31,7 +45,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     video_url: x.resource,
     works: x.label.works,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
-    images: x.label.images
+    images: x.label.public_images
   };
 });
 
@@ -208,8 +222,8 @@ for (let i = 0; i < labels.length; i++) {
     label_images = label.images;
   } else {
     for (let j = 0; j < label.works.length; j++) {
-      for (let k = 0; k < label.works[j].images.length; k++) {
-        label_images.push(label.works[j].images[k]);
+      for (let k = 0; k < label.works[j].public_images.length; k++) {
+        label_images.push(label.works[j].public_images[k]);
       }
     }
   }
