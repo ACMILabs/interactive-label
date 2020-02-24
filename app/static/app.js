@@ -132,8 +132,20 @@ for (let i = 0; i < labels.length; i++) {
     num_description_columns = 1;
   }
 
+  // If there are no label images, default to using all the images in all the works
+  let label_images = [];
+  if (label.images.length) {
+    label_images = label.images;
+  } else {
+    for (let j = 0; j < label.works.length; j++) {
+      for (let k = 0; k < label.works[j].public_images.length; k++) {
+        label_images.push(label.works[j].public_images[k]);
+      }
+    }
+  }
+
   const should_show_image_list =
-    label.works.length > 1 && num_description_columns === 1;
+    label_images.length > 1 && num_description_columns === 1;
   const should_show_image_and_caption = num_description_columns < 3;
 
   const item = document.createElement("div");
@@ -216,17 +228,6 @@ for (let i = 0; i < labels.length; i++) {
   collect.className = "modal_collect";
   collect.innerHTML = "COLLECT";
   collect_elements.push(collect);
-
-  let label_images = [];
-  if (label.images.length) {
-    label_images = label.images;
-  } else {
-    for (let j = 0; j < label.works.length; j++) {
-      for (let k = 0; k < label.works[j].public_images.length; k++) {
-        label_images.push(label.works[j].public_images[k]);
-      }
-    }
-  }
 
   for (let j = 0; j < label_images.length; j++) {
     const label_image = label_images[j];
