@@ -5,5 +5,4 @@ steps:
     type: git-clone
     repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
     revision: '${{CF_REVISION}}'
-    stage: checkout
     git: github
