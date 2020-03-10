@@ -52,3 +52,7 @@ steps:
       - git checkout ${{CF_BRANCH}}
       - balena login --token $BALENA_TOKEN
       - balena push s__interactive-label-tap-pi-4
+    when:
+      branch:
+        only:
+          - master
