@@ -45,7 +45,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     video_url: x.resource,
     works: x.label.works,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
-    images: x.label.public_images
+    images: x.label.images
   };
 });
 
@@ -132,20 +132,8 @@ for (let i = 0; i < labels.length; i++) {
     num_description_columns = 1;
   }
 
-  // If there are no label images, default to using all the images in all the works
-  let label_images = [];
-  if (label.images.length) {
-    label_images = label.images;
-  } else {
-    for (let j = 0; j < label.works.length; j++) {
-      for (let k = 0; k < label.works[j].public_images.length; k++) {
-        label_images.push(label.works[j].public_images[k]);
-      }
-    }
-  }
-
   const should_show_image_list =
-    label_images.length > 1 && num_description_columns === 1;
+    label.images.length > 1 && num_description_columns === 1;
   const should_show_image_and_caption = num_description_columns < 3;
 
   const item = document.createElement("div");
@@ -229,8 +217,8 @@ for (let i = 0; i < labels.length; i++) {
   collect.innerHTML = "COLLECT";
   collect_elements.push(collect);
 
-  for (let j = 0; j < label_images.length; j++) {
-    const label_image = label_images[j];
+  for (let j = 0; j < label.images.length; j++) {
+    const label_image = label.images[j];
 
     if (should_show_image_and_caption) {
       const active_image_and_caption = document.createElement("div");
@@ -254,7 +242,7 @@ for (let i = 0; i < labels.length; i++) {
         const image = document.createElement("div");
         image_list.appendChild(image);
         image.className = `modal_image${
-          label_images.length > 6 ? " small_image" : ""
+          label.images.length > 6 ? " small_image" : ""
         }`;
         image.style.backgroundImage = `url(${label_image.image_file})`;
         image.addEventListener("click", function image_click() {
