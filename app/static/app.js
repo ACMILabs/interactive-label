@@ -262,6 +262,10 @@ paths_svg.setAttribute(
   `0 0 ${window.data.background_dimensions[0]} ${window.data.background_dimensions[1]}`
 );
 
+function handle_path_mousedown(event) {
+  event.target.classList.add("active");
+}
+
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   if (!window.data.playlist_labels[i].region_svg) {
@@ -277,11 +281,8 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
   paths_svg.appendChild(path);
   background.appendChild(paths_svg);
 
-  function handle_path_mousedown() {
-    path.classList.add("active");
-  }
-  path.addEventListener("touchstart", handle_path_mousedown)
-  path.addEventListener("mousedown", handle_path_mousedown)
+  path.addEventListener("touchstart", handle_path_mousedown);
+  path.addEventListener("mousedown", handle_path_mousedown);
 
   path.addEventListener("click", function path_click() {
     active_path = path;
