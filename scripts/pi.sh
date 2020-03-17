@@ -4,7 +4,7 @@ rm /tmp/.X0-lock &>/dev/null || true
 
 echo "Starting X in 2 seconds"
 sleep 2
-startx &
+startx -- -nocursor &
 sleep 20
 
 # Hide the cursor

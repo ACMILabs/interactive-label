@@ -2,7 +2,7 @@
 
 rm /tmp/.X0-lock &>/dev/null || true
 
-startx &
+startx -- -nocursor &
 
 # Wait for X to start
 sleep 10

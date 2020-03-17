@@ -277,9 +277,14 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
   paths_svg.appendChild(path);
   background.appendChild(paths_svg);
 
+  function handle_path_mousedown() {
+    path.classList.add("active");
+  }
+  path.addEventListener("touchstart", handle_path_mousedown)
+  path.addEventListener("mousedown", handle_path_mousedown)
+
   path.addEventListener("click", function path_click() {
     active_path = path;
-    active_path.classList.add("active");
     [current_active_image] = active_images[i];
     if (current_active_image) {
       current_active_image.style.opacity = 1;
