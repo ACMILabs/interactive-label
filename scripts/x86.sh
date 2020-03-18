@@ -14,13 +14,17 @@ python -u app/main.py &
 # Wait for Flask to load
 sleep 5
 
+xset s off -dpms
+
+
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --no-sandbox \
   --enable-native-gpu-memory-buffers --force-gpu-rasterization --enable-oop-rasterization --enable-zero-copy \
   --ignore-gpu-blacklist \
   --window-position=0,0 --window-size=1920,1080 \
   --start-fullscreen --kiosk --test-type \
-  --disable-dev-shm-usage --disable-backing-store-limit
+  --disable-dev-shm-usage --disable-backing-store-limit \
+  --disable-pinch
 
   # --enable-logging=stderr --v=1
 # Running as root

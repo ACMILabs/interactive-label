@@ -15,9 +15,17 @@ python -u -m app.main &
 
 sleep 10
 
+xset s off -dpms
+
 # Launch chromium browser in fullscreen on that page
 SCREEN_SCALE="${SCREEN_SCALE:-default 1.0}"
-chromium-browser --app=http://localhost:8081 --start-fullscreen --no-sandbox --user-data-dir --kiosk --force-device-scale-factor=$SCREEN_SCALE
+chromium-browser \
+  --app=http://localhost:8081 \
+  --start-fullscreen --no-sandbox \
+  --user-data-dir \
+  --kiosk \
+  --force-device-scale-factor=$SCREEN_SCALE \
+  --disable-pinch
 
 # For debugging
 echo "Chromium browser exited unexpectedly."
