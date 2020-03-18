@@ -270,7 +270,6 @@ function handle_path_mouseleave(event) {
   event.target.classList.remove("active");
 }
 
-
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   if (!window.data.playlist_labels[i].region_svg) {
