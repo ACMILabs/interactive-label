@@ -266,6 +266,11 @@ function handle_path_mousedown(event) {
   event.target.classList.add("active");
 }
 
+function handle_path_mouseleave(event) {
+  event.target.classList.remove("active");
+}
+
+
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   if (!window.data.playlist_labels[i].region_svg) {
@@ -283,6 +288,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
 
   path.addEventListener("touchstart", handle_path_mousedown);
   path.addEventListener("mousedown", handle_path_mousedown);
+  path.addEventListener("mouseleave", handle_path_mouseleave);
 
   path.addEventListener("click", function path_click() {
     active_path = path;
