@@ -266,9 +266,22 @@ function handle_path_mousedown(event) {
   event.target.classList.add("active");
 }
 
-function handle_path_mouseleave(event) {
-  event.target.classList.remove("active");
+function handle_path_touchmove(event) {
+  const {top, right, bottom, left} = event.target.getBoundingClientRect();
+  const {clientX, clientY} = event.touches[0];
+  if (!(clientX > left && clientX < right && clientY > top && clientY < bottom)) {
+    event.target.classList.remove("active");
+  }
 }
+
+
+window.addEventListener('touchmove', function handle_touchmove(event) {
+  if (event.touches.length !== 1) {
+    event.preventDefault();
+    return false;
+  }
+}, {passive: false});
+
 
 for (let i = 0; i < window.data.playlist_labels.length; i++) {
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -287,7 +300,8 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
 
   path.addEventListener("touchstart", handle_path_mousedown);
   path.addEventListener("mousedown", handle_path_mousedown);
-  path.addEventListener("mouseleave", handle_path_mouseleave);
+  path.addEventListener("touchmove", handle_path_touchmove);
+
 
   path.addEventListener("click", function path_click() {
     active_path = path;
