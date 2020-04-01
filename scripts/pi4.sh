@@ -34,8 +34,7 @@ chromium-browser \
   --no-sandbox \
   --user-data-dir \
   --kiosk \
-  --force-device-scale-factor=$SCREEN_SCALE \
-  --disable-pinch
+  --force-device-scale-factor=$SCREEN_SCALE
 
 
 # For debugging

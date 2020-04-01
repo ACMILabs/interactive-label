@@ -23,8 +23,7 @@ LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --ignore-gpu-blacklist \
   --window-position=0,0 --window-size=1920,1080 \
   --start-fullscreen --kiosk --test-type \
-  --disable-dev-shm-usage --disable-backing-store-limit \
-  --disable-pinch
+  --disable-dev-shm-usage --disable-backing-store-limit
 
   # --enable-logging=stderr --v=1
 # Running as root
