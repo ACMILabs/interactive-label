@@ -299,8 +299,14 @@ tap_source.onmessage = function() {
   if (active_collect_element && !is_animating_collect) {
     const element = active_collect_element;
     is_animating_collect = true;
-    element.innerHTML = "COLLECTED";
-    element.className = "modal_collect active";
+    element.className = "modal_collect hidden";
+    window.setTimeout(function() {
+      element.innerHTML = "COLLECTED";
+      element.className = "modal_collect active";
+    }, 1000);
+    window.setTimeout(function() {
+      element.className = "modal_collect active hidden";
+    }, 3000);
     window.setTimeout(function() {
       element.className = "modal_collect";
       element.innerHTML = "COLLECT";
