@@ -52,6 +52,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
 // STATE
 
 const modals = [];
+const left_cols = [];
 let active_collect_element = null;
 let is_animating_collect = false;
 const collect_elements = [];
@@ -141,6 +142,7 @@ for (let i = 0; i < labels.length; i++) {
   item.className = "modal_item";
 
   const left_col = document.createElement("div");
+  left_cols[i] = left_col;
   item.appendChild(left_col);
   left_col.className = `modal_left_col_${num_description_columns}`;
 
@@ -314,6 +316,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
       current_active_image.style.opacity = 1;
     }
     current_modal = modals[i];
+    left_cols[i].scrollTop = 0;
     current_modal.style.opacity = 1;
     current_modal.style.pointerEvents = "all";
     modal_cont.style.opacity = 1;
@@ -332,7 +335,7 @@ tap_source.onmessage = function() {
     window.setTimeout(function() {
       element.innerHTML = "COLLECTED";
       element.className = "modal_collect active";
-    }, 1000);
+    }, 500);
     window.setTimeout(function() {
       element.className = "modal_collect active hidden";
     }, 3000);
@@ -340,6 +343,6 @@ tap_source.onmessage = function() {
       element.className = "modal_collect";
       element.innerHTML = "COLLECT";
       is_animating_collect = false;
-    }, 4000);
+    }, 3500);
   }
 };

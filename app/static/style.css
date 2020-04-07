@@ -249,7 +249,7 @@ body {
   padding: 30px 40px 24px;
   font-family: PxGrotesk;
   font-size: 23px;
-  transition: background 1s, color 1s;
+  transition: background 500ms, color 500ms;
 }
 
 .modal_collect:after {
@@ -260,7 +260,7 @@ body {
   content: " ";
   margin-left: 10px;
   vertical-align: -4px;
-  transition: opacity 1s;
+  transition: opacity 500ms;
 }
 
 .modal_collect.active:after  {
