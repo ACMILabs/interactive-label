@@ -12,7 +12,7 @@ export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 # start desktop manager
 echo "STARTING X"
 sleep 2
-startx &
+startx -- -nocursor &
 sleep 20
 
 # Hide the cursor
@@ -23,10 +23,19 @@ python3 -u -m app.main &
 
 sleep 10
 
+xset s off -dpms
+
 # Launch chromium browser in fullscreen on that page
-SCREEN_SCALE="${SCREEN_SCALE:-1.0}"
-LABEL_INTERACTIVE_PORT="${LABEL_INTERACTIVE_PORT:-8081}"
-chromium-browser --app=http://localhost:$LABEL_INTERACTIVE_PORT --start-fullscreen --no-sandbox --user-data-dir --kiosk --disable-dev-shm-usage --disable-backing-store-limit --force-device-scale-factor=$SCREEN_SCALE --check-for-update-interval=31449600 --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT'
+SCREEN_SCALE="${SCREEN_SCALE:-default 1.0}"
+LABEL_INTERACTIVE_PORT="${LABEL_INTERACTIVE_PORT:-default 8081}"
+chromium-browser \
+  --app=http://localhost:$LABEL_INTERACTIVE_PORT \
+  --start-fullscreen \
+  --no-sandbox \
+  --user-data-dir \
+  --kiosk \
+  --force-device-scale-factor=$SCREEN_SCALE
+
 
 # For debugging
 echo "Chromium browser exited unexpectedly."

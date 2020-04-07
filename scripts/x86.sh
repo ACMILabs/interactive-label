@@ -2,7 +2,7 @@
 
 rm /tmp/.X0-lock &>/dev/null || true
 
-startx &
+startx -- -nocursor &
 
 # Wait for X to start
 sleep 10
@@ -13,6 +13,9 @@ python -u app/main.py &
 
 # Wait for Flask to load
 sleep 5
+
+xset s off -dpms
+
 
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --no-sandbox \
