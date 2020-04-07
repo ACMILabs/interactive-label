@@ -303,7 +303,7 @@ tap_source.onmessage = function() {
     window.setTimeout(function() {
       element.innerHTML = "COLLECTED";
       element.className = "modal_collect active";
-    }, 1000);
+    }, 500);
     window.setTimeout(function() {
       element.className = "modal_collect active hidden";
     }, 3000);
@@ -311,6 +311,6 @@ tap_source.onmessage = function() {
       element.className = "modal_collect";
       element.innerHTML = "COLLECT";
       is_animating_collect = false;
-    }, 4000);
+    }, 3500);
   }
 };
