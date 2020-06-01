@@ -43,9 +43,9 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     description_style_2: x.label.columns[1].style,
     description_style_3: x.label.columns[2].style,
     video_url: x.resource,
-    works: x.label.works,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
-    images: x.label.images
+    images: x.label.images,
+    is_context_indigenous: x.label.work.is_context_indigenous,
   };
 });
 
@@ -60,7 +60,7 @@ let current_modal = null;
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
-  active_images[i] = new Array(labels[i].works.length);
+  active_images[i] = new Array(labels[i].images.length);
 }
 let current_active_image = null;
 
@@ -164,6 +164,12 @@ for (let i = 0; i < labels.length; i++) {
     ${label.description_style_1 === "smaller" ? "modal_small_description" : ""}
   `;
   description_1.innerHTML = label.description_column_1;
+  if (label.is_context_indigenous) {
+    const img_el = document.createElement('img')
+    img_el.className = 'indigenous_image'
+    img_el.src = '/static/indigenous.png'
+    description_1.prepend(img_el)
+  }
 
   if (num_description_columns > 1) {
     const description_2 = document.createElement("div");
