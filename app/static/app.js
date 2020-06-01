@@ -45,7 +45,9 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     video_url: x.resource,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
     images: x.label.images,
-    is_context_indigenous: x.label.work.is_context_indigenous,
+    is_context_indigenous: x.label.work
+      ? x.label.work.is_context_indigenous
+      : false,
   };
 });
 
