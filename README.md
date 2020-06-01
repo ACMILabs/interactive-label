@@ -25,6 +25,7 @@ See the README in the [background-image-tools](background-image-tools) folder
 ## Run a development server with docker
 
 * Run `cp config.tmpl.env config.env`
+* Edit `config.env` to include auth token for connecting to a playlist API
 * Run `cd development`
 * Run `docker-compose up --build`
 * Open a browser and visit: http://localhost:8081
