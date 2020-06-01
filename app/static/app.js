@@ -43,7 +43,6 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     description_style_2: x.label.columns[1].style,
     description_style_3: x.label.columns[2].style,
     video_url: x.resource,
-    works: x.label.work,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
     images: x.label.images,
   };
@@ -60,7 +59,7 @@ let current_modal = null;
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
-  active_images[i] = new Array(1);
+  active_images[i] = new Array(labels[i].images.length);
 }
 let current_active_image = null;
 
