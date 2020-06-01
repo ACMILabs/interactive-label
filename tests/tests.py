@@ -80,8 +80,8 @@ def test_download_playlist_label():
     """
 
     download_playlist()
-    file_exists = os.path.isfile(f'playlist_1.json')
-    playlist = json.loads(file_to_string_strip_new_lines(f'../playlist_1.json'))['playlist_labels']
+    file_exists = os.path.isfile('playlist_1.json')
+    playlist = json.loads(file_to_string_strip_new_lines('../playlist_1.json'))['playlist_labels']
 
     assert file_exists is True
     assert len(playlist) == 3
