@@ -19,7 +19,7 @@ touch /root/.Xauthority
 # start desktop manager
 echo "STARTING X"
 sleep 2
-startx &
+startx -- -nocursor &
 sleep 20
 
 # Hide the cursor
