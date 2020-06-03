@@ -24,9 +24,9 @@ function save_label(label_id) {
     referrer: "no-referrer",
     body: JSON.stringify({
       datetime: Date.now(),
-      label_id
-    })
-  }).then(response => response.json());
+      label_id,
+    }),
+  }).then((response) => response.json());
 }
 
 // CONTENT
@@ -45,7 +45,9 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     video_url: x.resource,
     subtitles: `data:text/vtt;base64,${btoa(x.subtitles)}`,
     images: x.label.images,
-    is_context_indigenous: x.label.work.is_context_indigenous,
+    is_context_indigenous: x.label.work
+      ? x.label.work.is_context_indigenous
+      : false,
   };
 });
 
@@ -165,10 +167,10 @@ for (let i = 0; i < labels.length; i++) {
   `;
   description_1.innerHTML = label.description_column_1;
   if (label.is_context_indigenous) {
-    const img_el = document.createElement('img')
-    img_el.className = 'indigenous_image'
-    img_el.src = '/static/indigenous.png'
-    description_1.prepend(img_el)
+    const img_el = document.createElement("img");
+    img_el.className = "indigenous_image";
+    img_el.src = "/static/indigenous.png";
+    description_1.prepend(img_el);
   }
 
   if (num_description_columns > 1) {
@@ -333,19 +335,19 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
 }
 
 const tap_source = new EventSource("/api/tap-source");
-tap_source.onmessage = function() {
+tap_source.onmessage = function () {
   if (active_collect_element && !is_animating_collect) {
     const element = active_collect_element;
     is_animating_collect = true;
     element.className = "modal_collect hidden";
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       element.innerHTML = "COLLECTED";
       element.className = "modal_collect active";
     }, 500);
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       element.className = "modal_collect active hidden";
     }, 3000);
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       element.className = "modal_collect";
       element.innerHTML = "COLLECT";
       is_animating_collect = false;

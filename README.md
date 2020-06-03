@@ -18,6 +18,40 @@ An interactive label running on a small form factor PC connected to a touchscree
 * Dell Optiplex 3070 Micro i3 small form factor PC
 * [A set of lens reader hardware](https://github.com/ACMILabs/lens-reader) if lens reader integration is needed
 
+## Generate background layout files
+
+See the README in the [background-image-tools](background-image-tools) folder
+
+## Run a development server with docker
+
+* Run `cp config.tmpl.env config.env`
+* Edit `config.env` to include auth token for connecting to a playlist API
+* Run `cd development`
+* Run `docker-compose up --build`
+* Open a browser and visit: http://localhost:8081
+
+## Run Javascript tests with docker
+
+* Run `cd testing`
+* Run `docker-compose up --build`
+* In another Terminal run `docker exec -it javascripttests make linttestjs`
+
+## Run Python tests with docker
+
+* Run `cd development`
+* Run `docker-compose up --build`
+* In another Terminal run `docker exec -it labelinteractive make linttest`
+
+## Run Python tests without docker
+
+```
+$ virtualenv .venv
+$ pwd > ./.venv/lib/python3.7/site-packages/the.pth
+$ source .venv/bin/activate
+$ pip install -r requirements/test.txt
+$ env $(cat config.env | xargs) make test
+```
+
 ## Installation via Balena
 
 * Clone this repo.
@@ -40,13 +74,3 @@ To install and run on a Raspbian OS Raspberry Pi for prototyping:
 * Install xdotool `sudo apt install xdotool`
 * To zoom out in the browser `xdotool key Ctrl+minus`
 * To refresh the page `xdotool key "ctrl+F5"`
-
-## Run tests without docker
-
-```
-$ virtualenv .venv
-$ pwd > ./.venv/lib/python3.7/site-packages/the.pth
-$ source .venv/bin/activate
-$ pip install -r requirements/test.txt
-$ env $(cat config.env | xargs) make test
-```

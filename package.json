@@ -9,8 +9,8 @@
     "lint-test": "npm run lint && npm run test"
   },
   "devDependencies": {
-    "jest": "*",
-    "jest-fetch-mock": "*"
+    "jest": "^26.0.1",
+    "jest-fetch-mock": "^3.0.3"
   },
   "jest": {
     "cacheDirectory": "/tmp/jest_0",
@@ -24,30 +24,30 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ACMILabs/label-interactive-pi.git"
+    "url": "git+https://github.com/ACMILabs/interactive-label.git"
   },
   "author": "ACMILabs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ACMILabs/label-interactive-pi/issues"
+    "url": "https://github.com/ACMILabs/interactive-label/issues"
   },
-  "homepage": "https://github.com/ACMILabs/label-interactive-pi#readme",
+  "homepage": "https://github.com/ACMILabs/interactive-label#readme",
   "dependencies": {
-    "babel-jest": "*",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "*",
-    "moment": "*",
-    "babel-eslint": "*",
-    "eslint": "*",
-    "eslint-config-airbnb": "*",
-    "eslint-config-prettier": "*",
-    "eslint-config-react-app": "*",
-    "eslint-plugin-flowtype": "*",
-    "eslint-plugin-import": "*",
-    "eslint-plugin-jest": "*",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^5.1.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.13.2",
     "eslint-plugin-jsx-a11y": "*",
-    "eslint-plugin-prettier": "*",
-    "eslint-plugin-react": "*",
-    "prettier": "*"
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "moment": "^2.26.0",
+    "prettier": "^2.0.5"
   },
   "babel": {
     "plugins": [

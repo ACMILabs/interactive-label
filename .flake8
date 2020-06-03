@@ -1,3 +1,3 @@
 [flake8]
-exclude=.git, __pycache__, .venv, venv, requirements, migrations, settings, celerybeat-schedule, node_modules
+exclude=.git, __pycache__, .venv, venv, requirements, migrations, settings, celerybeat-schedule, node_modules, background-image-tools
 max-line-length=119
