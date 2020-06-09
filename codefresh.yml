@@ -17,7 +17,7 @@ steps:
     title: Building Label Interactive Docker Image
     type: build
     stage: package
-    image_name: acmilabs/label-interactive
+    image_name: acmilabs/interactive-label
     working_directory: ./
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     dockerfile: ./development/Dockerfile
@@ -25,7 +25,7 @@ steps:
     title: Building Javascript Test Docker Image
     type: build
     stage: package
-    image_name: acmilabs/label-interactive
+    image_name: acmilabs/interactive-label
     tag: ${{CF_BRANCH_TAG_NORMALIZED}}-javascript
     dockerfile: ./testing/Dockerfile.node
   unit_test:
