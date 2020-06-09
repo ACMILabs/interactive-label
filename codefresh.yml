@@ -12,7 +12,6 @@ steps:
     repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
     revision: '${{CF_REVISION}}'
     stage: checkout
-    git: github
   labelinteractive_image:
     title: Building Label Interactive Docker Image
     type: build
