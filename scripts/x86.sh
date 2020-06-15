@@ -9,6 +9,10 @@ sleep 10
 
 unclutter -display :0 -idle 0.1 &
 
+# Cache playlist and images
+python -u -m app.cache
+
+# Start Flask
 python -u app/main.py &
 
 # Wait for Flask to load

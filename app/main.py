@@ -49,24 +49,6 @@ class HasTapped(Model):
         database = db
 
 
-def download_playlist():
-    # Download Playlist JSON from XOS
-    try:
-        headers = {'Authorization': 'Token ' + AUTH_TOKEN}
-        playlist_json_data = requests.get(
-            f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/',
-            headers=headers
-        ).json()
-
-        # Write it to the file system
-        with open(CACHED_PLAYLIST_JSON, 'w') as outfile:
-            json.dump(playlist_json_data, outfile)
-
-    except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as error:
-        print(f'Error downloading playlist JSON from XOS: {error}')
-        sentry_sdk.capture_exception(error)
-
-
 @app.errorhandler(HTTPError)
 def handle_http_error(error):
     """
@@ -190,5 +172,4 @@ def tap_source():
 if __name__ == '__main__':
     db.create_tables([Label, HasTapped])
     HasTapped.create(has_tapped=0)
-    download_playlist()
     app.run(host='0.0.0.0', port=8081, use_reloader=False, debug=False)

@@ -5,8 +5,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from app import main
-from app.main import Label, download_playlist
+from app.cache import create_cache
+from app.main import Label
 
 
 def file_to_string_strip_new_lines(filename):
@@ -40,11 +40,22 @@ class MockResponse:
         return None
 
 
+class MockBinaryResponse:
+    # pylint: disable=too-few-public-methods
+    def __init__(self, data):
+        self.content = data
+        self.status_code = 200
+
+
 def mocked_requests_get(*args, **kwargs):
     if args[0] == 'https://xos.acmi.net.au/api/playlists/2/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist_no_label.json'), 200)
     if args[0] == 'https://xos.acmi.net.au/api/playlists/1/':
         return MockResponse(file_to_string_strip_new_lines('data/playlist.json'), 200)
+
+    if '.jpg' in args[0]:
+        with open('tests/data/sample.jpg', 'rb') as file_obj:
+            return MockBinaryResponse(file_obj.read())
 
     raise Exception("No mocked sample data for request: "+args[0])
 
@@ -72,22 +83,6 @@ def test_label():
     assert label.datetime is timestamp
 
 
-@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
-def test_download_playlist_label():
-    """
-    Test that downloading the playlist from XOS
-    successfully saves it to the filesystem.
-    """
-
-    download_playlist()
-    file_exists = os.path.isfile('playlist_1.json')
-    playlist = json.loads(file_to_string_strip_new_lines('../playlist_1.json'))['playlist_labels']
-
-    assert file_exists is True
-    assert len(playlist) == 3
-    assert playlist[0]['label']['title'] == 'Dracula'
-
-
 def test_route_playlist_label(client):
     """
     Test that the root route renders the expected data.
@@ -109,22 +104,6 @@ def test_route_playlist_json(client):
     response = client.get('/api/playlist/')
 
     assert b'Dracula' in response.data
-    assert response.status_code == 200
-
-
-@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
-def test_route_playlist_label_with_no_label(client):
-    """
-    Test that the playlist route returns the expected data
-    when a playlist item doesn't have a label.
-    """
-
-    main.XOS_PLAYLIST_ID = 2
-    download_playlist()
-    response = client.get('/')
-    response_data = response.data.decode('utf-8')
-
-    assert 'resource' not in response_data
     assert response.status_code == 200
 
 
@@ -181,3 +160,16 @@ def test_select_label(client):
 
     assert response.json['label_id'] == 17
     assert response.status_code == 200
+
+
+@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
+def test_cache():
+    """
+    Test the cache downloads and saves images
+    """
+    create_cache()
+    with open('playlist_1.json', 'r') as playlist_cache:
+        playlist = json.loads(playlist_cache.read())['playlist_labels']
+    assert len(playlist) == 3
+    assert playlist[0]['label']['title'] == 'Dracula'
+    assert playlist[0]['label']['images'][0]['image_file'] == '/cache/sample.jpg'

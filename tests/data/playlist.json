@@ -18,6 +18,11 @@
             "brief_description": "When Dracula leaves the captive Jonathan Harker and Transylvania for London in search of Mina Harkerâ€”the spitting image of Dracula's long-dead wife, Elisabetaâ€”obsessed vampire hunter, Dr. Van Helsing sets out to end the madness.",
             "first_production_year": "1992"
           }
+        ],
+        "images": [
+          {
+            "image_file": "file://../../data/sample.jpg"
+          }
         ]
       },
       "resource": "file://../../data/sample.mp4",
@@ -38,6 +43,11 @@
             "abstract": "",
             "brief_description": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape.",
             "first_production_year": "1993"
+          }
+        ],
+        "images": [
+          {
+            "image_file": "file://../../data/sample.jpg"
           }
         ]
       },
@@ -60,10 +70,17 @@
             "brief_description": "A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
             "first_production_year": "1989"
           }
+        ],
+        "images": [
+          {
+            "image_file": "file://../../data/sample.jpg"
+          }
         ]
       },
       "resource": "file://../../data/sample.mp4",
       "subtitles": "file://../../data/sample.srt"
     }
-  ]
+  ],
+  "background": "file://../../data/sample.jpg",
+  "background_dimensions": null
 }
