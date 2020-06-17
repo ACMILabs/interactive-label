@@ -83,10 +83,12 @@ def test_label():
     assert label.datetime is timestamp
 
 
+@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
 def test_route_playlist_label(client):
     """
     Test that the root route renders the expected data.
     """
+    create_cache()
 
     response = client.get('/')
 
@@ -96,10 +98,12 @@ def test_route_playlist_label(client):
     assert response.status_code == 200
 
 
+@patch('requests.get', MagicMock(side_effect=mocked_requests_get))
 def test_route_playlist_json(client):
     """
     Test that the playlist route returns the expected data.
     """
+    create_cache()
 
     response = client.get('/api/playlist/')
 
@@ -168,7 +172,7 @@ def test_cache():
     Test the cache downloads and saves images
     """
     create_cache()
-    with open('playlist_1.json', 'r') as playlist_cache:
+    with open('/data/playlist_1.json', 'r') as playlist_cache:
         playlist = json.loads(playlist_cache.read())['playlist_labels']
     assert len(playlist) == 3
     assert playlist[0]['label']['title'] == 'Dracula'

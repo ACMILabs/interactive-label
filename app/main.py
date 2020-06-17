@@ -20,6 +20,7 @@ AUTH_TOKEN = os.getenv('AUTH_TOKEN')
 XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID', '1')
 SENTRY_ID = os.getenv('SENTRY_ID')
 CACHED_PLAYLIST_JSON = f'playlist_{XOS_PLAYLIST_ID}.json'
+CACHE_DIR = os.getenv('CACHE_DIR', '/data/')
 
 # Setup Sentry
 sentry_sdk.init(
@@ -62,7 +63,7 @@ def handle_http_error(error):
 
 def render_playlist():
     # Read in the cached JSON
-    with open(CACHED_PLAYLIST_JSON, encoding='utf-8') as json_file:
+    with open(f'{CACHE_DIR}{CACHED_PLAYLIST_JSON}', encoding='utf-8') as json_file:
         json_data = json.load(json_file)
 
     # Remove playlist items that don't have a label
@@ -93,9 +94,13 @@ def playlist():
 
 @app.route('/api/playlist/')
 def playlist_json():
-    # Read in the cached JSON
-    with open(CACHED_PLAYLIST_JSON, encoding='utf-8') as json_file:
-        json_data = json.load(json_file)
+    json_data = {}
+    try:
+        # Read in the cached JSON
+        with open(f'{CACHE_DIR}{CACHED_PLAYLIST_JSON}', encoding='utf-8') as json_file:
+            json_data = json.load(json_file)
+    except FileNotFoundError:
+        pass
 
     return jsonify(json_data)
 
