@@ -313,3 +313,36 @@ body {
   float: left;
   height: 159px;
 }
+.title_cont {
+  float: left;
+  width: 50%;
+  padding: 75px 75px 0;
+  box-sizing: border-box;
+}
+.title {
+  font-family: PxGrotesk;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 65px;
+}
+.subtitles {
+  font-size: 28px;
+  line-height: 39px;
+  margin-top: 39px;
+}
+.content {
+  float: right;
+  width: 50%;
+  font-size: 42px;
+  line-height: 58px;
+  padding-right: 75px;
+  padding-top: 75px;
+  box-sizing: border-box;
+  min-height: 220px;
+}
+p:first-child {
+  margin-top: 0;
+}
+.error_screen {
+  color: white;
+}

@@ -60,8 +60,7 @@ def handle_http_error(error):
     return response
 
 
-@app.route('/')
-def playlist():
+def render_playlist():
     # Read in the cached JSON
     with open(CACHED_PLAYLIST_JSON, encoding='utf-8') as json_file:
         json_data = json.load(json_file)
@@ -78,6 +77,18 @@ def playlist():
             'playlist_endpoint': f'{XOS_API_ENDPOINT}playlists/',
         }
     )
+
+
+def render_error_screen():
+    return render_template('no_playlist.html')
+
+
+@app.route('/')
+def playlist():
+    try:
+        return render_playlist()
+    except FileNotFoundError:
+        return render_error_screen()
 
 
 @app.route('/api/playlist/')
