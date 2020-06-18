@@ -48,7 +48,10 @@ def create_cache():
     Fetches a playlist, saves the images to the CACHE_DIR.
     """
     try:
-        playlist_json = requests.get(f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/').json()
+        playlist_json = requests.get(
+            f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/',
+            timeout=5,
+        ).json()
 
         for old_file in os.listdir(CACHE_DIR):
             os.remove(CACHE_DIR + old_file)
