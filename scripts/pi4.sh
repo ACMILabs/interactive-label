@@ -25,6 +25,9 @@ sleep 20
 # Hide the cursor
 unclutter -display :0 -idle 0.1 &
 
+# Cache playlist and images
+python3 -u -m app.cache
+
 # Start Flask
 python3 -u -m app.main &
 

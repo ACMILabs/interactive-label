@@ -12,7 +12,7 @@ services:
     env_file: ../config.env
     volumes:
       - ../:/code        
-      - ../../cache:/data
+      - ../data:/data
     command: ./scripts/dev.sh
     ports:
      - 8081:8081
