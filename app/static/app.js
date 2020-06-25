@@ -35,6 +35,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
   return {
     id: x.label.id,
     title: x.label.title,
+    title_annotation: x.label.work ? x.label.work.title_annotation : null,
     publication: x.label.subtitles,
     description_column_1: x.label.columns[0].content,
     description_column_2: x.label.columns[1].content,
@@ -152,6 +153,16 @@ for (let i = 0; i < labels.length; i++) {
   left_col.appendChild(title);
   title.className = "modal_title";
   title.innerHTML = label.title;
+
+  if (label.title_annotation) {
+    const title_annotation = document.createElement("span");
+    title_annotation.className = "modal_title_annotation";
+    title_annotation.innerHTML = label.title_annotation;
+    title.innerHTML = title.innerHTML.replace(
+      /<\/p>/g,
+      `${title_annotation.outerHTML}</p>`
+    );
+  }
 
   const publication = document.createElement("div");
   left_col.appendChild(publication);
