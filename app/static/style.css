@@ -129,6 +129,13 @@ body {
   font-family: PxGrotesk;
 }
 
+.modal_title_annotation {
+  font-family: FaktPro;
+  font-size: 1.5rem;
+  padding-left: 0.6rem;
+  text-transform: lowercase;
+}
+
 .modal_publication {
   font-size: 18px;
   line-height: 25px;
