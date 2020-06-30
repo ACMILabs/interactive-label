@@ -22,6 +22,19 @@ An interactive label running on a small form factor PC connected to a touchscree
 
 See the README in the [background-image-tools](background-image-tools) folder
 
+## Building PlaylistLabel region SVGs
+
+Using your favourite graphics program, load up the background image for reference, then draw superimposed SVG regions and each one to svg files. Then open each file with a text editor, and copy paste the path data (starting with M and ending with Z) into its respective XOS Playlist Label "Region SVG" field.
+
+**Illustrator instructions:**
+
+- Create a new 1920 x 1080px file
+- Place the background image of your choice and lock it (Object > Lock)
+- Using a rectangle or circle tool, draw the clickable regions over the image
+- Select those shapes you've made and turn them into compound paths (Object > Compound Path > Make)
+- Export the SVG paths (File > Export > Export As)
+- To see which blob of SVG relates to which region, load the SVG in a browser, open dev tools and inspect each SVG path. You can then copy between the M and Z into XOS for that region
+
 ## Run a development server with docker
 
 * Run `cp config.tmpl.env config.env`
