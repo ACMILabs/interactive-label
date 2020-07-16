@@ -350,6 +350,9 @@ body {
 p:first-child {
   margin-top: 0;
 }
+p:last-child {
+  margin-bottom: 5px;
+}
 .error_screen {
   color: white;
 }
