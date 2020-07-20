@@ -103,6 +103,7 @@ function close_modal() {
   current_modal.style.pointerEvents = "none";
   modal_cont.style.opacity = 0;
   modal_cont.style.pointerEvents = "none";
+  current_active_image.style.opacity = 0;
   active_collect_element = null;
   active_path.classList.remove("active");
   active_path = null;
