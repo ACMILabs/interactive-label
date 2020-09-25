@@ -50,7 +50,7 @@ def create_cache():
     try:
         playlist_json = requests.get(
             f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/',
-            timeout=5,
+            timeout=50,
         ).json()
 
         for old_file in os.listdir(CACHE_DIR):
