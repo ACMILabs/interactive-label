@@ -167,7 +167,7 @@ def collect_item():
 
 @app.route('/cache/<path:filename>')
 def cache(filename):
-    return send_from_directory('/home/harry/boojum/acmi/interactive-label/data', filename)
+    return send_from_directory(CACHE_DIR, filename)
 
 
 def event_stream():
