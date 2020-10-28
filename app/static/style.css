@@ -41,6 +41,18 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+}
+
+cite {
+  font-size: 0.8em;
+  font-style: normal;
+  font-weight: bold;
+}
+
 .background {
   background: #000 center/contain no-repeat;
   position: fixed;
@@ -350,8 +362,30 @@ body {
 p:first-child {
   margin-top: 0;
 }
+
 p:last-child {
   margin-bottom: 5px;
+}
+
+.child_work {
+  margin-bottom: 20px;
+}
+
+.child_work_title {
+  font-weight: bold;
+}
+
+.child_work_title_annotation {
+  font-size: 1.2rem;
+  text-transform: lowercase;
+}
+
+.child_work_subtitle {
+  font-size: 1.4rem;
+}
+
+.child_work_credit_line {
+  font-size: 1.4rem;
 }
 .error_screen {
   color: white;
