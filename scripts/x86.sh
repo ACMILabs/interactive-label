@@ -1,13 +1,53 @@
 #!/bin/bash
 
+# Remove the X server lock file so ours starts cleanly
 rm /tmp/.X0-lock &>/dev/null || true
 
+# Set the display to use
+export DISPLAY=:0
+
+# Set the DBUS address for sending around system messages
+export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+
+# Set XDG_RUNTIME_DIR
+mkdir -pv ~/.cache/xdgr
+export XDG_RUNTIME_DIR=$PATH:~/.cache/xdgr
+
+# Create Xauthority
+touch /root/.Xauthority
+
+# Start desktop manager
+echo "Starting X"
 startx -- -nocursor &
 
-# Wait for X to start
-sleep 10
+# TODO: work out how to detect X has started
+sleep 5
 
-unclutter -display :0 -idle 0.1 &
+# Print all of the current displays used by running processes
+echo "Displays in use after starting X"
+DISPLAYS=`ps -u $(id -u) -o pid= | \
+  while read pid; do
+    cat /proc/$pid/environ 2>/dev/null | tr '\0' '\n' | grep '^DISPLAY=:'
+  done | sort -u`
+echo $DISPLAYS
+
+# If DISPLAYS doesn't include 0.0 set the new display
+if [[ $DISPLAYS == *"0.0"* ]]; then
+  echo "Display includes 0.0 so let's launch..."
+else
+  LAST_DISPLAY=`ps -u $(id -u) -o pid= | \
+    while read pid; do
+      cat /proc/$pid/environ 2>/dev/null | tr '\0' '\n' | grep '^DISPLAY=:'
+    done | sort -u | tail -n1`
+  echo "0.0 is missing, so setting display to: ${LAST_DISPLAY}"
+  export $LAST_DISPLAY
+fi
+
+# Prevent blanking and screensaver
+xset s off -dpms
+
+# Hide the cursor
+unclutter -idle 0.1 &
 
 # Cache playlist and images
 python -u -m app.cache
@@ -17,9 +57,6 @@ python -u app/main.py &
 
 # Wait for Flask to load
 sleep 5
-
-xset s off -dpms
-
 
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --no-sandbox \
@@ -42,4 +79,4 @@ LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
 # For debugging
 echo "Chromium browser exited unexpectedly."
 free -h
-echo "End of pi.sh ..."
+echo "End of x86.sh ..."
