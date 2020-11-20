@@ -21,7 +21,7 @@ echo "Starting X"
 startx -- -nocursor &
 
 # TODO: work out how to detect X has started
-sleep 5
+sleep 10
 
 # Print all of the current displays used by running processes
 echo "Displays in use after starting X"
@@ -79,4 +79,8 @@ LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
 # For debugging
 echo "Chromium browser exited unexpectedly."
 free -h
+
+# Restart the container
+echo "Restarting container..."
+curl -H "Content-Type: application/json" -d "{\"serviceName\": \"$BALENA_SERVICE_NAME\"}" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY"
 echo "End of x86.sh ..."
