@@ -39,6 +39,7 @@ body {
   font-family: FaktPro;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  user-select: none;
 }
 
 blockquote {
@@ -93,7 +94,7 @@ cite {
   transform: translateY(-50%);
   height: calc(100vh - 160px);
   left: 80px;
-  right: 80px;
+  width: 1760px;
   opacity: 0;
   pointer-events: none;
   overflow: auto;
