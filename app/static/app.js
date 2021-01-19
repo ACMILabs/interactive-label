@@ -255,7 +255,7 @@ for (let i = 0; i < labels.length; i++) {
       active_image.className = `modal_active_image${
         !should_show_image_list ? " large_image" : ""
       }`;
-      active_image.style.backgroundImage = `url(${label_image.image_file})`;
+      active_image.style.backgroundImage = `url(${label_image.image_file_m})`;
 
       const caption = document.createElement("div");
       active_image_and_caption.appendChild(caption);
@@ -268,7 +268,7 @@ for (let i = 0; i < labels.length; i++) {
         image.className = `modal_image${
           label.images.length > 6 ? " small_image" : ""
         }`;
-        image.style.backgroundImage = `url(${label_image.image_file})`;
+        image.style.backgroundImage = `url(${label_image.image_file_m})`;
         image.addEventListener("click", function image_click() {
           current_active_image.style.opacity = 0;
           current_active_image = active_image_and_caption;
