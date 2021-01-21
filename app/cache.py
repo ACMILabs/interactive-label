@@ -13,6 +13,8 @@ sentry_sdk.init(dsn=SENTRY_ID)
 
 CACHE_DIR = os.getenv('CACHE_DIR', '/data/')
 
+MAX_IMAGES = 15
+
 
 def get_image_name(image_url):
     """
@@ -57,7 +59,7 @@ def create_cache():
             os.remove(CACHE_DIR + old_file)
 
         for label in playlist_json['playlist_labels']:
-            for image in label['label']['images']:
+            for image in label['label']['images'][:MAX_IMAGES]:
                 cache_image_and_update_json(image, 'image_file')
 
         cache_image_and_update_json(playlist_json, 'background')
