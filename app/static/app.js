@@ -109,8 +109,20 @@ function close_modal() {
   active_collect_element = null;
   active_path.classList.remove("active");
   active_path = null;
+  current_modal = null;
   save_label(null);
 }
+
+let close_timer = null;
+function handle_timer_timeout() {
+  if (current_modal) {
+    close_modal();
+  }
+}
+window.addEventListener("click", function () {
+  window.clearTimeout(close_timer);
+  close_timer = window.setTimeout(handle_timer_timeout, 60000);
+});
 
 const modal_blind = document.createElement("div");
 modal_blind.className = "modal_blind";
