@@ -13,7 +13,7 @@ sentry_sdk.init(dsn=SENTRY_ID)
 
 CACHE_DIR = os.getenv('CACHE_DIR', '/data/')
 
-MAX_IMAGES = 15
+MAX_IMAGES = int(os.getenv('MAX_IMAGES', '15'))
 
 
 def get_image_name(image_url):
