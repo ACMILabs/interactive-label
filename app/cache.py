@@ -13,6 +13,8 @@ sentry_sdk.init(dsn=SENTRY_ID)
 
 CACHE_DIR = os.getenv('CACHE_DIR', '/data/')
 
+MAX_IMAGES = int(os.getenv('MAX_IMAGES', '15'))
+
 
 def get_image_name(image_url):
     """
@@ -57,13 +59,14 @@ def create_cache():
             os.remove(CACHE_DIR + old_file)
 
         for label in playlist_json['playlist_labels']:
+            label['label']['images'] = label['label']['images'][:MAX_IMAGES]
             for image in label['label']['images']:
                 cache_image_and_update_json(image, 'image_file_m')
 
         cache_image_and_update_json(playlist_json, 'background')
 
         with open(f'{CACHE_DIR}playlist_{XOS_PLAYLIST_ID}.json', 'w') as outfile:
-            json.dump(playlist_json, outfile)
+            json.dump(playlist_json, outfile, indent=1)
 
     except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as exception:
         sentry_sdk.capture_exception(exception)
