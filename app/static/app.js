@@ -12,6 +12,16 @@ window.addEventListener('error', function (e) {
 })
 */
 
+let close_timer = null
+function handle_timer_timeout () {
+  close_modal()
+}
+window.addEventListener('click', function () {
+  window.clearTimeout(close_timer)
+  close_timer = window.setTimeout(handle_timer_timeout, 60000)
+})
+
+
 function save_label(label_id) {
   // Save label selected to the local database for a tap
   fetch("http://localhost:8081/api/labels/", {
