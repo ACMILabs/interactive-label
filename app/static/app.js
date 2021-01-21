@@ -12,13 +12,15 @@ window.addEventListener('error', function (e) {
 })
 */
 
-let close_timer = null
+let close_timer = null;
 function handle_timer_timeout () {
-  close_modal()
+  if (current_modal) {
+    close_modal();
+  }
 }
 window.addEventListener('click', function () {
-  window.clearTimeout(close_timer)
-  close_timer = window.setTimeout(handle_timer_timeout, 60000)
+  window.clearTimeout(close_timer);
+  close_timer = window.setTimeout(handle_timer_timeout, 60000);
 })
 
 
@@ -119,6 +121,7 @@ function close_modal() {
   active_collect_element = null;
   active_path.classList.remove("active");
   active_path = null;
+  current_modal = null;
   save_label(null);
 }
 
