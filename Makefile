@@ -11,6 +11,8 @@ lint:
 	pylint *
 	flake8
 	isort -rc --check-only .
+install:
+	npm install
 test:
 	# Run python tests
 	env `cat /code/config.test.env` pytest -v
@@ -21,5 +23,5 @@ testjs:
 	# Run javascript tests
 	npm run test
 linttest: lint test
-linttestjs: lintjs testjs
+linttestjs: install lintjs testjs
 linttestall: lint test lintjs testjs
