@@ -3,6 +3,8 @@ Interactive Label
 
 An interactive label running on a small form factor PC connected to a touchscreen screen.
 
+![Interactive Label CI](https://github.com/ACMILabs/interactive-label/workflows/Interactive%20Label%20CI/badge.svg)
+
 ## Features
 
 * Takes label and background layout data from an XOS playlist via an API call

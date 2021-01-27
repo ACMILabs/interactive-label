@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3-python:3.7.2-stretch-run
+FROM balenalib/intel-nuc-python:3.7-buster-run
 
 RUN install_packages apt-utils g++ build-essential
 
