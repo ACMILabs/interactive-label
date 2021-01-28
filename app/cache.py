@@ -61,7 +61,7 @@ def create_cache():
         for label in playlist_json['playlist_labels']:
             label['label']['images'] = label['label']['images'][:MAX_IMAGES]
             for image in label['label']['images']:
-                cache_image_and_update_json(image, 'image_file_m')
+                cache_image_and_update_json(image, 'image_file_xs')
 
         cache_image_and_update_json(playlist_json, 'background')
 

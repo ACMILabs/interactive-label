@@ -21,7 +21,7 @@
         ],
         "images": [
           {
-            "image_file_m": "file://../../data/sample.jpg"
+            "image_file_xs": "file://../../data/sample.jpg"
           }
         ]
       },
@@ -47,7 +47,7 @@
         ],
         "images": [
           {
-            "image_file_m": "file://../../data/sample.jpg"
+            "image_file_xs": "file://../../data/sample.jpg"
           }
         ]
       },
@@ -73,7 +73,7 @@
         ],
         "images": [
           {
-            "image_file_m": "file://../../data/sample.jpg"
+            "image_file_xs": "file://../../data/sample.jpg"
           }
         ]
       },
