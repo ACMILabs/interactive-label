@@ -59,8 +59,8 @@ python -u app/main.py &
 sleep 5
 
 # Calibrate touch screen
-if [[ -v CALIBRATION ]]; then
-  xinput set-int-prop "eGalax Inc. USB TouchController Touchscreen" "Evdev Axis Calibration" $CALIBRATION
+if [[ -v TOUCH_CALIBRATION ]]; then
+  xinput set-int-prop "eGalax Inc. USB TouchController Touchscreen" "Evdev Axis Calibration" $TOUCH_CALIBRATION
 fi
 
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
