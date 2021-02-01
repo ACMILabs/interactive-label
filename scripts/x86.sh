@@ -58,6 +58,11 @@ python -u app/main.py &
 # Wait for Flask to load
 sleep 5
 
+# Calibrate touch screen
+if [[ -v CALIBRATION ]]; then
+  xinput set-int-prop "eGalax Inc. USB TouchController Touchscreen" "Evdev Axis Calibration" $CALIBRATION
+fi
+
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --no-sandbox \
   --enable-native-gpu-memory-buffers --force-gpu-rasterization --enable-oop-rasterization --enable-zero-copy \
