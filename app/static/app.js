@@ -367,7 +367,7 @@ tap_error_el.className = "tap_error";
 const tap_error_text_el = document.createElement("div");
 tap_error_el.appendChild(tap_error_text_el);
 tap_error_text_el.innerText = "Select an object to collect";
-tap_error_text_el.className = "tap_error_text"
+tap_error_text_el.className = "tap_error_text";
 
 const tap_error_close_el = document.createElement("div");
 tap_error_el.appendChild(tap_error_close_el);
@@ -375,25 +375,25 @@ tap_error_close_el.className = "tap_error_close";
 
 let close_tap_error_timeout = null;
 
-function close_tap_error () {
+function close_tap_error() {
   window.clearTimeout(close_tap_error_timeout);
-  window.removeEventListener('click', close_tap_error)
+  window.removeEventListener("click", close_tap_error);
   tap_error_el.style.opacity = 0;
   tap_error_el.style.pointerEvents = "none";
 }
 
-function open_tap_error () {
+function open_tap_error() {
   tap_error_el.style.opacity = 1;
   tap_error_el.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
   close_tap_error_timeout = window.setTimeout(close_tap_error, 3000);
-  window.addEventListener('click', close_tap_error)
+  window.addEventListener("click", close_tap_error);
 }
 
 const tap_source = new EventSource("/api/tap-source");
 tap_source.onmessage = function () {
   if (!active_collect_element) {
-    open_tap_error()
+    open_tap_error();
   }
   if (active_collect_element && !is_animating_collect) {
     const element = active_collect_element;
