@@ -49,6 +49,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     is_context_indigenous: x.label.work
       ? x.label.work.is_context_indigenous
       : false,
+    is_group: x.label.work.record_type === "group",
   };
 });
 
@@ -269,10 +270,12 @@ for (let i = 0; i < labels.length; i++) {
       }`;
       active_image.style.backgroundImage = `url(${label_image.image_file_xs})`;
 
-      const caption = document.createElement("div");
-      active_image_and_caption.appendChild(caption);
-      caption.className = "modal_caption";
-      caption.innerHTML = `${label_image.caption}`;
+      if (label.is_group) {
+        const caption = document.createElement("div");
+        active_image_and_caption.appendChild(caption);
+        caption.className = "modal_caption";
+        caption.innerHTML = `${label_image.caption}`;
+      }
 
       if (should_show_image_list) {
         const image = document.createElement("div");
