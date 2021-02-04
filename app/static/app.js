@@ -49,7 +49,7 @@ const labels = window.data.playlist_labels.map(function playlist_labels_map(x) {
     is_context_indigenous: x.label.work
       ? x.label.work.is_context_indigenous
       : false,
-    is_group: x.label.work.record_type == "group",
+    is_group: x.label.work.record_type === "group",
   };
 });
 
