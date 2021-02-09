@@ -6,6 +6,7 @@ import requests
 import sentry_sdk
 
 XOS_API_ENDPOINT = os.getenv('XOS_API_ENDPOINT')
+AUTH_TOKEN = os.getenv('AUTH_TOKEN')
 XOS_PLAYLIST_ID = os.getenv('XOS_PLAYLIST_ID', '1')
 SENTRY_ID = os.getenv('SENTRY_ID')
 
@@ -50,8 +51,10 @@ def create_cache():
     Fetches a playlist, saves the images to the CACHE_DIR.
     """
     try:
+        headers = {'Authorization': 'Token ' + AUTH_TOKEN}
         playlist_json = requests.get(
             f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/',
+            headers=headers,
             timeout=15,
         ).json()
 
