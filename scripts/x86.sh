@@ -63,6 +63,10 @@ if [[ -v TOUCH_CALIBRATION ]]; then
   xinput set-int-prop "eGalax Inc. USB TouchController Touchscreen" "Evdev Axis Calibration" $TOUCH_CALIBRATION
 fi
 
+if [[ -v TRANSFORM_CALIBRATION ]]; then
+  xinput set-prop "eGalax Inc. USB TouchController Touchscreen" "Coordinate Transformation Matrix" $TRANSFORM_CALIBRATION
+fi
+
 LIBVA_DRIVER_NAME=iHD chromium http://localhost:8081 \
   --no-sandbox \
   --enable-native-gpu-memory-buffers --force-gpu-rasterization --enable-oop-rasterization --enable-zero-copy \
