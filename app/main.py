@@ -45,6 +45,7 @@ class Label(Model):
 
 class HasTapped(Model):
     has_tapped = IntegerField()
+    tap_successful = IntegerField()
 
     class Meta:  # pylint: disable=R0903
         database = db
@@ -148,10 +149,6 @@ def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
     """
-    has_tapped = HasTapped.get_or_none(has_tapped=0)
-    if has_tapped:
-        has_tapped.has_tapped = 1
-        has_tapped.save()
     xos_tap = dict(request.get_json())
     try:
         record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
@@ -161,8 +158,21 @@ def collect_item():
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}
     response = requests.post(XOS_TAPS_ENDPOINT, json=xos_tap, headers=headers)
+
+    has_tapped = None
+    try:
+        has_tapped = HasTapped.get(has_tapped=1)
+    except:
+        has_tapped = HasTapped.get(has_tapped=0)
+        has_tapped.has_tapped = 1
+
     if response.status_code != requests.codes['created']:
+        has_tapped.tap_successful = 0
+        has_tapped.save()
         raise HTTPError('Could not save tap to XOS.')
+    
+    has_tapped.tap_successful = 1
+    has_tapped.save()
     return jsonify(xos_tap), response.status_code
 
 
@@ -178,7 +188,7 @@ def event_stream():
         if has_tapped:
             has_tapped.has_tapped = 0
             has_tapped.save()
-            yield 'data: {}\n\n'
+            yield f'data: {{ "tap_successful": {has_tapped.tap_successful} }}\n\n'
 
 
 @app.route('/api/tap-source/')
@@ -188,5 +198,5 @@ def tap_source():
 
 if __name__ == '__main__':
     db.create_tables([Label, HasTapped])
-    HasTapped.create(has_tapped=0)
+    HasTapped.create(has_tapped=0, tap_successful=0)
     app.run(host='0.0.0.0', port=8081, use_reloader=False, debug=False)
