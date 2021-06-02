@@ -5,7 +5,6 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-buster-run
 # use `install_packages` if you need to install dependencies,
 # for instance if you need git, just uncomment the line below.
 RUN install_packages \
-  chromium-common \
   chromium \
   lsb-release \
   xserver-xorg-video-intel \
