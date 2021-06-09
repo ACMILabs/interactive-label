@@ -28,4 +28,4 @@ def database():
         label_id=10,
     )
 
-    HasTapped.create(has_tapped=0)
+    HasTapped.create(has_tapped=0, tap_successful=0)

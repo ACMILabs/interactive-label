@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from app.cache import create_cache
-from app.main import Label
+from app.main import HasTapped, Label
 
 
 def file_to_string_strip_new_lines(filename):
@@ -61,8 +61,12 @@ def mocked_requests_get(*args, **kwargs):
 
 
 def mocked_requests_post(*args, **kwargs):
-    if args[0] == 'https://xos.acmi.net.au/api/taps/':
+    request_url = args[0]
+
+    if '/api/taps/' in request_url:
         return MockResponse(file_to_string_strip_new_lines('data/xos_tap.json'), 201)
+    if '/api/bad-uri/' in request_url:
+        return MockResponse('{}', 404)
 
     raise Exception("No mocked sample data for request: "+args[0])
 
@@ -127,6 +131,11 @@ def test_tap_received_set_label(client):
     assert response.json['label'] == 10
     assert response.status_code == 201
 
+    has_tapped = HasTapped.get_or_none(has_tapped=1)
+    assert has_tapped
+    assert has_tapped.has_tapped == 1
+    assert has_tapped.tap_successful == 1
+
 
 @pytest.mark.usefixtures('database')
 @patch('requests.post', MagicMock(side_effect=mocked_requests_post))
@@ -145,6 +154,59 @@ def test_tap_received_no_label(client):
 
     assert b'No label selected.' in response.data
     assert response.status_code == 404
+
+    has_tapped = HasTapped.get_or_none(has_tapped=1)
+    assert has_tapped
+    assert has_tapped.has_tapped == 1
+    assert has_tapped.tap_successful == 0
+
+
+@pytest.mark.usefixtures('database')
+@patch('app.main.XOS_TAPS_ENDPOINT', 'https://xos.acmi.net.au/api/bad-uri/')
+@patch('requests.post', MagicMock(side_effect=mocked_requests_post))
+def test_tap_received_xos_error(client):
+    """
+    Test that a tap fails correctly for an XOS error
+    """
+    lens_tap_data = file_to_string_strip_new_lines('data/lens_tap.json')
+    response = client.post(
+        '/api/taps/',
+        data=lens_tap_data,
+        headers={'Content-Type': 'application/json'}
+    )
+
+    assert response.status_code == 400
+
+    has_tapped = HasTapped.get_or_none(has_tapped=1)
+    assert has_tapped
+    assert has_tapped.has_tapped == 1
+    assert has_tapped.tap_successful == 0
+
+
+@pytest.mark.usefixtures('database')
+@patch('requests.post', MagicMock(side_effect=mocked_requests_post))
+def test_tap_received_still_processing_error(client):
+    """
+    Test that if a tap is already processing, new taps fail
+    """
+    has_tapped = HasTapped.get_or_none(has_tapped=0)
+    has_tapped.has_tapped = 1
+    has_tapped.save()
+
+    lens_tap_data = file_to_string_strip_new_lines('data/lens_tap.json')
+    response = client.post(
+        '/api/taps/',
+        data=lens_tap_data,
+        headers={'Content-Type': 'application/json'}
+    )
+
+    assert b'Tap still processing.' in response.data
+    assert response.status_code == 500
+
+    has_tapped = HasTapped.get_or_none(has_tapped=1)
+    assert has_tapped
+    assert has_tapped.has_tapped == 1
+    assert has_tapped.tap_successful == 0
 
 
 @pytest.mark.usefixtures('database')
