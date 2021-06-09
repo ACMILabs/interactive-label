@@ -287,10 +287,6 @@ cite {
   vertical-align: 0px;
 }
 
-.modal_collect.active.tap_fail:after {
-  background: url('cross.svg') center/contain no-repeat;
-}
-
 .modal_collect.active.hidden,
 .modal_collect.hidden {
   color: rgba(0,0,0,0);
