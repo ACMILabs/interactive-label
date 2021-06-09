@@ -386,7 +386,7 @@ function close_tap_error() {
 }
 
 function open_tap_error(errorText) {
-  tap_error_text_el.innerText = errorText;
+  tap_error_text_el.innerHTML = errorText;
   tap_error_el.style.opacity = 1;
   tap_error_el.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
@@ -403,7 +403,7 @@ tap_source.onmessage = function(e) {
     open_tap_error("Select an object to collect");
     return;
   } else if (!tap_successful) {
-    open_tap_error("Work Not Collected");
+    open_tap_error("Work not collected <br><br> See a Visitor Experience staff member");
     return;
   }
   
