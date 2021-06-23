@@ -133,7 +133,6 @@ def test_tap_received_set_label(client):
 
     has_tapped = HasTapped.get_or_none(has_tapped=1)
     assert has_tapped
-    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 1
 
 
@@ -157,7 +156,6 @@ def test_tap_received_no_label(client):
 
     has_tapped = HasTapped.get_or_none(has_tapped=1)
     assert has_tapped
-    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 0
 
 
@@ -179,7 +177,6 @@ def test_tap_received_xos_error(client):
 
     has_tapped = HasTapped.get_or_none(has_tapped=1)
     assert has_tapped
-    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 0
 
 
@@ -205,7 +202,6 @@ def test_tap_received_still_processing_error(client):
 
     has_tapped = HasTapped.get_or_none(has_tapped=1)
     assert has_tapped
-    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 0
 
 
