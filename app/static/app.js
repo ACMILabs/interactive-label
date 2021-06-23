@@ -395,31 +395,37 @@ function open_tap_error(errorText) {
 }
 
 const tap_source = new EventSource("/api/tap-source");
-tap_source.onmessage = function(e) {
+
+tap_source.onmessage = function (e) {
   const event_data = JSON.parse(e.data);
-  const tap_successful = event_data.tap_successful && event_data.tap_successful === 1;
+  const tap_successful =
+    event_data.tap_successful && event_data.tap_successful === 1;
 
   if (!active_collect_element) {
     open_tap_error("Select an object to collect");
     return;
-  } else if (!tap_successful) {
-    open_tap_error("Work not collected <br><br> See a Visitor Experience staff member");
+  }
+
+  if (!tap_successful) {
+    open_tap_error(
+      "Work not collected <br><br> See a Visitor Experience staff member"
+    );
     return;
   }
-  
+
   if (is_animating_collect) return;
 
   const element = active_collect_element;
   is_animating_collect = true;
   element.className = "modal_collect hidden";
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     element.innerHTML = "COLLECTED";
     element.className = "modal_collect active";
   }, 500);
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     element.className = "modal_collect active hidden";
   }, 3000);
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     element.className = "modal_collect";
     element.innerHTML = "COLLECT";
     is_animating_collect = false;
