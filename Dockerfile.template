@@ -5,8 +5,7 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.7-buster-run
 # use `install_packages` if you need to install dependencies,
 # for instance if you need git, just uncomment the line below.
 RUN install_packages \
-  chromium-common=83.0.4103.116-1~deb10u3 \
-  chromium=83.0.4103.116-1~deb10u3 \
+  chromium \
   lsb-release \
   xserver-xorg-video-intel \
   xinit \
