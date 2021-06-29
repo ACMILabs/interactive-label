@@ -396,8 +396,8 @@ function open_tap_error(errorText) {
 
 const tap_source = new EventSource("/api/tap-source");
 
-tap_source.onmessage = function (e) {
-  const event_data = JSON.parse(e.data);
+tap_source.onmessage = function (event) {
+  const event_data = JSON.parse(event.data);
   const tap_successful =
     event_data.tap_successful && event_data.tap_successful === 1;
 

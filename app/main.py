@@ -46,6 +46,7 @@ class Label(Model):
 class HasTapped(Model):
     has_tapped = IntegerField()
     tap_successful = IntegerField()
+    tap_processing = IntegerField()
 
     class Meta:  # pylint: disable=R0903
         database = db
@@ -149,29 +150,37 @@ def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
     """
-    has_tapped = HasTapped.get_or_none(has_tapped=0)
-    if not has_tapped:
-        return HTTPError('Tap still processing.'), abort(500, 'Tap still processing.')
-    has_tapped.tap_successful = 0
-    has_tapped.has_tapped = 1
+    # If a tap is already being processed by the UI, don't update it
+    tap_to_process = HasTapped.get_or_none(tap_processing=0)
+    if (tap_to_process):
+        tap_to_process.tap_processing = 1
+        tap_to_process.save()
 
-    xos_tap = dict(request.get_json())
     try:
         record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
     except DoesNotExist:
-        has_tapped.save()
+        if tap_to_process:
+            tap_to_process.tap_successful = 0
+            tap_to_process.has_tapped = 1
+            tap_to_process.save()
         return HTTPError('No label selected.'), abort(404, 'No label selected.')
+
+    xos_tap = dict(request.get_json())
     xos_tap['label'] = record.pop('label_id', None)
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}
     response = requests.post(XOS_TAPS_ENDPOINT, json=xos_tap, headers=headers)
-
     if response.status_code != requests.codes['created']:
-        has_tapped.save()
+        if tap_to_process:
+            tap_to_process.tap_successful = 0
+            tap_to_process.has_tapped = 1
+            tap_to_process.save()
         raise HTTPError('Could not save tap to XOS.')
 
-    has_tapped.tap_successful = 1
-    has_tapped.save()
+    if tap_to_process:
+        tap_to_process.tap_successful = 1
+        tap_to_process.has_tapped = 1
+        tap_to_process.save()
     return jsonify(xos_tap), response.status_code
 
 
@@ -183,11 +192,14 @@ def cache(filename):
 def event_stream():
     while True:
         time.sleep(0.1)
-        has_tapped = HasTapped.get_or_none(has_tapped=1)
+        has_tapped = HasTapped.get_or_none(tap_processing=1, has_tapped=1)
         if has_tapped:
+            ui_tap_event = f'data: {{ "tap_successful": {has_tapped.tap_successful} }}\n\n'
             has_tapped.has_tapped = 0
+            has_tapped.tap_processing = 0
+            has_tapped.tap_successful = 0
             has_tapped.save()
-            yield f'data: {{ "tap_successful": {has_tapped.tap_successful} }}\n\n'
+            yield ui_tap_event
 
 
 @app.route('/api/tap-source/')
@@ -197,5 +209,5 @@ def tap_source():
 
 if __name__ == '__main__':
     db.create_tables([Label, HasTapped])
-    HasTapped.create(has_tapped=0, tap_successful=0)
+    HasTapped.create(has_tapped=0, tap_successful=0, tap_processing=0)
     app.run(host='0.0.0.0', port=8081, use_reloader=False, debug=False)

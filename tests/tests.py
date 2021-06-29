@@ -131,8 +131,8 @@ def test_tap_received_set_label(client):
     assert response.json['label'] == 10
     assert response.status_code == 201
 
-    has_tapped = HasTapped.get_or_none(has_tapped=1)
-    assert has_tapped
+    has_tapped = HasTapped.get_or_none(tap_processing=1)
+    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 1
 
 
@@ -154,8 +154,8 @@ def test_tap_received_no_label(client):
     assert b'No label selected.' in response.data
     assert response.status_code == 404
 
-    has_tapped = HasTapped.get_or_none(has_tapped=1)
-    assert has_tapped
+    has_tapped = HasTapped.get_or_none(tap_processing=1)
+    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 0
 
 
@@ -175,19 +175,19 @@ def test_tap_received_xos_error(client):
 
     assert response.status_code == 400
 
-    has_tapped = HasTapped.get_or_none(has_tapped=1)
-    assert has_tapped
+    has_tapped = HasTapped.get_or_none(tap_processing=1)
+    assert has_tapped.has_tapped == 1
     assert has_tapped.tap_successful == 0
 
 
 @pytest.mark.usefixtures('database')
 @patch('requests.post', MagicMock(side_effect=mocked_requests_post))
-def test_tap_received_still_processing_error(client):
+def test_tap_received_while_processing_still_creates(client):
     """
-    Test that if a tap is already processing, new taps fail
+    Test that if an old tap is still being processed by the UI, new taps are still created
     """
-    has_tapped = HasTapped.get_or_none(has_tapped=0)
-    has_tapped.has_tapped = 1
+    has_tapped = HasTapped.get_or_none(tap_processing=0)
+    has_tapped.tap_processing = 1
     has_tapped.save()
 
     lens_tap_data = file_to_string_strip_new_lines('data/lens_tap.json')
@@ -197,12 +197,7 @@ def test_tap_received_still_processing_error(client):
         headers={'Content-Type': 'application/json'}
     )
 
-    assert b'Tap still processing.' in response.data
-    assert response.status_code == 500
-
-    has_tapped = HasTapped.get_or_none(has_tapped=1)
-    assert has_tapped
-    assert has_tapped.tap_successful == 0
+    assert response.status_code == 201
 
 
 @pytest.mark.usefixtures('database')
