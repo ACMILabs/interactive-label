@@ -152,7 +152,7 @@ def collect_item():
     """
     # If a tap is already being processed by the UI, don't update it
     tap_to_process = HasTapped.get_or_none(tap_processing=0)
-    if (tap_to_process):
+    if tap_to_process:
         tap_to_process.tap_processing = 1
         tap_to_process.save()
 
