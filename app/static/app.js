@@ -385,7 +385,8 @@ function close_tap_error() {
   tap_error_el.style.pointerEvents = "none";
 }
 
-function open_tap_error() {
+function open_tap_error(errorText) {
+  tap_error_text_el.innerHTML = errorText;
   tap_error_el.style.opacity = 1;
   tap_error_el.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
@@ -394,25 +395,39 @@ function open_tap_error() {
 }
 
 const tap_source = new EventSource("/api/tap-source");
-tap_source.onmessage = function () {
+
+tap_source.onmessage = function (event) {
+  const event_data = JSON.parse(event.data);
+  const tap_successful =
+    event_data.tap_successful && event_data.tap_successful === 1;
+
   if (!active_collect_element) {
-    open_tap_error();
+    open_tap_error("Select an object to collect");
+    return;
   }
-  if (active_collect_element && !is_animating_collect) {
-    const element = active_collect_element;
-    is_animating_collect = true;
-    element.className = "modal_collect hidden";
-    window.setTimeout(function () {
-      element.innerHTML = "COLLECTED";
-      element.className = "modal_collect active";
-    }, 500);
-    window.setTimeout(function () {
-      element.className = "modal_collect active hidden";
-    }, 3000);
-    window.setTimeout(function () {
-      element.className = "modal_collect";
-      element.innerHTML = "COLLECT";
-      is_animating_collect = false;
-    }, 3500);
+
+  if (!tap_successful) {
+    open_tap_error(
+      "Work not collected <br><br> See a Visitor Experience staff member"
+    );
+    return;
   }
+
+  if (is_animating_collect) return;
+
+  const element = active_collect_element;
+  is_animating_collect = true;
+  element.className = "modal_collect hidden";
+  window.setTimeout(function () {
+    element.innerHTML = "COLLECTED";
+    element.className = "modal_collect active";
+  }, 500);
+  window.setTimeout(function () {
+    element.className = "modal_collect active hidden";
+  }, 3000);
+  window.setTimeout(function () {
+    element.className = "modal_collect";
+    element.innerHTML = "COLLECT";
+    is_animating_collect = false;
+  }, 3500);
 };
