@@ -68,7 +68,7 @@ def create_cache():
 
         cache_image_and_update_json(playlist_json, 'background')
 
-        with open(f'{CACHE_DIR}playlist_{XOS_PLAYLIST_ID}.json', 'w') as outfile:
+        with open(f'{CACHE_DIR}playlist_{XOS_PLAYLIST_ID}.json', 'w', encoding='utf-8') as outfile:
             json.dump(playlist_json, outfile, indent=1)
 
     except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError) as exception:

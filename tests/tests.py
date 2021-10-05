@@ -21,7 +21,7 @@ def file_to_string_strip_new_lines(filename):
     file_as_string = ""
 
     # open filename assuming filename is relative to current working directory
-    with open(os.path.join(cwd, filename), 'r') as file_obj:
+    with open(os.path.join(cwd, filename), 'r', encoding='utf-8') as file_obj:
         # strip new line characters
         file_as_string = file_obj.read().replace('\n', '')
     # return string
@@ -225,7 +225,7 @@ def test_cache():
     Test the cache downloads and saves images
     """
     create_cache()
-    with open('/data/playlist_1.json', 'r') as playlist_cache:
+    with open('/data/playlist_1.json', 'r', encoding='utf-8') as playlist_cache:
         playlist = json.loads(playlist_cache.read())['playlist_labels']
     assert len(playlist) == 3
     assert playlist[0]['label']['title'] == 'Dracula'
