@@ -54,6 +54,7 @@ def create_cache():
         headers = {'Authorization': 'Token ' + AUTH_TOKEN}
         playlist_json = requests.get(
             f'{XOS_API_ENDPOINT}playlists/{XOS_PLAYLIST_ID}/',
+            params={'not_on_display': 'false'},
             headers=headers,
             timeout=15,
         ).json()
