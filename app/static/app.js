@@ -126,6 +126,11 @@ window.addEventListener("click", function () {
   close_timer = window.setTimeout(handle_timer_timeout, 60000);
 });
 
+function setModalTimeout(milliseconds) {
+  window.clearTimeout(close_timer);
+  close_timer = window.setTimeout(handle_timer_timeout, milliseconds);
+}
+
 const modal_blind = document.createElement("div");
 modal_blind.className = "modal_blind";
 modal_cont.appendChild(modal_blind);
@@ -437,4 +442,7 @@ tap_source.onmessage = function (event) {
     element.innerHTML = COLLECT_TEXT;
     is_animating_collect = false;
   }, 3500);
+  // Set the modal timeout to 5 seconds after a lens tap
+  // 5 + 3.5 seconds to reset the collect text
+  setModalTimeout(8500);
 };
