@@ -61,6 +61,7 @@ let active_collect_element = null;
 let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
+const COLLECT_TEXT = "TAP LENS ON THE READER TO COLLECT";
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
@@ -251,7 +252,7 @@ for (let i = 0; i < labels.length; i++) {
   const collect = document.createElement("div");
   item.appendChild(collect);
   collect.className = "modal_collect";
-  collect.innerHTML = "COLLECT";
+  collect.innerHTML = COLLECT_TEXT;
   collect_elements.push(collect);
 
   const close = document.createElement("div");
@@ -433,7 +434,7 @@ tap_source.onmessage = function (event) {
   }, 3000);
   window.setTimeout(function () {
     element.className = "modal_collect";
-    element.innerHTML = "COLLECT";
+    element.innerHTML = COLLECT_TEXT;
     is_animating_collect = false;
   }, 3500);
 };
