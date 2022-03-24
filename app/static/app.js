@@ -254,6 +254,12 @@ for (let i = 0; i < labels.length; i++) {
   collect.innerHTML = "COLLECT";
   collect_elements.push(collect);
 
+  const close = document.createElement("div");
+  item.appendChild(close);
+  close.className = "modal_close";
+  close.innerHTML = "";
+  close.addEventListener("click", close_modal);
+
   for (let j = 0; j < label.images.length; j++) {
     const label_image = label.images[j];
 

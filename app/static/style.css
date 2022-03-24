@@ -248,6 +248,22 @@ cite {
   display: inline-block;
 }
 
+.modal_close {
+  font-size: 23px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 20px 20px 5px 20px;
+}
+
+.modal_close:before {
+  width: 25px;
+  height: 25px;
+  background: url('close.svg') center/contain no-repeat;
+  content: " ";
+  display: inline-block;
+}
+
 .error {
   color: #fff;
   text-shadow: 2px 2px 0 #000;
