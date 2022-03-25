@@ -61,7 +61,7 @@ let active_collect_element = null;
 let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
-const COLLECT_TEXT = "TAP LENS ON THE READER TO COLLECT";
+const COLLECT_TEXT = "TAP LENS ON READER TO COLLECT";
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
