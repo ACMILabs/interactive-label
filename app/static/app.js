@@ -61,6 +61,7 @@ let active_collect_element = null;
 let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
+const COLLECT_TEXT = "TAP LENS ON READER TO COLLECT";
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
@@ -124,6 +125,11 @@ window.addEventListener("click", function () {
   window.clearTimeout(close_timer);
   close_timer = window.setTimeout(handle_timer_timeout, 60000);
 });
+
+function setModalTimeout(milliseconds) {
+  window.clearTimeout(close_timer);
+  close_timer = window.setTimeout(handle_timer_timeout, milliseconds);
+}
 
 const modal_blind = document.createElement("div");
 modal_blind.className = "modal_blind";
@@ -251,8 +257,14 @@ for (let i = 0; i < labels.length; i++) {
   const collect = document.createElement("div");
   item.appendChild(collect);
   collect.className = "modal_collect";
-  collect.innerHTML = "COLLECT";
+  collect.innerHTML = COLLECT_TEXT;
   collect_elements.push(collect);
+
+  const close = document.createElement("div");
+  item.appendChild(close);
+  close.className = "modal_close";
+  close.innerHTML = "";
+  close.addEventListener("click", close_modal);
 
   for (let j = 0; j < label.images.length; j++) {
     const label_image = label.images[j];
@@ -427,7 +439,10 @@ tap_source.onmessage = function (event) {
   }, 3000);
   window.setTimeout(function () {
     element.className = "modal_collect";
-    element.innerHTML = "COLLECT";
+    element.innerHTML = COLLECT_TEXT;
     is_animating_collect = false;
   }, 3500);
+  // Set the modal timeout to 5 seconds after a lens tap
+  // 5 + 3.5 seconds to reset the collect text
+  setModalTimeout(8500);
 };

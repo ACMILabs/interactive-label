@@ -15,7 +15,10 @@ RUN install_packages \
   unclutter \
   # Support for Accuview gTouch 21.5" touchscreen
   xserver-xorg-input-evdev \
-  xinput
+  xinput \
+  # Chinese character fonts
+  fonts-arphic-ukai \
+  fonts-arphic-uming
 
 # disable lxpolkit popup warning
 RUN mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak

@@ -18,7 +18,10 @@ RUN install_packages \
   xinput \
   # xrandr
   x11-xserver-utils \
-  intel-media-va-driver
+  intel-media-va-driver \
+  # Chinese character fonts
+  fonts-arphic-ukai \
+  fonts-arphic-uming
 
 COPY ./conf/20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
 
