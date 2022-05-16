@@ -49,6 +49,11 @@ xset s off -dpms
 # Hide the cursor
 unclutter -idle 0.1 &
 
+# Start the first boot checker
+if [ -z "$DISABLE_FIRST_BOOT_CHECK" ]; then
+  ./scripts/first_boot.sh &
+fi
+
 # Cache playlist and images
 python -u -m app.cache
 
