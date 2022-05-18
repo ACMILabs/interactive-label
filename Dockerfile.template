@@ -21,7 +21,9 @@ RUN install_packages \
   intel-media-va-driver \
   # Chinese character fonts
   fonts-arphic-ukai \
-  fonts-arphic-uming
+  fonts-arphic-uming \
+  # JQ for first boot checker
+  jq
 
 COPY ./conf/20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
 
