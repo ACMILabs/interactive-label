@@ -414,9 +414,7 @@ tap_source.onmessage = function (event) {
     event_data.tap_successful && event_data.tap_successful === 1;
 
   if (!active_collect_element) {
-    open_modal(
-      "Select a work to view and add to your collection."
-    );
+    open_modal("Select a work to view and add to your collection.");
     return;
   }
 
