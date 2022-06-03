@@ -61,7 +61,7 @@ let active_collect_element = null;
 let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
-const COLLECT_TEXT = "TAP LENS ON READER TO COLLECT";
+const COLLECT_TEXT = "TO COLLECT TAP LENS ON READER";
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
@@ -397,12 +397,12 @@ function close_tap_error() {
   tap_error_el.style.pointerEvents = "none";
 }
 
-function open_tap_error(errorText) {
+function open_modal(errorText) {
   tap_error_text_el.innerHTML = errorText;
   tap_error_el.style.opacity = 1;
   tap_error_el.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
-  close_tap_error_timeout = window.setTimeout(close_tap_error, 3000);
+  close_tap_error_timeout = window.setTimeout(close_tap_error, 5000);
   window.addEventListener("click", close_tap_error);
 }
 
@@ -414,12 +414,14 @@ tap_source.onmessage = function (event) {
     event_data.tap_successful && event_data.tap_successful === 1;
 
   if (!active_collect_element) {
-    open_tap_error("Select an object to collect");
+    open_modal(
+      "Select a work to view and add to your collection."
+    );
     return;
   }
 
   if (!tap_successful) {
-    open_tap_error(
+    open_modal(
       "Work not collected <br><br> See a Visitor Experience staff member"
     );
     return;
