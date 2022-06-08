@@ -395,12 +395,16 @@ function close_tap_error() {
   window.removeEventListener("click", close_tap_error);
   tap_error_el.style.opacity = 0;
   tap_error_el.style.pointerEvents = "none";
+  modal_cont.style.opacity = 0;
+  modal_cont.style.pointerEvents = "none";
 }
 
 function open_modal(errorText) {
   tap_error_text_el.innerHTML = errorText;
   tap_error_el.style.opacity = 1;
   tap_error_el.style.pointerEvents = "all";
+  modal_cont.style.opacity = 1;
+  modal_cont.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
   close_tap_error_timeout = window.setTimeout(close_tap_error, 5000);
   window.addEventListener("click", close_tap_error);
@@ -414,7 +418,7 @@ tap_source.onmessage = function (event) {
     event_data.tap_successful && event_data.tap_successful === 1;
 
   if (!active_collect_element) {
-    open_modal("Select a work to view and add to your collection.");
+    open_modal("<h1>Tap an image to open label and collect.</h1><p>The first item on this interactive label has been added to your Lens collection.</p>");
     return;
   }
 
