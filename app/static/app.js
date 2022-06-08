@@ -417,14 +417,16 @@ tap_source.onmessage = function (event) {
   const tap_successful =
     event_data.tap_successful && event_data.tap_successful === 1;
 
-  if (!active_collect_element) {
-    open_modal("<h1>Tap an image to open label and collect.</h1><p>The first item on this interactive label has been added to your Lens collection.</p>");
+  if (!active_collect_element && tap_successful) {
+    open_modal(
+      "<h1>Tap an image to open label and collect.</h1><p>The first item on this interactive label has been added to your Lens collection.</p>"
+    );
     return;
   }
 
   if (!tap_successful) {
     open_modal(
-      "Work not collected <br><br> See a Visitor Experience staff member"
+      "<h1>Work not collected</h1><p>See a Visitor Experience staff member</p>"
     );
     return;
   }
