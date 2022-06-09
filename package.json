@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/ACMILabs/interactive-label#readme",
   "dependencies": {
-    "babel-eslint": "*",
+    "@babel/eslint-parser": "*",
     "babel-jest": "*",
     "babel-plugin-transform-es2015-modules-commonjs": "*",
     "eslint": "*",

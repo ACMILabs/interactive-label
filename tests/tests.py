@@ -140,7 +140,7 @@ def test_tap_received_set_label(client):
 @patch('requests.post', MagicMock(side_effect=mocked_requests_post))
 def test_tap_received_no_label(client):
     """
-    Test appropriate response when that a tap is received but no label is selected.
+    Test the first playlist label is collected when a tap is received but no label is selected.
     """
     # pylint: disable=E1120
     Label.delete().execute()
@@ -151,12 +151,21 @@ def test_tap_received_no_label(client):
         headers={'Content-Type': 'application/json'}
     )
 
-    assert b'No label selected.' in response.data
-    assert response.status_code == 404
+    assert response.json['label'] == 17
+    assert response.status_code == 201
 
     has_tapped = HasTapped.get_or_none(tap_processing=1)
     assert has_tapped.has_tapped == 1
-    assert has_tapped.tap_successful == 0
+    assert has_tapped.tap_successful == 1
+
+    with patch('builtins.open', side_effect=FileNotFoundError):
+        response = client.post(
+            '/api/taps/',
+            data=lens_tap_data,
+            headers={'Content-Type': 'application/json'}
+        )
+        assert b'Failed to collect label' in response.data
+        assert response.status_code == 404
 
 
 @pytest.mark.usefixtures('database')

@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import time
@@ -150,6 +151,8 @@ def collect_item():
     """
     Collect a tap and forward it on to XOS with the label ID.
     """
+    record = None
+
     # If a tap is already being processed by the UI, don't update it
     tap_to_process = HasTapped.get_or_none(tap_processing=0)
     if tap_to_process:
@@ -159,11 +162,28 @@ def collect_item():
     try:
         record = model_to_dict(Label.select().order_by(Label.datetime.desc()).get())
     except DoesNotExist:
-        if tap_to_process:
-            tap_to_process.tap_successful = 0
-            tap_to_process.has_tapped = 1
-            tap_to_process.save()
-        return HTTPError('No label selected.'), abort(404, 'No label selected.')
+        pass
+
+    if not record:
+        # A visitor tapped without first selecting a Label, so let's collect
+        # the first Label in this Playlist for them.
+        try:
+            cached_playlist = {}
+            with open(f'{CACHE_DIR}{CACHED_PLAYLIST_JSON}', encoding='utf-8') as json_file:
+                cached_playlist = json.load(json_file)
+
+            record = {
+                'datetime': datetime.datetime.now().timestamp(),
+                'label_id': cached_playlist['playlist_labels'][0]['label']['id'],
+                'playlist_id': cached_playlist['id'],
+            }
+        except (FileNotFoundError, KeyError):
+            if tap_to_process:
+                tap_to_process.tap_successful = 0
+                tap_to_process.has_tapped = 1
+                tap_to_process.save()
+            print(tap_to_process)
+            return HTTPError('Failed to collect label.'), abort(404, 'Failed to collect label.')
 
     xos_tap = dict(request.get_json())
     xos_tap['label'] = record.pop('label_id', None)

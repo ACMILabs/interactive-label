@@ -105,7 +105,7 @@ cite {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255,255,255,0.3);
+  background: rgba(40,40,40,0.9);
 }
 
 .modal_item {
@@ -423,10 +423,10 @@ p:last-child {
   width: 50vw;
   height: 50vh;
   background: #000;
-  border: 2px solid #565251;
   transition: opacity 400ms;
   opacity: 0;
   pointer-events: none;
+  padding: 5rem;
 }
 
 .tap_error_text {
@@ -435,17 +435,23 @@ p:last-child {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 65%;
-  font-size: 60px;
-  font-family: PxGrotesk;
+  width: 80%;
+  font-size: 56px;
+  font-family: FaktPro;
   color: #fff;
   text-align: center;
 }
 
+.tap_error_text h1 {
+  font-size: 72px;
+  font-family: PxGrotesk;
+  font-weight: normal;
+}
+
 .tap_error_close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 35px;
+  right: 35px;
   width: 50px;
   height: 50px;
   background: center/contain url('close.svg');
