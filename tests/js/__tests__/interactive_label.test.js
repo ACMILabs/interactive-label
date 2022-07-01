@@ -23,6 +23,6 @@ it("displays expected tap to select notification text", () => {
   const notificationElement =
     document.getElementsByClassName("notification_bar")[0];
   expect(notificationElement.innerHTML).toBe(
-    "<p>Tap an image to open label and collect</p>"
+    "<p>Tap an object to learn more</p>"
   );
 });

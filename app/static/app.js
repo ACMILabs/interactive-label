@@ -62,9 +62,9 @@ let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
 const COLLECT_TEXT = "TO COLLECT TAP LENS ON READER";
-const NOTIFICATION_TEXT = "Tap an image to open label and collect";
-const notification_bar_timeout = 30000;
-const modal_timeout = 60000;
+const NOTIFICATION_TEXT = "Tap an object to learn more";
+const NOTIFICATION_BAR_TIMEOUT = 20000;
+const MODAL_TIMEOUT = 60000;
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
@@ -147,22 +147,22 @@ function handle_notification_bar_timer_timeout() {
     window.clearTimeout(close_notification_bar_timer);
     close_notification_bar_timer = window.setTimeout(
       handle_notification_bar_timer_timeout,
-      notification_bar_timeout
+      NOTIFICATION_BAR_TIMEOUT
     );
   }
 }
 close_notification_bar_timer = window.setTimeout(
   handle_notification_bar_timer_timeout,
-  notification_bar_timeout
+  NOTIFICATION_BAR_TIMEOUT
 );
 window.addEventListener("click", function () {
   window.clearTimeout(close_timer);
-  close_timer = window.setTimeout(handle_timer_timeout, modal_timeout);
+  close_timer = window.setTimeout(handle_timer_timeout, MODAL_TIMEOUT);
   window.clearTimeout(close_notification_bar_timer);
   close_notification_bar();
   close_notification_bar_timer = window.setTimeout(
     handle_notification_bar_timer_timeout,
-    notification_bar_timeout
+    NOTIFICATION_BAR_TIMEOUT
   );
 });
 
@@ -446,7 +446,7 @@ function open_modal(errorText) {
   modal_cont.style.opacity = 1;
   modal_cont.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
-  close_tap_error_timeout = window.setTimeout(close_tap_error, 5000);
+  close_tap_error_timeout = window.setTimeout(close_tap_error, 8000);
   window.addEventListener("click", close_tap_error);
 }
 
@@ -457,7 +457,7 @@ tap_source.onmessage = function (event) {
   window.clearTimeout(close_notification_bar_timer);
   close_notification_bar_timer = window.setTimeout(
     handle_notification_bar_timer_timeout,
-    notification_bar_timeout
+    NOTIFICATION_BAR_TIMEOUT
   );
   const event_data = JSON.parse(event.data);
   const tap_successful =
@@ -465,7 +465,7 @@ tap_source.onmessage = function (event) {
 
   if (!active_collect_element && tap_successful) {
     open_modal(
-      `<h1>${NOTIFICATION_TEXT}</h1><p>The first item on this interactive label has been added to your Lens collection.</p>`
+      `<h1>${NOTIFICATION_TEXT}</h1><p>Take it home by tapping your <br>Lens on the reader.</p>`
     );
     return;
   }
