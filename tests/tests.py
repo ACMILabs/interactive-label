@@ -111,7 +111,7 @@ def test_route_playlist_json(client):
 
     response = client.get('/api/playlist/')
 
-    assert b'Dracula' in response.data
+    assert b'Camera Case' in response.data
     assert response.status_code == 200
 
 
@@ -151,7 +151,7 @@ def test_tap_received_no_label(client):
         headers={'Content-Type': 'application/json'}
     )
 
-    assert response.json['label'] == 17
+    assert response.json['label'] == 51504
     assert response.status_code == 201
 
     has_tapped = HasTapped.get_or_none(tap_processing=1)
@@ -236,6 +236,6 @@ def test_cache():
     create_cache()
     with open('/data/playlist_1.json', 'r', encoding='utf-8') as playlist_cache:
         playlist = json.loads(playlist_cache.read())['playlist_labels']
-    assert len(playlist) == 3
-    assert playlist[0]['label']['title'] == 'Dracula'
+    assert len(playlist) == 32
+    assert playlist[0]['label']['title'] == '<p>Camera Case</p>'
     assert playlist[0]['label']['images'][0]['image_file_xs'] == '/cache/sample.jpg'

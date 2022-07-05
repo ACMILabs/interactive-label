@@ -1,86 +1,2636 @@
 {
-  "id": 1,
-  "title": "Demo playlist",
+  "id": 136,
+  "title": "FSF-01-LR01",
+  "introduction_title": "About this series",
+  "introduction_content": "",
   "playlist_labels": [
     {
       "label": {
-        "id": 17,
-        "title": "Dracula",
-        "description": "When Dracula leaves the captive Jonathan Harker and Transylvania for London in search of Mina Harkerâ€”the spitting image of Dracula's long-dead wife, Elisabetaâ€”obsessed vampire hunter, Dr. Van Helsing sets out to end the madness.",
-        "publication": "1992, Dir. Francis Ford Coppola",
-        "rights": "",
-        "works": [
+        "id": 51504,
+        "title": "<p>Camera Case</p>",
+        "type": "Object",
+        "subtitles": "<p>Handmade Blackmagic Design cardboard camera</p>\n<p>Edie Kurzer, Australia, 2020</p>\n<p>Kodascope 8 camera</p>\n<p>Courtesy Edie Kurzer </p>\n<p>Kookie Kamera</p>\n<p>Courtesy Hazel Wolfgang Coventry-Burless</p>",
+        "columns": [
           {
-            "id": 47,
-            "title": "Dracula",
-            "image": "file://../../data/sample.jpg",
-            "abstract": "",
-            "brief_description": "When Dracula leaves the captive Jonathan Harker and Transylvania for London in search of Mina Harkerâ€”the spitting image of Dracula's long-dead wife, Elisabetaâ€”obsessed vampire hunter, Dr. Van Helsing sets out to end the madness.",
-            "first_production_year": "1992"
-          }
+            "content": "<p>&#8220;It&#8217;s a more lateral perspective that I am taking with the moving image&#8221; said Edie Kurzer, award-winning costume designer. As the artist behind this display, she knows that our view of the world can change dramatically depending on the lens we are using. This cabinet includes a toy camera that takes real photos and a Kodascope movie projector used to play 8mm films. A high-end video camera from Blackmagic Design might seem a world apart from the old-fashioned TV antennas used to provide picture reception, but our desire to view the world has remained much the same.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
         ],
+        "work": {
+          "id": 112011,
+          "acmi_id": "",
+          "title": "Camera Case",
+          "title_annotation": "",
+          "slug": "camera-case",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>A high-end video camera from Blackmagic Design might seem a world apart from the old-fashioned TV antennas used to provide picture reception, but our desire to view the world has remained much the same.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
         "images": [
           {
-            "image_file_xs": "file://../../data/sample.jpg"
+            "id": 16664,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3167,
+            "height": 4751,
+            "access_level": "View anywhere"
           }
-        ]
+        ],
+        "url_override": "",
+        "is_an_event": false
       },
-      "resource": "file://../../data/sample.mp4",
-      "subtitles": "file://../../data/sample.srt"
+      "video": null,
+      "region_svg": "M114.05,514.8H35.83V366.73h78.22Z"
     },
     {
       "label": {
-        "id": 18,
-        "title": "Jurassic Park",
-        "description": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape.",
-        "publication": "1993, Dir. Steven Spielberg",
-        "rights": "",
-        "works": [
+        "id": 51506,
+        "title": "<p>Surfside</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
           {
-            "id": 49,
-            "title": "Jurassic Park",
-            "image": "file://../../data/sample.jpg",
-            "abstract": "",
-            "brief_description": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape.",
-            "first_production_year": "1993"
-          }
+            "content": "<p>&#8220;Just keep swimming,&#8221; was the motto of the forgetful fish, Dory, in Finding Nemo. Sun, sea and surf culture are central to the Australian lifestyle so it&#8217;s not surprising that so many of our essential pop culture moments are set beachside: surfboards, bikinis, scuba divers and dolphins have frequently featured on our screens. Mermaid adventure series H20: Just Add Water and its spin-off Mako Mermaids had massive international audiences during their original runs and a decade later have found a whole new generation of fans thanks to streaming services and viral parodies on TikTok.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
         ],
+        "work": {
+          "id": 112013,
+          "acmi_id": "",
+          "title": "Surfside",
+          "title_annotation": "",
+          "slug": "surfside",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>&#8220;Just keep swimming,&#8221; was the motto of the forgetful fish, Dory, in Finding Nemo. Sun, sea and surf culture are central to the Australian lifestyle so it&#8217;s not surprising that so many of our essential pop culture moments are set beachside: surfboards, bikinis, scuba divers and dolphins have frequently featured on our screens. Mermaid adventure series H20: Just Add Water and its spin-off Mako Mermaids had massive international audiences during their original runs and a decade later have found a whole new generation of fans thanks to streaming services and viral parodies on TikTok.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
         "images": [
           {
-            "image_file_xs": "file://../../data/sample.jpg"
+            "id": 13278,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Blue Water High image</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Endemol Shine, Australia, 2005-2008</span><br /><span class=\"child_work_credit_line\">Courtesy Endemol Shine Group</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 1400,
+            "height": 1400,
+            "access_level": "No access"
+          },
+          {
+            "id": 13283,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Breath film poster</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Roadshow Films, Australia, 2017</span><br /><span class=\"child_work_credit_line\">Courtesy Roadshow Films</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 2475,
+            "height": 3543,
+            "access_level": "No access"
+          },
+          {
+            "id": 13277,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Escape World Safari III poster</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Adventure Bound Productions, Australia, 1988</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 1871,
+            "height": 3543,
+            "access_level": "No access"
+          },
+          {
+            "id": 13280,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Morning of the Earth poster</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Albert Falzone and David Elfick, Australia, 1972</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 1843,
+            "height": 3270,
+            "access_level": "No access"
+          },
+          {
+            "id": 13282,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Point Break poster</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Kathryn Bigelow, United States, 1991</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 2356,
+            "height": 3543,
+            "access_level": "No access"
+          },
+          {
+            "id": 13281,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Puberty Blues poster</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Limelight Productions, Australia, 1981</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 2478,
+            "height": 3543,
+            "access_level": "No access"
+          },
+          {
+            "id": 13279,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Women's Weekly February 1974 cover</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Bauer Media, Australia, 1974</span><br /><span class=\"child_work_credit_line\">Courtesy National Library of Australia</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 3297,
+            "height": 4438,
+            "access_level": "View onsite"
           }
-        ]
+        ],
+        "url_override": "",
+        "is_an_event": false
       },
-      "resource": "file://../../data/sample.mp4",
-      "subtitles": "file://../../data/sample.srt"
+      "video": null,
+      "region_svg": "M290.46,369.89H127.12v98.73H290.46Z"
     },
     {
       "label": {
-        "id": 19,
-        "title": "Kiki's Delivery Service",
-        "description": "A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
-        "publication": "1989, Dir. Hayao Miyazaki",
-        "rights": "",
-        "works": [
+        "id": 51507,
+        "title": "<p>Board games</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
           {
-            "id": 48,
-            "title": "Kiki's Delivery Service",
-            "image": "file://../../data/sample.jpg",
-            "abstract": "",
-            "brief_description": "A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
-            "first_production_year": "1989"
-          }
+            "content": "<p>These were the television shows that became a part of our family, like relatives that came by to visit a few nights a week. There were hosts that audiences loved, guests they often didn&#8217;t and formats so recognisable they felt like a warm blanket. Board game versions of our most popular quiz shows were another way these programmes embedded themselves in our lives. The games allowed us to imagine finding a romantic partner on Perfect Match or walking away with cash prizes on The Price Is Right. Even as game-show formats changed on the small screen, the version inside the box lived on.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
         ],
+        "work": {
+          "id": 112014,
+          "acmi_id": "",
+          "title": "Board games",
+          "title_annotation": "",
+          "slug": "board-games",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>These were the television shows that became a part of our family, like relatives that came by to visit a few nights a week. There were hosts that audiences loved, guests they often didn&#8217;t and formats so recognisable they felt like a warm blanket. Board game versions of our most popular quiz shows were another way these programmes embedded themselves in our lives. The games allowed us to imagine finding a romantic partner on Perfect Match or walking away with cash prizes on The Price Is Right. Even as game-show formats changed on the small screen, the version inside the box lived on.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 193,
+              "name": "Australian TV in the 1980s",
+              "description": "Australian television in the 80s really began to find its footing with mainstream hits becoming landmarks of the industry."
+            }
+          ],
+          "recommendations": []
+        },
         "images": [
           {
-            "image_file_xs": "file://../../data/sample.jpg"
+            "id": 16670,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4979,
+            "height": 3333,
+            "access_level": "View anywhere"
           }
-        ]
+        ],
+        "url_override": "",
+        "is_an_event": false
       },
-      "resource": "file://../../data/sample.mp4",
-      "subtitles": "file://../../data/sample.srt"
+      "video": null,
+      "region_svg": "M552.44,359H390.16V474.92H552.44Z"
+    },
+    {
+      "label": {
+        "id": 51511,
+        "title": "<p>Countdown sign</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020<br />\nCourtesy Australian Broadcasting Commission</p>",
+        "columns": [
+          {
+            "content": "<p>When those glowing, yellow bulbs flashed on to spell out the word &#8216;Countdown&#8217; it heralded the beginning of an Australian institution. The weekly music show hosted and helmed by Ian &#8216;Molly&#8217; Meldrum launched the careers of international acts such as Madonna and Aussie acts like Olivia Newton-John, INXS, AC/DC, Kylie Minogue, Mental as Anything and countless more. Over the course of its 14 year run, it became a critical tastemaker for deciding what was and wasn&#8217;t cool. This much loved show was one of the few mainstream outlets for youth culture and essential viewing for audiences wanting to engage with popular culture and music.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112018,
+          "acmi_id": "",
+          "title": "Countdown sign",
+          "title_annotation": "",
+          "slug": "countdown",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020<br />\nCourtesy Australian Broadcasting Commission</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>When those glowing, yellow bulbs flashed on to spell out the word &#8216;Countdown&#8217; it heralded the beginning of an Australian institution. The weekly music show hosted and helmed by Ian &#8216;Molly&#8217; Meldrum launched the careers of international acts such as Madonna and Aussie acts like Olivia Newton-John, INXS, AC/DC, Kylie Minogue, Mental as Anything and countless more. Over the course of its 14 year run, it became a critical tastemaker for deciding what was and wasn&#8217;t cool. This much loved show was one of the few mainstream outlets for youth culture and essential viewing for audiences wanting to engage with popular culture and music.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 214,
+              "name": "Kylie to Lucy",
+              "description": "'Did It Again' started the conversation about Kylie Minogue being more than just a pop star, it started to cement her status as one of the most important audio and visual artists of her time, but the video had an unlikely inspiration."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 20982,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras",
+            "alt_text": "",
+            "width": 4769,
+            "height": 3179,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M815.9,365.13H653.64V478.61H815.9Z"
+    },
+    {
+      "label": {
+        "id": 57464,
+        "title": "<p>Wilhelm scream</p>",
+        "type": "Film",
+        "subtitles": "",
+        "columns": [
+          {
+            "content": "<p>First appearing in <i>Distant Drums</i> (1951) to express the terror of being eaten by alligators, the Wilhelm scream earned its namesake in 1953, when Private Wilhelm was shot in the leg with an arrow in <i>The Charge at Feather River</i>. In the 1970s, University of Southern California film students found the stock sound effect and used it in their student films. One of those students was Ben Burtt, who became sound editor on both the <i>Star Wars</i> and <i>Indiana Jones</i> franchises, and used the effect throughout each series. Other filmmakers noticed and incorporated it into their own sound design as a running industry in-joke. Itâ€™s since appeared in <i>Titanic, Reservoir Dogs</i> and <i>Toy Story</i>, as well as countless other films, TV shows and videos. Today, many people encounter the Wilhelm scream via memes, demonstrating how different forms of pop culture influence and inspire each other.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 117969,
+          "acmi_id": "183942",
+          "title": "Wilhelm scream",
+          "title_annotation": "",
+          "slug": "wilhelm-scream-exhibition-video",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "work",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>Exhibition video created by ACMI for the Fed Square Foyer display; forefronting the use of the &#8216;Wilhelm Scream&#8217; in film and TV</p>",
+          "constellations_primary": [
+            {
+              "id": 314,
+              "name": "The Wilhelm scream, easters eggs and open world games",
+              "description": "This Constellation tracks how an on-set in-joke became one of the first cinematic easter eggs. It was made by Swinburne Cinema and Screen Studies students Harrison Buikstra and Jasper Caverly."
+            }
+          ],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 17153,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "Distant Drums (still)",
+            "credit_line": "A still from Distant Drums (1951)",
+            "alt_text": "",
+            "width": 1280,
+            "height": 720,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M378.85,438.47h-79.2V598h79.2Z"
+    },
+    {
+      "label": {
+        "id": 51509,
+        "title": "<p>Tools of the trade</p>",
+        "type": "Object",
+        "subtitles": "<p>Paint brushes </p>\n<p>Courtesy Gary Kurzer</p>\n<p>Scissor collection </p>\n<p>Courtesy Edie Kurzer</p>\n<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>Angled. Flat. Tapered. Striker. Brushes come in as many varieties as the tasks they perform on film and television sets. Whether thatâ€™s a buffer brush used to smooth the lines of an actor&#8217;s makeup, or a mop brush with a rounded edge for soft paint application on a drying prop, they are an essential, albeit overlooked, presence in moving image production. Scissors are another one of those integral items; from the different sized sewing shears used by costume cutters to the razor-sharp blades designed to cut anything from wires to duct tape, they&#8217;re an invaluable tool for crew members across every department.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112016,
+          "acmi_id": "",
+          "title": "Tools of the Trade",
+          "title_annotation": "",
+          "slug": "tools-of-the-trade",
+          "creator_credit": "",
+          "credit_line": "<p>Paint brushes </p>\n<p>Courtesy Gary Kurzer</p>\n<p>Scissor collection </p>\n<p>Courtesy Edie Kurzer</p>\n<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>Angled. Flat. Tapered. Striker. Brushes come in as many varieties as the tasks they perform on film and television sets. Whether thatâ€™s a buffer brush used to smooth the lines of an actor&#8217;s makeup, or a mop brush with a rounded edge for soft paint application on a drying prop, they are an essential, albeit overlooked, presence in moving image production. Scissors are another one of those integral items; from the different sized sewing shears used by costume cutters to the razor-sharp blades designed to cut anything from wires to duct tape, they&#8217;re an invaluable tool for crew members across every department.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 107,
+              "name": "Clothing, country, character",
+              "description": "Edie Kurzer's costume design work on Judy & Punch and Picnic at Hanging Rock is part of a larger trend in Australian films and TV series."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16671,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3173,
+            "height": 4759,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M640.31,361.52H564.47V507.46h75.84Z"
+    },
+    {
+      "label": {
+        "id": 51512,
+        "title": "<p>PEZ</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>It&#8217;s a rare thing for a candy dispenser to become more famous than the candy it&#8217;s dispensing, but that&#8217;s certainly the case for PEZ. Invented in Vienna, Austria in 1927 by Eduard Haas III, its name is derived from the German word for peppermint: PfeffErmintZ. The small, brick like candies are sold in the billions each year but it&#8217;s the plastic, collectible dispensers that have made the brand famous. Often depicting cartoon versions of characters from film and television, they have also infiltrated pop culture, appearing in shows such as Buffy The Vampire Slayer, Japanese manga Bleach and having a whole Seinfeld episode named The Pez Dispenser in their honour.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112019,
+          "acmi_id": "",
+          "title": "PEZ",
+          "title_annotation": "",
+          "slug": "pez",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>It&#8217;s a rare thing for a candy dispenser to become more famous than the candy it&#8217;s dispensing, but that&#8217;s certainly the case for PEZ. Invented in Vienna, Austria in 1927 by Eduard Haas III, its name is derived from the German word for peppermint: PfeffErmintZ. The small, brick like candies are sold in the billions each year but it&#8217;s the plastic, collectible dispensers that have made the brand famous. Often depicting cartoon versions of characters from film and television, they have also infiltrated pop culture, appearing in shows such as Buffy The Vampire Slayer, Japanese manga Bleach and having a whole Seinfeld episode named The Pez Dispenser in their honour.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 307,
+              "name": "Wild Stallion Mountain: Genre Mash-ups",
+              "description": "The Bombay Royale are known for combining funk, disco and pop with the sounds of classical Indian music together with the soundtracks of Bollywood cinema. Their music videos similarly hybridise  genres and styles to create intoxicating visual mash-ups."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16672,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3059,
+            "height": 4588,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M907.35,367.47H825.57V503.83h81.78Z"
+    },
+    {
+      "label": {
+        "id": 51551,
+        "title": "<p>Make up/SPFX</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>\n<p><b>Make-up box with make-up</b></p>\n<p>Courtesy Lee-Anne Donnolley</p>",
+        "columns": [
+          {
+            "content": "<p>In the digital age itâ€™s sometimes easy to overlook the physical crafts of filmmaking. Make-up and prosthetics are vital to the creation of characters in film, television and theatre - bringing werewolves, Terminators and planets full of apes to life. Despite not being celebrated at the Oscars until 1980, make-up and prosthetics have a long history in cinema. An outcry over The Elephant Man not being recognised at the 1980 Academy Awards led to the creation of a new category, which has seen Australian winners like Lesley Vanderwalt, Elka Wardega and Damian Martin being recognised for their work on <I>Mad Max: Fury Road</i> (2015).</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112057,
+          "acmi_id": "",
+          "title": "Make up/SPFX",
+          "title_annotation": "",
+          "slug": "make-upspfx",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>\n<p><b>Make-up box with make-up</b></p>\n<p>Courtesy Lee-Anne Donnolley</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>In the digital age itâ€™s sometimes easy to overlook the physical crafts of filmmaking. Make-up and prosthetics are vital to the creation of characters in film, television and theatre - bringing werewolves, Terminators and planets full of apes to life.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 110,
+              "name": "Oscar-winning transformations and prosthetics",
+              "description": "This Constellation explores how craft help actors undergo award-winning transformations into iconic characters."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16674,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3176,
+            "height": 4764,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1520.65,369.89H1443.2V505.12h77.45Z"
+    },
+    {
+      "label": {
+        "id": 51562,
+        "title": "<p>Super Deluxe poster</p>",
+        "type": "Object",
+        "subtitles": "<p>Thiagarajan Kumararaja, India, 2019 </p>\n<p>Courtesy Tyler Durden and Kino Fist</p>",
+        "columns": [
+          {
+            "content": "<p>â€œNo other filmmaker has romanticised the Tamil cinema universe with pop culture references as much as Kumararaja,â€ wrote film critic Srivatsan S for <I>The Hindu</i>. A darkly comedic thriller, Thiagarajan Kumararajaâ€™s 2019 feature <I>Super Deluxe</i> swept the international film festival circuit and fascinated audiences with its ambitious visual style. â€œThiagarajan Kumararajaâ€™s unstable mix of dark comedy, brutal thriller and Douglas Sirkian melodrama is shamelessly excessive but undeniably entertaining,â€ said Variety. Kumararajaâ€™s first film in eight years, <I>Super Deluxe</i> wove together four different stories, all depicted with an amazingly vivid colour palette.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112068,
+          "acmi_id": "",
+          "title": "Super Deluxe poster",
+          "title_annotation": "facismile",
+          "slug": "super-deluxe",
+          "creator_credit": "",
+          "credit_line": "<p>Thiagarajan Kumararaja, India, 2019 </p>\n<p>Courtesy Tyler Durden and Kino Fist</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>&#8220;No other filmmaker has romanticised the Tamil cinema universe with pop culture references as much as Kumararaja,&#8221; wrote film critic Srivatsan S for The Hindu. A darkly comedic thriller, Thiagarajan Kumararaja&#8217;s 2019 feature Super Deluxe swept the international film festival circuit and fascinated audiences with its ambitious visual style. &#8220;Thiagarajan Kumararaja&#8217;s unstable mix of dark comedy, brutal thriller and Douglas Sirkian melodrama is shamelessly excessive but undeniably entertaining,&#8221; said Variety. Kumararaja&#8217;s first film in eight years, Super Deluxe wove together four different stories, all depicted with an amazingly vivid colour palette.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 13284,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">GRAPHIC: Super Deluxe poster</span><span class=\"child_work_title_annotation\"></span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 3504,
+            "height": 4941,
+            "access_level": "No access"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1785.76,393.93h-81.44V511.2h81.44Z"
+    },
+    {
+      "label": {
+        "id": 51561,
+        "title": "<p>The Art Of Sound</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>\n<p><b>Tape reels, headphones and microphones</b></p>\n<p>Courtesy Gary Kurzer</p>\n<p><b>NAGRA Reel to Reel Tape Recorder</b></p>\n<p>Nagra, Switzerland, c. 1970s </p>\n<p>Courtesy Paul Huntingford</p>",
+        "columns": [
+          {
+            "content": "<p>&#8220;Sound is what truly convinces the mind it is in a place,&#8221; said videogame designer Jesse Schell. &#8220;In other words, hearing is believing.&#8221; Sound is an essential part of storytelling, whether it&#8217;s ambient noise, roaring sound effects or a musical score swelling over the action. It helps communicate what&#8217;s happening, not just in narrative features and television but also in documentaries, news programmes and commercials. One of the items displayed here is a vintage Nagra audio tape recorder used by Channel 7 News in Sydney during the 1960s and early 1970s when external news footage was shot on 16mm reversal film. The syncing of sound and vision occurred back in the editing room before going to air.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112067,
+          "acmi_id": "",
+          "title": "The art of sound",
+          "title_annotation": "",
+          "slug": "the-art-of-sound",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>\n<p><b>Tape reels, headphones and microphones</b></p>\n<p>Courtesy Gary Kurzer</p>\n<p><b>NAGRA Reel to Reel Tape Recorder</b></p>\n<p>Nagra, Switzerland, c. 1970s </p>\n<p>Courtesy Paul Huntingford</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>&#8220;Sound is what truly convinces the mind it is in a place,&#8221; said videogame designer Jesse Schell. &#8220;In other words, hearing is believing.&#8221; Sound is an essential part of storytelling, whether it&#8217;s ambient noise, roaring sound effects or a musical score swelling over the action. It helps communicate what&#8217;s happening, not just in narrative features and television but also in documentaries, news programmes and commercials. One of the items displayed here is a vintage Nagra audio tape recorder used by Channel 7 News in Sydney during the 1960s and early 1970s when external news footage was shot on 16mm reversal film. The syncing of sound and vision occurred back in the editing room before going to air.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 253,
+              "name": "News on location",
+              "description": "The Pye Orthicon is an example of the type of television cameras used from the 1950s in Australia for both studio and outside broadcast work. Such cameras did not have have the capacity to record while out on location and so outside crews would transmit vision and sound back to studios for recording or live broadcast."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16677,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3417,
+            "height": 4074,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1786.14,628.92h-81.76V738.17h81.76Z"
+    },
+    {
+      "label": {
+        "id": 51563,
+        "title": "<p>Figurines (Collectibles)</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>Long after the credits roll on a film or television series, the characters might live on in our hearts and minds. They can also live on physically, in our homes and offices, as collectibles that pay homage to our passions. That can be in the form of Felix The Cat, a black and white cartoon from the silent film era, or One-Punch Man, a viral hero from a cult Japanese web comic turned anime. Figurines sometimes become more famous that the original screen character, like Margot Robbie&#8217;s Harley Quinn from Suicide Squad (2016) who became a pop cultural icon thanks to her own spin-off film Birds of Prey.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112069,
+          "acmi_id": "",
+          "title": "Figurines (Collectibles)",
+          "title_annotation": "",
+          "slug": "figurines-collectibles",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>Long after the credits roll on a film or television series, the characters might live on in our hearts and minds. They can also live on physically, in our homes and offices, as collectibles that pay homage to our passions. That can be in the form of Felix The Cat, a black and white cartoon from the silent film era, or One-Punch Man, a viral hero from a cult Japanese web comic turned anime. Figurines sometimes become more famous that the original screen character, like Margot Robbie&#8217;s Harley Quinn from Suicide Squad (2016) who became a pop cultural icon thanks to her own spin-off film Birds of Prey.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 284,
+              "name": "Nightly news and laughs",
+              "description": "Throughout the decades on Australian screens, comedy and news have often gone hand-in-hand."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16679,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3168,
+            "height": 4752,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1885,537.06H1795V683H1885Z"
+    },
+    {
+      "label": {
+        "id": 51554,
+        "title": "<p>Deconstructed TV</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>It&#8217;s hard to imagine, but television wasn&#8217;t always a 24/7/365 affair. TV stations used to stop broadcasting late at night when they ran out of programming. When off the air, they would commonly display a test pattern until the broadcast schedule resumed in the morning. Now television can be consumed free-to-air or whenever you want it thanks to on-demand and streaming services. This deconstructed TV was a National brand model, the kind of appliance mass produced in the 1970s. Today families are less likely to gather around a single TV set, instead favouring their own fractured shards of screen content</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112060,
+          "acmi_id": "",
+          "title": "Deconstructed TV",
+          "title_annotation": "",
+          "slug": "deconstructed-tv",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>It&#8217;s hard to imagine, but television wasn&#8217;t always a 24/7/365 affair. TV stations used to stop broadcasting late at night when they ran out of programming. When off the air, they would commonly display a test pattern until the broadcast schedule resumed in the morning. Now television can be consumed free-to-air or whenever you want it thanks to on-demand and streaming services. This deconstructed TV was a National brand model, the kind of appliance mass produced in the 1970s. Today families are less likely to gather around a single TV set, instead favouring their own fractured shards of screen content</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 284,
+              "name": "Nightly news and laughs",
+              "description": "Throughout the decades on Australian screens, comedy and news have often gone hand-in-hand."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16675,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3563,
+            "height": 4435,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1523.2,624.46h-82.53V736.39h82.53Z"
+    },
+    {
+      "label": {
+        "id": 51558,
+        "title": "<p>Aotearoa (New Zealand) Diorama</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020</p>\n<p><b>Flight of the Concords babushka dolls</b></p>\n<p>Irene Hwang, Australia, 2019 </p>\n<p><b>Cinema chair from the Barkly Theatre in Footscray</b></p>",
+        "columns": [
+          {
+            "content": "<p>It could be hobbits traversing through Middle Earth or Lucy Lawless reshaping the world with her sword: either way, the New Zealand film and television scene loves genre. This passion has seen our friends across the Tasman celebrated globally for their unique and inventive vision, whether that&#8217;s Peter Jackson morphing from <I>Meet The Feebles</i> (1989) to the epic <I>The Lord Of The Rings</i> trilogy (2001-03), or Taika Waititi&#8217;s simultaneously dark and playful vision in <I>Hunt For The Wilderpeople</i> (2016). From <I>Flight Of The Conchords</i> (2007-09) to <I>Xena: Warrior Princess</i> (1995-2001) the Kiwi film industry has consistently created a distinct niche in the global screen world.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112064,
+          "acmi_id": "",
+          "title": "Aotearoa (New Zealand) Diorama",
+          "title_annotation": "",
+          "slug": "aotearoa-new-zealand-diorama",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020</p>\n<p><b>Flight of the Concords babushka dolls</b></p>\n<p>Irene Hwang, Australia, 2019 </p>\n<p><b>Cinema chair from the Barkly Theatre in Footscray</b></p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>It could be hobbits traversing through Middle Earth or Lucy Lawless reshaping the world with her sword: either way, the New Zealand film and television scene loves genre. This passion has seen our friends across the Tasman celebrated globally for their unique and inventive vision, whether that&#8217;s Peter Jackson morphing from Meet The Feebles (1989) to the epic The Lord Of The Rings trilogy (2001-03), or Taika Waititi&#8217;s simultaneously dark and playful vision in Hunt For The Wilderpeople (2016). From Flight Of The Conchords (2007-09) to Xena: Warrior Princess (1995-2001) the Kiwi film industry has consistently created a distinct niche in the global screen world.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 38,
+              "name": "Boom mics, Clara Bow and musicals",
+              "description": "The microphone was called the \"terror of the studios\" when sound films were introduced in the late 1920s, but after initial resistance Hollywood fully embraced the new technology."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16676,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4732,
+            "height": 3154,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1696.47,540.7h-164.4V688.23h164.4Z"
+    },
+    {
+      "label": {
+        "id": 51513,
+        "title": "<p>Horror at the drive in</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia 2020</p>\n<p><b>Drive-in cinema blueprint</b></p>\n<p>Courtesy of David Kilderry, Lunar Drive-In Dandenong</p>",
+        "columns": [
+          {
+            "content": "<p>Sweeping Australia in the 1950s and based on the American model, the drive-in cinema became one of the country&#8217;s most popular theatrical experiences. Capitalising on the communal experience and outdoor environment, genre films â€“ and horror in particular â€“ thrived in this format. Australia&#8217;s first drive-in cinema, the Skyline, opened in Burwood, Melbourne in 1954, followed by the Lunar Drive-In in Dandenong in 1956, which is still operating. At the peak of their popularity, there were over 330 drive-ins across the country, before a downturn in the 1980s. Their place in popular culture was cemented when Ozploitation director Brian Trenchard-Smith used one as his futuristic prison in dystopian horror film <I>Dead End Drive-In</i> in 1986</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112020,
+          "acmi_id": "",
+          "title": "Drive-In Horror",
+          "title_annotation": "",
+          "slug": "drive-in-horror",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia 2020</p>\n<p><b>Drive-in cinema blueprint</b></p>\n<p>Courtesy of David Kilderry, Lunar Drive-In Dandenong</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>Sweeping Australia in the 1950s and based on the American model, the drive-in cinema became one of the country&#8217;s most popular theatrical experiences. Capitalising on the communal experience and outdoor environment, genre films â€“ and horror in particular â€“ thrived in this format. Australia&#8217;s first drive-in cinema, the Skyline, opened in Burwood, Melbourne in 1954, followed by the Lunar Drive-In in Dandenong in 1956, which is still operating. At the peak of their popularity, there were over 330 drive-ins across the country, before a downturn in the 1980s. Their place in popular culture was cemented when Ozploitation director Brian Trenchard-Smith used one as his futuristic prison in dystopian horror film Dead End Drive-In in 1986.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 1,
+              "name": "Pen names, poems and puppets",
+              "description": "Discover how big-screen adaptations of novels connect to web-based poetry and Jim Henson's <I>Fraggle Rock</i>."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16673,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3375,
+            "height": 4288,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M908,624.18H826.56V736.61H908Z"
+    },
+    {
+      "label": {
+        "id": 51510,
+        "title": "<p>Toast</p>",
+        "type": "Object",
+        "subtitles": "<p>Heather Mitchell, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>&#8220;Humour is a universal language,&#8221; says Edie Kurzer, and it&#8217;s an element she weaves into much of her artistic output. It&#8217;s also something that attracted her to the unique portraiture work of Sydney artist Heather Mitchell. Better known for her stage and screen presence, Mitchell has found a growing audience for her toast portraits of Australian celebrities in her medium of choice: Vegemite. Creating these slices especially for our display, she has shone a tasty spotlight on some of our most singular screen faces such as Josh Thomas, Lee Lin Chin, Deborah Mailman and others.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112017,
+          "acmi_id": "",
+          "title": "Toast",
+          "title_annotation": "",
+          "slug": "toast",
+          "creator_credit": "",
+          "credit_line": "<p>Heather Mitchell, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>&#8220;Humour is a universal language,&#8221; says Edie Kurzer, and it&#8217;s an element she weaves into much of her artistic output. It&#8217;s also something that attracted her to the unique portraiture work of Sydney artist Heather Mitchell. Better known for her stage and screen presence, Mitchell has found a growing audience for her toast portraits of Australian celebrities in her medium of choice: Vegemite. Creating these slices especially for our display, she has shone a tasty spotlight on some of our most singular screen faces such as Josh Thomas, Lee Lin Chin, Deborah Mailman and others.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 166,
+              "name": "Ladies who own the narrative",
+              "description": "Despite the lag in making it in mainstream cinema, female action heroes can actually be traced back to the late 19th century in early magic lantern performances of <I>Jane Conquest</i>, who saved both her child and a ship full of men."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16669,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Toast art</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Heather Mitchell, Australia, 2019</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3660,
+            "height": 4398,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M642.79,624.18H564.47V736.61h78.32Z"
+    },
+    {
+      "label": {
+        "id": 51505,
+        "title": "<p>Puppets</p>",
+        "type": "Object",
+        "subtitles": "<p>Designed by Garth Frost</p>\n<p>Puppet maker Tina Matthews</p>\n<p>Australia, 1993</p>\n<p>Courtesy of Emma de Vries</p>\n<p>Edie Kurzer, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>&#8220;They discovered fame and fortune and they&#8217;re never going back.&#8221; Or so proclaimed the catchy hook of <I>The Ferals</i> TV theme song. This kids&#8217; program debuted on ABC TV in 1994 and then, after two successful seasons, it has endured in Australian pop culture. Capitalising on the grunge aesthetic of the time, it followed an unruly bunch of feral animals living in a share house with flatmates played by human actors. The ditzy rabbit Mixy and sassy cat Modigliana were key members of the show, adding to the tradition of children&#8217;s programming featuring puppets in starring roles, including <I>Lift Off</i> (1992-95) and <I>Mr Squiggle</i> (1959-99).</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112012,
+          "acmi_id": "",
+          "title": "The Ferals [Puppets]",
+          "title_annotation": "",
+          "slug": "the-ferals",
+          "creator_credit": "",
+          "credit_line": "<p>Designed by Garth Frost</p>\n<p>Puppet maker Tina Matthews</p>\n<p>Australia, 1993</p>\n<p>Courtesy of Emma de Vries</p>\n<p>Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>&#8220;They discovered fame and fortune and they&#8217;re never going back.&#8221; Or so proclaimed the catchy hook of The Ferals TV theme song. This kids&#8217; program debuted on ABC TV in 1994 and then, after two successful seasons, it has endured in Australian pop culture. Capitalising on the grunge aesthetic of the time, it followed an unruly bunch of feral animals living in a share house with flatmates played by human actors. The ditzy rabbit Mixy and sassy cat Modigliana were key members of the show, adding to the tradition of children&#8217;s programming featuring puppets in starring roles, including Lift Off (1992-95) and Mr Squiggle (1959-99).</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 197,
+              "name": "Australian TV in the 1990s",
+              "description": "In the 1990s, Australians and Australian culture was changing: so too were the representations of it on television."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16665,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3504,
+            "height": 4287,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M116,623.05H34.83v116.3H116Z"
+    },
+    {
+      "label": {
+        "id": 51508,
+        "title": "<p>Natural history diorama</p>",
+        "type": "Object",
+        "subtitles": "<p>Philip De Mulder, Colin Harman, Andre Bremer and Edie Kurzer, Australia, 2020</p>",
+        "columns": [
+          {
+            "content": "<p>Growing up, Edie Kurzer&#8217;s perceptions of Australia were shaped by the nature documentaries she consumed: whether that was bushman Harry Butler or the work of the Leyland brothers. An ode to the Australian bush, this natural history diorama features some of the format&#8217;s most recognisable personalities like Steve and Bindi Irwin and David Attenborough. Taxidermy cane toads sourced from a private collection in South Australia hark back to one of the country&#8217;s most popular documentaries, Cane Toads: An Unnatural History (1988), which captivated theatrical audiences in the late 80s. And of course, who could forget Skippy?</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112015,
+          "acmi_id": "",
+          "title": "Natural history diorama",
+          "title_annotation": "",
+          "slug": "natural-history-diorama",
+          "creator_credit": "",
+          "credit_line": "<p>Philip De Mulder, Colin Harman, Andre Bremer and Edie Kurzer, Australia, 2020</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>Growing up, Edie Kurzer&#8217;s perceptions of Australia were shaped by the nature documentaries she consumed: whether that was bushman Harry Butler or the work of the Leyland brothers. An ode to the Australian bush, this natural history diorama features some of the format&#8217;s most recognisable personalities like Steve and Bindi Irwin and David Attenborough. Taxidermy cane toads sourced from a private collection in South Australia hark back to one of the country&#8217;s most popular documentaries, Cane Toads: An Unnatural History (1988), which captivated theatrical audiences in the late 80s. And of course, who could forget Skippy?</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 242,
+              "name": "There is no Planet B",
+              "description": "While the climate emergency is very real, inspiring thousands and thousands of students to strike, documentaries, animated movies and dystopian genre films have warned about a world ravaged by global warming."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16667,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4770,
+            "height": 3180,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M556.51,533.56H386.89V694H556.51Z"
+    },
+    {
+      "label": {
+        "id": 51560,
+        "title": "<p>Coat hangers</p>",
+        "type": "Object",
+        "subtitles": "<p>Edie Kurzer, Australia, 2020<br />\nCourtesy Shane Phillips</p>",
+        "columns": [
+          {
+            "content": "<p>&#8220;No! Wire! Hangers &#8230; ever!&#8221; The now famous line from 1981 kitsch classic <I>Mommie Dearest</i> depicted coat hangers as the bane of Joan Crawford&#8217;s existence (among other things). And while that might be true in the context of this docudrama, they&#8217;ve also been a consistent presence on film sets since the dawn of the moving image. Practical and ingenious, coat hangers come in all shapes and sizes. This simple domestic object has been handmade or manufactured in wood, metal, plastic or wire. (The wire ones could also be bent into a map-of-Australia car aerial!) Coat hangers are an essential tool in the costume department.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112066,
+          "acmi_id": "",
+          "title": "Coat hangers",
+          "title_annotation": "",
+          "slug": "coat-hangers",
+          "creator_credit": "",
+          "credit_line": "<p>Edie Kurzer, Australia, 2020<br />\nCourtesy Shane Phillips</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>&#8220;No! Wire! Hangers &#8230; ever!&#8221; The now famous line from 1981 kitsch classic Mommie Dearest depicted coat hangers as the bane of Joan Crawford&#8217;s existence (among other things). And while that might be true in the context of this docudrama, they&#8217;ve also been a consistent presence on film sets since the dawn of the moving image. Practical and ingenious, coat hangers come in all shapes and sizes. This simple domestic object has been handmade or manufactured in wood, metal, plastic or wire. (The wire ones could also be bent into a map-of-Australia car aerial!) Coat hangers are an essential tool in the costume department.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 50,
+              "name": "Supplementing cinema",
+              "description": "A celebration of b-grade cinema's never-ending quest for more, more, more."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16668,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Coat hanger installation set</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_credit_line\">Courtesy Shane Phillips</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3364,
+            "height": 4875,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1881.71,370.34h-83.13V497.13h83.13Z"
+    },
+    {
+      "label": {
+        "id": 51556,
+        "title": "<p>Animal Logic and Peter Rabbit</p>",
+        "type": "Object",
+        "subtitles": "<p>Animal Logic</p><p>PETER RABBITâ„¢ &amp; Â© FW&amp;Co. PETER RABBITâ„¢ Movie Â© 2021 CPII All Rights Reserved<br />\nSpecial thanks to Columbia Pictures</p>",
+        "columns": [
+          {
+            "content": "<p>Bringing the beloved characters of Beatrix Potter to life is no easy task, but Australian VFX studio Animal Logic did exactly that in <I>Peter Rabbit</i> and its sequel <i>Peter Rabbit 2: The Runaway</i>. A hybrid of live-action and animation, the films deploy a range of techniques to bring Peter to life, along with the whole cast of characters including Flopsy, Mopsy and Cotton-Tail. From initial sketches based on Potter&#8217;s original artwork to digital and physical sculptures incorporating the physiology of real rabbits, the animation project was an intensive process from beginning to end.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 112062,
+          "acmi_id": "",
+          "title": "Animal Logic and Peter Rabbit",
+          "title_annotation": "",
+          "slug": "animal-logic",
+          "creator_credit": "Animal Logic",
+          "credit_line": "<p>PETER RABBIT and all associated characters â„¢ &amp; Â© Frederick Warne &amp; Co Limited. PETER RABBITâ„¢, the Movie Â©2018 Columbia Pictures Industries, Inc. All Rights Reserved.<br />\nPETER RABBIT and all associated characters â„¢ &amp; Â© Frederick Warne &amp; Co Limited. PETER RABBITâ„¢ 2:The Runaway, the Movie Â©2020 Columbia Pictures Industries, Inc. All Rights Reserved.<br />\nSpecial thanks to Columbia Pictures</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>Bringing the beloved characters of Beatrix Potter to life is no easy task, but Australian VFX studio Animal Logic did exactly that in <I>Peter Rabbit</i> and its sequel <I>Peter Rabbit 2: The Runaway</i>.</p>",
+          "constellations_primary": [],
+          "constellations_other": [
+            {
+              "id": 243,
+              "name": "Flipping through the evolution of animation",
+              "description": "Animation has come a long way since flip books were popular. These optical toys gave the illusion of movement, but now whole films and special effects are animated entirely through computers."
+            }
+          ],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 20983,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras",
+            "alt_text": "",
+            "width": 4664,
+            "height": 3109,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 20981,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "A still from Peter Rabbit, Will Gluck, USA, 2018. Courtesy AF archive / Alamy Stock Photo",
+            "alt_text": "An image of Peter rabbit and another rabbit sitting flat legged on a pebbly garden road staring upwards in astonishment",
+            "width": 1200,
+            "height": 545,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1696.47,363.21H1532V480h164.43Z"
+    },
+    {
+      "label": {
+        "id": 53990,
+        "title": "<p>URSA Mini Pro 4.6K G2</p>",
+        "type": "group",
+        "subtitles": "<p>Blackmagic Design</p><p>Courtesy Blackmagic Design, Major Partner of ACMI</p>",
+        "columns": [
+          {
+            "content": "<p>Around 2015, Emmy Award-winning filmmaker Jody Eldred tested a pre-production model of the BlackMagic URSA Mini 4.6K in the Las Vegas desert. Aside from his 40-year career in film and TV, Eldred had spent 15 years testing cameras. â€œWow,â€ was his response to the cameraâ€™s quality, but he had a few suggestions for on how to improve it. Less than a year later the URSA Mini Pro 4.6k was released with those changes implemented. â€œI was stunned,â€ Eldred has said. He hadnâ€™t encountered a camera company that listened to the people who use them.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 114498,
+          "acmi_id": "",
+          "title": "URSA Mini Pro 4.6K G2",
+          "title_annotation": "",
+          "slug": "mpl-display-group-ursa-mini-pro-46k-g2-prototypes",
+          "creator_credit": "Blackmagic Design",
+          "credit_line": "<p>Courtesy Blackmagic Design, Major Partner of ACMI</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2023-02-09",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>Around 2015, Emmy Award-winning filmmaker Jody Eldred tested a pre-production model of the BlackMagic URSA Mini 4.6K in the Las Vegas desert. Aside from his 40-year career in film and TV, Eldred had spent 15 years testing cameras. â€œWow,â€ was his response to the cameraâ€™s quality, but he had a few suggestions for on how to improve it. Less than a year later the URSA Mini Pro 4.6k was released with those changes implemented. â€œI was stunned,â€ Eldred has said. He hadnâ€™t encountered a camera company that listening to the people who use them.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 14146,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">GRAPHIC: Sketches & CAD Drawings for Ursa Mini Pro 4.6k G2</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 11811,
+            "height": 3543,
+            "access_level": "No access"
+          },
+          {
+            "id": 21165,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">URSA Mini Pro 4.6K G2</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design, MAR 2019</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21158,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">URSA Mini Pro 4.6K G2 Form Prototype</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21160,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">URSA Mini Pro 4.6K G2 Image Sensor Assembly and Chassis</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21162,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">URSA Mini Pro 4.6K G2 Partial Assembly</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1050.94,571.24h-48.45V528.5h48.45ZM1082.84,428h-76.26V495.6h76.26Z"
+    },
+    {
+      "label": {
+        "id": 53351,
+        "title": "<p>Pocket Cinema Camera 6K</p>",
+        "type": "group",
+        "subtitles": "<p>Blackmagic Design</p><p>Courtesy Blackmagic Design, Major Partner of ACMI</p>",
+        "columns": [
+          {
+            "content": "<p>What do the Avengers, Jason Bourne and the Expendables have in common? Aside from heroes saving the day, these film franchises all feature frenetic action sequences filmed on the Blackmagic Pocket Cinema Camera. The key isnâ€™t just the Hollywood-quality 6K resolution (it helps though), but the size of the camera. Filmmakers have strapped them to motorbikes, cars, trucks, boats and even tanks, with their size allowing minimal rigging and creative approaches to capturing breathtaking action. What also helps is that theyâ€™re made from carbon fibre/polycarbonate composite material so theyâ€™re super strong but also lightweight. First sketched out and designed on 3D CAD (Computer Assisted Design) software, prototypes are then made from 3D prints while the internal components are miniaturised to ensure hand-held use without losing their cinematic quality.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 113857,
+          "acmi_id": "",
+          "title": "Pocket Cinema Camera 6K",
+          "title_annotation": "",
+          "slug": "mpl-display-group-pocket-cinema-camera-6k-prototypes",
+          "creator_credit": "Blackmagic Design",
+          "credit_line": "<p>Courtesy Blackmagic Design, Major Partner of ACMI</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2023-02-09",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>What do the Avengers, Jason Bourne and the Expendables have in common? Aside from heroes saving the day, these film franchises all feature frenetic action sequences filmed on the BlackMagic Pocket Cinema Camera. The key isnâ€™t just the Hollywood-quality 6K resolution (it helps though), but the size of the camera. Filmmakers have strapped them to motorbikes, cars, trucks, boats and even tanks, with their size allowing minimal rigging and creative approaches to capturing breathtaking action. What also helps is that theyâ€™re made from carbon fibre/polycarbonate composite material so theyâ€™re super strong but also lightweight. First sketched out and designed on 3D CAD (Computer Assisted Design) software, prototypes are then made from 3D prints while the internal components are miniaturised to ensure hand-held use without losing their cinematic quality.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 14145,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">GRAPHIC: Sketches & CAD Drawings for Pocket Cinema Camera 6K</span><span class=\"child_work_title_annotation\">Facsimile</span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 11811,
+            "height": 3543,
+            "access_level": "No access"
+          },
+          {
+            "id": 21172,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Pocket Cinema Camera 6K</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design, AUG 2019</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21170,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Pocket Cinema Camera 6K Body Panels</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4856,
+            "height": 3284,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21169,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Pocket Cinema Camera 6K Form Prototype</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21171,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Pocket Cinema Camera 6K Partial Assembly</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Blackmagic Design</span><br /><span class=\"child_work_credit_line\">Courtesy Blackmagic Design, Major Partner of ACMI</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1082.84,677.92H1006V614.59h76.84Zm-29.65-108.51h32V537.65h-32Z"
+    },
+    {
+      "label": {
+        "id": 53405,
+        "title": "<p>16mm Film</p>",
+        "type": "Object",
+        "subtitles": "",
+        "columns": [
+          {
+            "content": "<p>Most of the films in our collection are held on 16mm film, which was introduced in the 1920s as a cheaper alternative to the 35mm format and was widely adopted by amateur filmmakers. Because of its accessibility and popularity, itâ€™s no surprise that we receive so many donations from the community, which along with the film itself, also comprises editing equipment and cameras. The Hanimex Eiki 16mm film projector displayed in this cabinet is typical of the kinds used in schools up until the 1980s, where films were screened in assembly halls to supplement standard learning in classrooms.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 113911,
+          "acmi_id": "",
+          "title": "16mm Film",
+          "title_annotation": "",
+          "slug": "mpl-display-group-16mm-viewer-with-16mm-reel-stacks",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>Most of the films in our collection are held on 16mm film, which was introduced in the 1920s as a cheaper alternative to the 35mm format and was widely adopted by amateur filmmakers. Because of its accessibility and popularity, itâ€™s no surprise that we receive so many donations from the community, which along with the film itself, also comprises editing equipment and cameras. The Hanimex Eiki 16mm film projector displayed in this cabinet is typical of the kinds used in schools up until the 1980s, where films were screened in assembly halls to supplement standard learning in classrooms.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16156,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">16mm projector</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Ditmar, Austria, c. 1950</span><br /><span class=\"child_work_credit_line\">ACMI Collection. Donated by Karen Wootton</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 3126,
+            "height": 4689,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13340,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Ohnar 16MM Editor Viewer</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Ohnoya Shoten Ltd, Japan</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1080.16,424.42H1016.3V352.08h63.86ZM1255,345.82h-157.2v68H1255Zm89.93-6.25h-70.46v95.66h70.46Z"
+    },
+    {
+      "label": {
+        "id": 53349,
+        "title": "<p>Commodore 64 Console and Cassettes</p>",
+        "type": "group",
+        "subtitles": "<p>Commodore Business Machines, 1985</p>",
+        "columns": [
+          {
+            "content": "<p>Consoles and personal computers are common in homes today, but back in 1982 they were pretty rare. Enter the Commodore 64, a wildly popular 8-bit home computer console that was a major contributor to the home computer revolution. With over 17 million units sold worldwide, it was the highest selling single computer at the time and was often used to run educational resources and games. In Australia alone, over 700 games were produced for the Commodore 64. Software was originally released on audio cassette before 5 Â¼ inch floppy discs (and later 3Â½ inch floppy discs) became more common during the 1980s, which we&#8217;ve worked to locate, acquire and preserve.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 113855,
+          "acmi_id": "",
+          "title": "Commodore 64 Console and Cassettes",
+          "title_annotation": "",
+          "slug": "mpl-display-group-commodore-64-console-and-cassettes",
+          "creator_credit": "Commodore Business Machines",
+          "credit_line": "",
+          "headline_credit": "1985",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": "1985-01-01T11:00:00+11:00",
+          "brief_description": "<p>Consoles and personal computers are common in homes today, but back in 1982 they were pretty rare. Enter the Commodore 64, a wildly popular 8-bit home computer console that was a major contributor to the home computer revolution. With over 17 million units sold worldwide, it was the highest selling single computer at the time and was often used to run educational resources and games. In Australia alone, over 700 games were produced for the Commodore 64. Software was originally released on audio cassette before 5 Â¼ inch floppy discs (and later 3Â½ inch floppy discs) became more common during the 1980s, which we&#8217;ve worked to locate, acquire and preserve.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 13335,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Commodore 64 Console</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Commodore Business Machines, United Kingdom, c. 1982</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13330,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Commodore C2N Datasette</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Commodore Business Machines, Taiwan, Province Of China</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13332,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Pair of Commodore C-1342 Joysticks</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Commodore Business Machines, Hong Kong, c. 1982</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1082.84,749.24h-74.11V695.07h74.11Z"
+    },
+    {
+      "label": {
+        "id": 39779,
+        "title": "<p>Macintosh ClassicÂ </p>",
+        "type": "Object",
+        "subtitles": "<p>Apple Computer Inc., Singapore, 1991</p><p>ACMI Collection</p>",
+        "columns": [
+          {
+            "content": "<p>If you took a computer class in Australia during the early 1990s, chances are you used one of these boxy personal computers. The Macintosh Classic was released in October 1990 and was the first Macintosh computer to sell for less than $1,000 US dollars, making it one of the most affordable computers on the market at the time.Â ItÂ wasÂ reallyÂ justÂ a cheaper version of the Macintosh SE without as many features, which had been released in 1987, and the Macintosh Classic was seen by some as an attempt to squeeze a few more years out of the earlier model. Part of its reduced cost was due to being made in Singapore, instead of America like previous Macintosh computers. Still, the price and stable operating system made it popular in schools, at home and for small business.Â </p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 100283,
+          "acmi_id": "E000326",
+          "title": "Macintosh ClassicÂ ",
+          "title_annotation": "",
+          "slug": "macintosh-classic-computer",
+          "creator_credit": "Apple Computer Inc.",
+          "credit_line": "<p>ACMI Collection</p>",
+          "headline_credit": "Singapore, 1991",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "work",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": "1991-01-01T11:00:00+11:00",
+          "brief_description": "<p>If you took a computer class in Australia during the early 1990s, chances are you used one of these boxy personal computers. The Macintosh Classic was released in October 1990 and was the first Macintosh computer to sell for less than $1,000 US dollars, making it one of the most affordable computers on the market at the time.Â ItÂ wasÂ reallyÂ justÂ a cheaper version of the Macintosh SE without as many features, which had been released in 1987, and the Macintosh Classic was seen by some as an attempt to squeeze a few more years out of the earlier model. Part of its reduced cost was due to being made in Singapore, instead of America like previous Macintosh computers. Still, the price and stable operating system made it popular in schools, at home and for small business.Â </p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 16166,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000326_MacintoshClassicComputer",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1164.46,482.69h-66.68V424.42h66.68Z"
+    },
+    {
+      "label": {
+        "id": 53958,
+        "title": "<p>Portable TVs (Retro Vision)</p>",
+        "type": "group",
+        "subtitles": "",
+        "columns": [
+          {
+            "content": "<p>Australians loved portable TVs. How else could you watch cricket at the beach or take your favourite show camping? Despite how portable these units were, due to using batteries, their small stature saw them positioned in the home just as much as the great outdoors, and they gradually became more of a fashion statement during the late 1970s and 80s. The most fashionable of the ones displayed here is easily the JVC Videosphere, which came in red, black, white and orange, and was designed to look like a space helmet, in homage to 2001: A Space Odyssey and the popularity of the Space Race in 1970 when it was released. Itâ€™s since appeared as props in Hollywood films and in video artist Nam June Paikâ€™s installation, TV Buddha (1974).</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 114466,
+          "acmi_id": "",
+          "title": "Portable TVs (Retro Vision)",
+          "title_annotation": "",
+          "slug": "mpl-display-group-tv-cabinet",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>Australians loved portable TVs. How else could you watch cricket at the beach or take your favourite show camping? Despite how portable these units were, due to using batteries, their small stature saw them positioned in the home just as much as the great outdoors, and they gradually became more of a fashion statement during the late 1970s and 80s. The most fashionable of the ones displayed here is easily the JVC Videosphere, which came in red, black, white and orange, and was designed to look like a space helmet, in homage to 2001: A Space Odyssey and the popularity of the Space Race in 1970 when it was released. Itâ€™s since appeared as props in Hollywood films and in video artist Nam June Paikâ€™s installation, TV Buddha (1974).</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 14107,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">National Ranger 505 Transistor TV</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Matsushita Electrical Co. Ltd. and National Panasonic, Japan, c. 1974</span><br /><span class=\"child_work_credit_line\">ACMI Collection. Courtesy Andrew Evans.</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13974,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Pop-Up Television Radio Model TR-475U</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">National Panasonic</span><br /><span class=\"child_work_credit_line\">ACMI Collection. Courtesy Vincent McMurray.</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 21002,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Videosphere 'Space Helmet' CRT Television Set</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">JVC, c. 1970</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1255,677.92h-157.2V619.28H1255Z"
+    },
+    {
+      "label": {
+        "id": 57708,
+        "title": "<p>Formats</p>",
+        "type": "Object",
+        "subtitles": "<p>ACMI Collection</p>",
+        "columns": [
+          {
+            "content": "<p>The Blackmagic Design Media Preservation Lab handles a wide range of media formats. Much of our collection is contained on 16mm film and domestic videotape formats but we also handle 35mm, 9.5mm and 8mm film, early commercial video formats such as 2â€ and 1â€ tape, various other commercial and semi-professional videotapes, born digital works on hard drives, games cartridges, thumb drives and audio formats. Preserving such a wide variety means we must also maintain the legacy equipment associated with each format.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 118206,
+          "acmi_id": "P184766",
+          "title": "Formats",
+          "title_annotation": "",
+          "slug": "formats",
+          "creator_credit": "",
+          "credit_line": "<p>ACMI Collection</p>",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>The Blackmagic Design Media Preservation Lab handles a wide range of media formats. Much of our collection is contained on 16mm film and domestic videotape formats but we also handle 35mm, 9.5mm and 8mm film, early commercial video formats such as 2â€ and 1â€ tape, various other commercial and semi-professional videotapes, born digital works on hard drives, games cartridges, thumb drives and audio formats. Preserving such a wide variety means we must also maintain the legacy equipment associated with each format.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 20984,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "",
+            "credit_line": "Photograph by Egmont Contreras",
+            "alt_text": "",
+            "width": 4217,
+            "height": 2376,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1255,749.24h-157.2V690.65H1255Z"
+    },
+    {
+      "label": {
+        "id": 53980,
+        "title": "<p>Early home consoles</p>",
+        "type": "group",
+        "subtitles": "",
+        "columns": [
+          {
+            "content": "<p>While the first home console, the Magnavox Odyssey, came out in 1972, it wasnâ€™t the only launched in the decade. Around 1978, the two-player Hanimex TVG-8610C console was released for home use. Featuring detachable joysticks and 10 internally programmed games, it allowed players to customise difficulty levels, automation and keep score. Consoles like this needed to be run through the home TV to use as a monitor and also required a little domestic diplomacy with family members for a bigger share of screen time.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 114488,
+          "acmi_id": "",
+          "title": "Early home consoles",
+          "title_annotation": "",
+          "slug": "mpl-display-group-legacy-games-with-monitors",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>While the first home console, the Magnavox Odyssey, came out in 1972, it wasnâ€™t the only launched in the decade. Around 1978, the two-player Hanimex TVG-8610C console was released for home use. Featuring detachable joysticks and 10 internally programmed games, it allowed players to customise difficulty levels, automation and keep score. Console like this needed to be run through the home TV to use as a monitor and also required a little domestic diplomacy with family members for a bigger share of screen time.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 21182,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Portable Black and White TV</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">NEC Japan, Japan, 1974</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13328,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">TVG-8610C Console</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Hanimex, Hong Kong, c. 1978</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1166,419.63h89v72.85h-89Z"
+    },
+    {
+      "label": {
+        "id": 53388,
+        "title": "<p>8mm Film</p>",
+        "type": "group",
+        "subtitles": "",
+        "columns": [
+          {
+            "content": "<p>The relatively low cost of 8mm film and its production made filmmaking more accessible to both amateurs, artist and filmmakers. The addition of a magnetic sound for this format in the 1960s let users record sound while filming and add narration in later as well. A typical 8mm filmmaking suite includes a camera, projector, editing equipment and film splicers, some of which are in this display. Whatâ€™s not shown is how many we actually have in the collection as weâ€™re increasingly offered these types of objects through donations.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 113894,
+          "acmi_id": "",
+          "title": "8mm Film",
+          "title_annotation": "",
+          "slug": "mpl-display-group-8mm-film-cabinet",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>The relatively low cost of 8mm film and its production made filmmaking more accessible to both amateurs, artist and filmmakers. The addition of a magnetic sound for this format in the 1960s let users record sound while filming and add narration in later as well. A typical 8mm filmmaking suite includes a camera, projector, editing equipment and film splicers, some of which are in this display. Whatâ€™s not shown is how many we actually have in the collection as weâ€™re increasingly offered these types of objects through donations.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 14135,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">8mm and 16mm Film Splicer</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13339,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">8MM Movie Camera E3L Model 1617</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Japan, c. 1950</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 14128,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Atlas Editor Viewer Model 880</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Atlas, Japan, c. 1950</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 15914,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">Mark 502-D Dual 8MM Projector</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Eumig, Austria, c. 1970</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4613,
+            "height": 3104,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1257.19,608.67H1097.78v-95h159.41Z"
+    },
+    {
+      "label": {
+        "id": 39775,
+        "title": "<p>Clamshell Apple Laptop</p>",
+        "type": "Object",
+        "subtitles": "<p>Apple Computer Inc., Taiwan, Province Of China, c. 1999</p><p>ACMI Collection</p>",
+        "columns": [
+          {
+            "content": "<p>You probably know what this is, but not what itâ€™s called. Technically itâ€™s the Apple iBook G3 but theyâ€™re better known as â€˜Clamshellsâ€™ because of their curved, colourful design. Introduced in the late 1990s, these fashionable laptops reflected early attempts to offer personalisation through its range of vibrant colours, which also made them stand out in film and TV. In <i>Legally Blonde</i> (2001), Reece Witherspoonâ€™s character is seen lining up to buy one and later using it in class. Sure, this is likely product placement, but it reflects how the entry level computer was targeted at the education market. It was also the first mass consumer product to have WiFi built in. We maintain a large collection of this kind of legacy equipment for use in digital archaeology and preservation of early interactive educational products and artworks.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 100279,
+          "acmi_id": "E000285",
+          "title": "Clamshell Apple Laptop",
+          "title_annotation": "",
+          "slug": "ibook-g3-clamshell-laptop",
+          "creator_credit": "Apple Computer Inc.",
+          "credit_line": "<p>ACMI Collection</p>",
+          "headline_credit": "Taiwan, Province Of China, c. 1999",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "work",
+          "type": "Object",
+          "is_on_display": true,
+          "last_on_display_place": "ACMI: Gallery 1",
+          "last_on_display_date": "2031-02-16",
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>You probably know what this is, but not what itâ€™s called. Technically itâ€™s the Apple iBook G3 but theyâ€™re better known as â€˜Clamshellsâ€™ because of their curved, colourful design. Introduced in the late 1990s, these fashionable laptops reflected early attempts to offer personalisation through its range of vibrant colours, which also made them stand out in film and TV. In Legally Blonde (2001), Reece Witherspoonâ€™s character is seen lining up to buy one and using it later in class. Sure, this is likely product placement, but it reflects how the entry level computer was targeted at the education market. It was also the first mass consumer product to have WiFi built in. We maintain a large collection of this kind of legacy equipment for use in digital archaeology and preservation of early interactive educational products and artworks.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 14116,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000285_iBookG3ClamshellLaptop__34",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 14117,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000285_iBookG3ClamshellLaptop_Top_closed",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4716,
+            "height": 3144,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 15917,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000285_iBookG3ClamshellLaptop__Back_closed",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4726,
+            "height": 3147,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 15918,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000285_iBookG3ClamshellLaptop__Front_closed",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3194,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 15919,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000285_iBookG3ClamshellLaptop_Left_closed",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3189,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 15920,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "E000285_iBookG3ClamshellLaptop_Right_closed",
+            "credit_line": "Photograph by Egmont Contreras, ACMI",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3193,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1345.5,681.5H1270V606h75.5Z"
+    },
+    {
+      "label": {
+        "id": 57538,
+        "title": "<p>TERROR NULLIUS Acquisition</p>",
+        "type": "Object",
+        "subtitles": "<p>Soda_Jerk, Australia</p><p>ACMI Collection</p>",
+        "columns": [
+          {
+            "content": "<p>The acquisition of time-based media artworks requires our collection team to develop a host of preservation strategies that often go unseen by visitors. These strategies include the receipt of master moving-image files and provenanceÂ documentation.Â Soda_Jerkâ€™sÂ acquisition, presented here, displays their political and humorous sense of creativity as the humble certificate of authenticity and external hard drive packaging get a playful overhaul, which reflects the subversive nature of the artwork, TERROR NULLIUS.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 118036,
+          "acmi_id": "P184171",
+          "title": "TERROR NULLIUS Acquisition",
+          "title_annotation": "",
+          "slug": "terror-nullius-acquisition",
+          "creator_credit": "Soda_Jerk",
+          "credit_line": "<p>ACMI Collection</p>",
+          "headline_credit": "Australia",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "work",
+          "type": "Object",
+          "is_on_display": false,
+          "last_on_display_place": null,
+          "last_on_display_date": null,
+          "is_context_indigenous": false,
+          "material_description": "VHS case, hard drive with USB adaptor, paper ceritificate of authenticity",
+          "unpublished": false,
+          "external": true,
+          "first_production_date": null,
+          "brief_description": "<p>The acquisition of time-based media artworks requires our collection team to develop a host of preservation strategies that often go unseen by visitors. These strategies include the receipt of master moving-image files and provenanceÂ documentation.Â Soda_Jerkâ€™sÂ acquisition, presented here, displays their political and humorous sense of creativity as the humble certificate of authenticity and external hard drive packaging get a playful overhaul, which reflects the subversive nature of the artwork, TERROR NULLIUS.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 20868,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "P184171_TerrorNulliusAcquisitionRepro_Display",
+            "credit_line": "Photograph by Egmont Contreras",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1349,576h-79V518h79Z"
+    },
+    {
+      "label": {
+        "id": 57461,
+        "title": "<p>VHS</p>",
+        "type": "group",
+        "subtitles": "",
+        "columns": [
+          {
+            "content": "<p>The evolution of film to portable, tape-based cameras and the production and distribution of magnetic media like video continued theÂ democratisationÂ of the moving image. One sector that readily adopted magnetic media was education, with training and educational videos disseminated on the format. We now have a range of educational videos in our collection and the VHS camera featured here was used to shoot classes on filmmaking when ACMI was part ofÂ CinemediaÂ in the late 1990s. Rapid deterioration of video and the obsolescence of the equipment needed for playback pose critical preservation issues â€“ we&#8217;re doing everything we can to save them.Â </p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 117966,
+          "acmi_id": "",
+          "title": "VHS",
+          "title_annotation": "",
+          "slug": "vhs",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "group",
+          "type": "Film",
+          "is_on_display": false,
+          "last_on_display_place": null,
+          "last_on_display_date": null,
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>The evolution of film to portable, tape-based cameras and the production and distribution of magnetic media like video continued theÂ democratisationÂ of the moving image. One sector that readily adopted magnetic media was education, with training and educational videos disseminated on the format. We now have a range of educational videos in our collection and the VHS camera featured here was used to shoot classes on filmmaking when ACMI was part ofÂ CinemediaÂ in the late 1990s. Rapid deterioration of video and the obsolescence of the equipment needed for playback pose critical preservation issues â€“ we&#8217;re doing everything we can to save them.Â </p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 21174,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">NV-HV60 Super Drive VHS Playback Unit</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Panasonic Corporation, Malaysia</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras",
+            "alt_text": "",
+            "width": 4800,
+            "height": 3200,
+            "access_level": "View anywhere"
+          },
+          {
+            "id": 13333,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "<div class=\"child_work\"><span class=\"child_work_title\">VHS Movie Camera NV-M50</span><span class=\"child_work_title_annotation\"></span><br /><span class=\"child_work_subtitle\">Panasonic Corporation, Japan</span><br /><span class=\"child_work_credit_line\">ACMI Collection</span></div>",
+            "credit_line": "Photograph by Egmont Contreras, ACMI.",
+            "alt_text": "",
+            "width": 4550,
+            "height": 3033,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M1345.59,499.31h-71.14V445.2h71.14Zm.53,195.76h-71.67v54.17h71.67Z"
+    },
+    {
+      "label": {
+        "id": 1404,
+        "title": "<p>Blackmagic Design Media Preservation Lab</p>",
+        "type": "Video",
+        "subtitles": "<p>Visit it at ACMI</p>",
+        "columns": [
+          {
+            "content": "<p>There are about 250,000 artefacts in the ACMI Collection, which weâ€™ve been collecting for over 75 years â€“ ever since ACMI was conceived as a film lending and education organisation called the State Film Centre. In the Blackmagic Media Preservation Lab, weâ€™re digitising our film and time-based media collections, assessing physical artefacts from our videogame collection and film donations, as well as making the collection accessible onsite and online.</p>",
+            "style": "standard"
+          },
+          { "content": "", "style": "standard" },
+          { "content": "", "style": "smaller" }
+        ],
+        "work": {
+          "id": 61970,
+          "acmi_id": "xos-61970",
+          "title": "Blackmagic Design Media Preservation Lab",
+          "title_annotation": "",
+          "slug": "media-preservation-lab",
+          "creator_credit": "",
+          "credit_line": "",
+          "headline_credit": "",
+          "thumbnail": {
+            "image_url": "file://../../data/sample.jpg",
+            "has_video": false
+          },
+          "record_type": "work",
+          "type": "Video",
+          "is_on_display": false,
+          "last_on_display_place": null,
+          "last_on_display_date": null,
+          "is_context_indigenous": false,
+          "material_description": "",
+          "unpublished": false,
+          "external": false,
+          "first_production_date": null,
+          "brief_description": "<p>The Media Preservation Lab is a purposed built public facing lab.</p>",
+          "constellations_primary": [],
+          "constellations_other": [],
+          "recommendations": []
+        },
+        "images": [
+          {
+            "id": 1002,
+            "image_file": "file://../../data/sample.jpg",
+            "image_file_thumbnail": "file://../../data/sample.jpg",
+            "image_file_xs": "file://../../data/sample.jpg",
+            "image_file_s": "file://../../data/sample.jpg",
+            "image_file_m": "file://../../data/sample.jpg",
+            "image_file_l": "file://../../data/sample.jpg",
+            "caption": "Nick Richardson - head of collections & preservation.",
+            "credit_line": "",
+            "alt_text": "",
+            "width": 3104,
+            "height": 1846,
+            "access_level": "View anywhere"
+          }
+        ],
+        "url_override": "",
+        "is_an_event": false
+      },
+      "video": null,
+      "region_svg": "M996.14,438.47h-79.2V598h79.2Zm438.71,0h-79.2V598h79.2Z"
     }
   ],
   "background": "file://../../data/sample.jpg",
-  "background_dimensions": null
+  "background_dimensions": [1920, 1080]
 }

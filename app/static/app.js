@@ -62,6 +62,9 @@ let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
 const COLLECT_TEXT = "TO COLLECT TAP LENS ON READER";
+const NOTIFICATION_TEXT = "Tap an object to learn more";
+const NOTIFICATION_BAR_TIMEOUT = 20000;
+const MODAL_TIMEOUT = 60000;
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
@@ -115,15 +118,52 @@ function close_modal() {
   save_label(null);
 }
 
+const notification_bar = document.createElement("div");
+notification_bar.className = "notification_bar";
+notification_bar.innerHTML = `<p>${NOTIFICATION_TEXT}</p>`;
+root.appendChild(notification_bar);
+
+function open_notification_bar() {
+  notification_bar.style.top = "0px";
+}
+
+function close_notification_bar() {
+  notification_bar.style.top = `-${notification_bar.clientHeight}px`;
+}
+
+notification_bar.addEventListener("click", close_notification_bar);
+
 let close_timer = null;
 function handle_timer_timeout() {
   if (current_modal) {
     close_modal();
   }
 }
+let close_notification_bar_timer = null;
+function handle_notification_bar_timer_timeout() {
+  if (!current_modal) {
+    open_notification_bar();
+  } else {
+    window.clearTimeout(close_notification_bar_timer);
+    close_notification_bar_timer = window.setTimeout(
+      handle_notification_bar_timer_timeout,
+      NOTIFICATION_BAR_TIMEOUT
+    );
+  }
+}
+close_notification_bar_timer = window.setTimeout(
+  handle_notification_bar_timer_timeout,
+  NOTIFICATION_BAR_TIMEOUT
+);
 window.addEventListener("click", function () {
   window.clearTimeout(close_timer);
-  close_timer = window.setTimeout(handle_timer_timeout, 60000);
+  close_timer = window.setTimeout(handle_timer_timeout, MODAL_TIMEOUT);
+  window.clearTimeout(close_notification_bar_timer);
+  close_notification_bar();
+  close_notification_bar_timer = window.setTimeout(
+    handle_notification_bar_timer_timeout,
+    NOTIFICATION_BAR_TIMEOUT
+  );
 });
 
 function setModalTimeout(milliseconds) {
@@ -307,7 +347,7 @@ for (let i = 0; i < labels.length; i++) {
 }
 
 const paths_svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-paths_svg.className = "paths_svg";
+paths_svg.classList.add("paths_svg");
 paths_svg.setAttribute(
   "viewBox",
   `0 0 ${window.data.background_dimensions[0]} ${window.data.background_dimensions[1]}`
@@ -406,20 +446,26 @@ function open_modal(errorText) {
   modal_cont.style.opacity = 1;
   modal_cont.style.pointerEvents = "all";
   window.clearTimeout(close_tap_error_timeout);
-  close_tap_error_timeout = window.setTimeout(close_tap_error, 5000);
+  close_tap_error_timeout = window.setTimeout(close_tap_error, 8000);
   window.addEventListener("click", close_tap_error);
 }
 
 const tap_source = new EventSource("/api/tap-source");
 
 tap_source.onmessage = function (event) {
+  close_notification_bar();
+  window.clearTimeout(close_notification_bar_timer);
+  close_notification_bar_timer = window.setTimeout(
+    handle_notification_bar_timer_timeout,
+    NOTIFICATION_BAR_TIMEOUT
+  );
   const event_data = JSON.parse(event.data);
   const tap_successful =
     event_data.tap_successful && event_data.tap_successful === 1;
 
   if (!active_collect_element && tap_successful) {
     open_modal(
-      "<h1>Tap an image to open label and collect.</h1><p>The first item on this interactive label has been added to your Lens collection.</p>"
+      `<h1>${NOTIFICATION_TEXT}</h1><p>Take it home by tapping your <br>Lens on the reader.</p>`
     );
     return;
   }

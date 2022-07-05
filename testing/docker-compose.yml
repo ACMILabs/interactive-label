@@ -10,5 +10,7 @@ services:
     hostname: javascripttests
     container_name: javascripttests
     volumes:
-      - ../:/code        
+      - ../:/code
+    ports:
+      - "9229:9229"
     command: ./scripts/test.sh

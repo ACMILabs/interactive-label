@@ -443,7 +443,7 @@ p:last-child {
 }
 
 .tap_error_text h1 {
-  font-size: 72px;
+  font-size: 68px;
   font-family: PxGrotesk;
   font-weight: normal;
 }
@@ -455,4 +455,25 @@ p:last-child {
   width: 50px;
   height: 50px;
   background: center/contain url('close.svg');
+}
+
+.notification_bar {
+  font-size: 16px;
+  font-family: PxGrotesk;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  z-index: 10;
+  top: -40px;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  color: #000;
+  transition: 400ms;
+}
+
+.notification_bar p {
+  margin: 0;
+  padding: 12px 0 0 0;
 }
