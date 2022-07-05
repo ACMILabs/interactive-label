@@ -61,7 +61,6 @@ let active_collect_element = null;
 let is_animating_collect = false;
 const collect_elements = [];
 let current_modal = null;
-const COLLECT_TEXT = "TO COLLECT TAP LENS ON READER";
 
 const active_images = [];
 for (let i = 0; i < labels.length; i++) {
@@ -113,6 +112,23 @@ function close_modal() {
   active_path = null;
   current_modal = null;
   save_label(null);
+}
+
+function load_collect_animation() {
+  const players = document.getElementsByTagName("dotlottie-player");
+  for (let index = 0; index < players.length; index++) {
+    const player = players[index];
+    player.load("/static/collect.lottie");
+  }
+}
+
+function load_collected_animation() {
+  const players = document.getElementsByTagName("dotlottie-player");
+  for (let index = 0; index < players.length; index++) {
+    const player = players[index];
+    player.load("/static/collected.lottie");
+  }
+  window.setTimeout(load_collect_animation, 5500);
 }
 
 let close_timer = null;
@@ -254,11 +270,15 @@ for (let i = 0; i < labels.length; i++) {
   back_button.innerHTML = "BACK";
   back_button.addEventListener("click", close_modal);
 
-  const collect = document.createElement("div");
+  const collect = document.createElement("dotlottie-player");
   item.appendChild(collect);
   collect.className = "modal_collect";
-  collect.innerHTML = COLLECT_TEXT;
+  collect.autoplay = "true";
+  collect.loop = "true";
+  collect.mode = "normal";
+  collect.src = "/static/collect.lottie";
   collect_elements.push(collect);
+  collect.addEventListener("click", load_collected_animation);
 
   const close = document.createElement("div");
   item.appendChild(close);
@@ -433,21 +453,8 @@ tap_source.onmessage = function (event) {
 
   if (is_animating_collect) return;
 
-  const element = active_collect_element;
   is_animating_collect = true;
-  element.className = "modal_collect hidden";
-  window.setTimeout(function () {
-    element.innerHTML = "COLLECTED";
-    element.className = "modal_collect active";
-  }, 500);
-  window.setTimeout(function () {
-    element.className = "modal_collect active hidden";
-  }, 3000);
-  window.setTimeout(function () {
-    element.className = "modal_collect";
-    element.innerHTML = COLLECT_TEXT;
-    is_animating_collect = false;
-  }, 3500);
+  load_collected_animation();
   // Set the modal timeout to 5 seconds after a lens tap
   // 5 + 3.5 seconds to reset the collect text
   setModalTimeout(8500);

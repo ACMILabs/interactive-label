@@ -275,55 +275,14 @@ cite {
 }
 
 .modal_collect {
+  width: 150px;
   position: absolute;
-  right: 0;
+  right: 45px;
   bottom: 45px;
   color: #fff;
-  padding: 30px 40px 24px;
   font-family: PxGrotesk;
   font-size: 23px;
   transition: background 500ms, color 500ms;
-}
-
-.modal_collect:after {
-  width: 18px;
-  height: 24px;
-  display: inline-block;
-  background: url('right.svg') center/contain no-repeat;
-  content: " ";
-  margin-left: 10px;
-  vertical-align: -4px;
-  transition: opacity 500ms;
-  -webkit-animation: animateright 0.6s infinite alternate ease-in-out;
-}
-
-@-webkit-keyframes animateright {
-  0% { -webkit-transform: translateX(0); }
-  100% { -webkit-transform: translateX(0.2em); }
-}
-
-.modal_collect.active:after  {
-  background: url('tick.svg') center/contain no-repeat;
-  width: 18px;
-  height: 14px;
-  vertical-align: 0px;
-  -webkit-animation: none;
-}
-
-.modal_collect.active.hidden,
-.modal_collect.hidden {
-  color: rgba(0,0,0,0);
-  background: rgba(0,0,0,0);
-}
-
-.modal_collect.active.hidden:after,
-.modal_collect.hidden:after {
-  opacity: 0;
-}
-
-.modal_collect.active {
-  background: #fff;
-  color: #000;
 }
 
 .modal_desc_col_1 {
