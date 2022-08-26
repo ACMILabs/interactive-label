@@ -115,7 +115,8 @@ cite {
 .modal_left_col_1,
 .modal_left_col_2,
 .modal_left_col_3 {
-  float: left;
+  position: fixed;
+  right: 0;
   box-sizing: border-box;
   padding: 45px;
   padding-bottom: 0;
@@ -133,10 +134,60 @@ cite {
   float: none;
 }
 
+.large_text_button {
+  float: right;
+  font-family: PxGrotesk;
+  font-size: 23px;
+  margin-top: -10px;
+  margin-right: 3rem;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+}
+
+.large_text_button:before {
+  position: relative;
+  top: 2px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: url('accessibility-icon.svg') center/contain no-repeat;
+  content: " ";
+  display: inline-block;
+  border: none;
+}
+
+.large_text_button_close {
+  position: fixed;
+  top: 45px;
+  right: 0px;
+}
+
+.large_text_button_close:before {
+  width: 40px;
+  height: 40px;
+  background: url('close-black.svg') center/contain no-repeat;
+  content: " ";
+  display: inline-block;
+}
+
+.large_text {
+  background-color: white;
+  color: black;
+  width: 1360px;
+  height: 100%;
+  z-index: 10;
+  padding: 60px;
+}
+
+.large_text .modal_title {
+  padding-top: 0;
+}
+
 .modal_title {
   font-size: 34px;
   line-height: 40px;
   font-family: PxGrotesk;
+  padding-top: 3rem;
 }
 
 .modal_title_annotation {
@@ -174,7 +225,7 @@ cite {
 .modal_active_image_and_caption {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 45px;
   width: 100%;
   height: 100%;
   opacity: 0;
