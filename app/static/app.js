@@ -63,7 +63,7 @@ const collect_elements = [];
 let current_modal = null;
 const COLLECT_TEXT = "TO COLLECT TAP LENS ON READER";
 const NOTIFICATION_TEXT = "Tap an object to learn more";
-const LARGE_TEXT = "LARGE_TEXT";
+const LARGE_TEXT = "LARGE TEXT";
 const NOTIFICATION_BAR_TIMEOUT = 20000;
 const MODAL_TIMEOUT = 60000;
 
@@ -334,9 +334,13 @@ for (let i = 0; i < labels.length; i++) {
     description_3.innerHTML = label.description_column_3;
   }
 
+  const image_container = document.createElement("div");
+  item.appendChild(image_container);
+  image_container.className = "modal_image_container";
+
   const active_image_cont = document.createElement("div");
   if (should_show_image_and_caption) {
-    item.appendChild(active_image_cont);
+    image_container.appendChild(active_image_cont);
     active_image_cont.className = `modal_active_image_cont ${
       !should_show_image_list && num_description_columns === 1
         ? "large_image_cont"
@@ -346,7 +350,7 @@ for (let i = 0; i < labels.length; i++) {
 
   const image_list = document.createElement("div");
   if (should_show_image_list) {
-    item.appendChild(image_list);
+    image_container.appendChild(image_list);
     image_list.className = "modal_image_list";
   }
 
