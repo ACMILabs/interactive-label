@@ -104,7 +104,62 @@ const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
 root.appendChild(modal_cont);
 
+function open_large_text() {
+  const textBox = current_modal.querySelectorAll("[class^=modal_left_col_]")[0];
+  const largeTextButton =
+    current_modal.getElementsByClassName("large_text_button")[0];
+  if (largeTextButton.innerHTML === LARGE_TEXT) {
+    largeTextButton.innerHTML = "";
+    largeTextButton.classList.add("large_text_button_close");
+    textBox.classList.add("large_text");
+    for (let index = 0; index < textBox.children.length; index++) {
+      const element = textBox.children[index];
+      const cssFontSize =
+        getComputedStyle(element).getPropertyValue("font-size");
+      const fontSize = parseFloat(cssFontSize);
+      element.style.fontSize = `${fontSize * 1.5}px`;
+      const cssLineHeight =
+        getComputedStyle(element).getPropertyValue("line-height");
+      const lineHeight = parseFloat(cssLineHeight);
+      element.style.lineHeight = `${lineHeight * 1.5}px`;
+    }
+  }
+}
+
+function close_large_text() {
+  const textBox = current_modal.querySelectorAll("[class^=modal_left_col_]")[0];
+  const largeTextButton =
+    current_modal.getElementsByClassName("large_text_button")[0];
+  if (largeTextButton.innerHTML === "") {
+    largeTextButton.innerHTML = LARGE_TEXT;
+    largeTextButton.classList.remove("large_text_button_close");
+    textBox.classList.remove("large_text");
+    for (let index = 0; index < textBox.children.length; index++) {
+      const element = textBox.children[index];
+      const cssFontSize =
+        getComputedStyle(element).getPropertyValue("font-size");
+      const fontSize = parseFloat(cssFontSize);
+      element.style.fontSize = `${fontSize / 1.5}px`;
+      const cssLineHeight =
+        getComputedStyle(element).getPropertyValue("line-height");
+      const lineHeight = parseFloat(cssLineHeight);
+      element.style.lineHeight = `${lineHeight / 1.5}px`;
+    }
+  }
+}
+
+function toggle_large_text() {
+  const largeTextButton =
+    current_modal.getElementsByClassName("large_text_button")[0];
+  if (largeTextButton.innerHTML === LARGE_TEXT) {
+    open_large_text();
+  } else {
+    close_large_text();
+  }
+}
+
 function close_modal() {
+  close_large_text();
   current_modal.style.opacity = 0;
   current_modal.style.pointerEvents = "none";
   modal_cont.style.opacity = 0;
@@ -117,40 +172,6 @@ function close_modal() {
   active_path = null;
   current_modal = null;
   save_label(null);
-}
-
-function open_large_text() {
-  if (this.innerHTML === LARGE_TEXT) {
-    this.innerHTML = "";
-    this.classList.add("large_text_button_close");
-    this.parentElement.classList.add("large_text");
-    for (let index = 0; index < this.parentElement.children.length; index++) {
-      const element = this.parentElement.children[index];
-      const cssFontSize =
-        getComputedStyle(element).getPropertyValue("font-size");
-      const fontSize = parseFloat(cssFontSize);
-      element.style.fontSize = `${fontSize * 1.5}px`;
-      const cssLineHeight =
-        getComputedStyle(element).getPropertyValue("line-height");
-      const lineHeight = parseFloat(cssLineHeight);
-      element.style.lineHeight = `${lineHeight * 1.5}px`;
-    }
-  } else {
-    this.innerHTML = LARGE_TEXT;
-    this.classList.remove("large_text_button_close");
-    this.parentElement.classList.remove("large_text");
-    for (let index = 0; index < this.parentElement.children.length; index++) {
-      const element = this.parentElement.children[index];
-      const cssFontSize =
-        getComputedStyle(element).getPropertyValue("font-size");
-      const fontSize = parseFloat(cssFontSize);
-      element.style.fontSize = `${fontSize / 1.5}px`;
-      const cssLineHeight =
-        getComputedStyle(element).getPropertyValue("line-height");
-      const lineHeight = parseFloat(cssLineHeight);
-      element.style.lineHeight = `${lineHeight / 1.5}px`;
-    }
-  }
 }
 
 const notification_bar = document.createElement("div");
@@ -250,7 +271,7 @@ for (let i = 0; i < labels.length; i++) {
   left_col.appendChild(large_text_button);
   large_text_button.className = "large_text_button";
   large_text_button.innerHTML = LARGE_TEXT;
-  large_text_button.addEventListener("click", open_large_text);
+  large_text_button.addEventListener("click", toggle_large_text);
 
   const title = document.createElement("div");
   left_col.appendChild(title);
