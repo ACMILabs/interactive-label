@@ -158,6 +158,16 @@ function toggle_large_text() {
   }
 }
 
+function setPanZoom(element) {
+  // eslint-disable-next-line no-undef
+  panzoom(element, {
+    bounds: true,
+    boundsPadding: 0.5,
+    minZoom: 1,
+    maxZoom: 5,
+  });
+}
+
 function close_modal() {
   close_large_text();
   current_modal.style.opacity = 0;
@@ -166,6 +176,8 @@ function close_modal() {
   modal_cont.style.pointerEvents = "none";
   if (current_active_image) {
     current_active_image.style.opacity = 0;
+    current_active_image.style.visibility = "hidden";
+    setPanZoom(current_active_image.firstChild);
   }
   active_collect_element = null;
   active_path.classList.remove("active");
@@ -372,11 +384,14 @@ for (let i = 0; i < labels.length; i++) {
       active_image_cont.appendChild(active_image_and_caption);
       active_image_and_caption.className = "modal_active_image_and_caption";
       active_images[i][j] = active_image_and_caption;
+      active_image_cont.style.overflow = "hidden";
 
       const active_image = document.createElement("div");
       active_image_and_caption.appendChild(active_image);
       active_image.className = "modal_active_image large_image";
-      active_image.style.backgroundImage = `url(${label_image.image_file_m})`;
+      active_image.style.backgroundImage = `url(${label_image.image_file_l})`;
+
+      setPanZoom(active_image);
 
       if (label.is_group && label_image.caption) {
         const caption = document.createElement("div");
@@ -403,6 +418,8 @@ for (let i = 0; i < labels.length; i++) {
         const element = image_modals[index];
         if (element.style.opacity === "1") {
           element.style.opacity = "0";
+          element.style.visibility = "hidden";
+          setPanZoom(element.firstChild);
           let previousElementIndex = 0;
           if (index === 0) {
             previousElementIndex = image_modals.length - 1;
@@ -411,6 +428,7 @@ for (let i = 0; i < labels.length; i++) {
           }
           current_active_image = image_modals[previousElementIndex];
           current_active_image.style.opacity = "1";
+          current_active_image.style.visibility = "visible";
           break;
         }
       }
@@ -430,6 +448,8 @@ for (let i = 0; i < labels.length; i++) {
         const element = image_modals[index];
         if (element.style.opacity === "1") {
           element.style.opacity = "0";
+          element.style.visibility = "hidden";
+          setPanZoom(element.firstChild);
           let nextElementIndex = 0;
           if (index === image_modals.length - 1) {
             nextElementIndex = 0;
@@ -438,6 +458,7 @@ for (let i = 0; i < labels.length; i++) {
           }
           current_active_image = image_modals[nextElementIndex];
           current_active_image.style.opacity = "1";
+          current_active_image.style.visibility = "visible";
           break;
         }
       }
@@ -502,6 +523,7 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
     [current_active_image] = active_images[i];
     if (current_active_image) {
       current_active_image.style.opacity = 1;
+      current_active_image.style.visibility = "visible";
     }
     current_modal = modals[i];
     left_cols[i].scrollTop = 0;
