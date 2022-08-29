@@ -378,7 +378,7 @@ for (let i = 0; i < labels.length; i++) {
       active_image.className = "modal_active_image large_image";
       active_image.style.backgroundImage = `url(${label_image.image_file_m})`;
 
-      if (label.is_group) {
+      if (label.is_group && label_image.caption) {
         const caption = document.createElement("div");
         active_image_and_caption.appendChild(caption);
         caption.className = "modal_caption";
