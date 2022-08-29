@@ -250,6 +250,8 @@ cite {
   line-height: 25px;
   padding: 45px;
   vertical-align: baseline;
+  width: calc(100% - 90px);
+  background: linear-gradient(transparent, black);
 }
 
 .modal_active_image {
