@@ -189,7 +189,7 @@ def collect_item():
     xos_tap['label'] = record.pop('label_id', None)
     xos_tap.setdefault('data', {})['playlist_info'] = record
     headers = {'Authorization': 'Token ' + AUTH_TOKEN}
-    response = requests.post(XOS_TAPS_ENDPOINT, json=xos_tap, headers=headers)
+    response = requests.post(XOS_TAPS_ENDPOINT, json=xos_tap, headers=headers, timeout=60)
     if response.status_code != requests.codes['created']:
         if tap_to_process:
             tap_to_process.tap_successful = 0

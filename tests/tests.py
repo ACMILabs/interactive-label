@@ -238,4 +238,4 @@ def test_cache():
         playlist = json.loads(playlist_cache.read())['playlist_labels']
     assert len(playlist) == 32
     assert playlist[0]['label']['title'] == '<p>Camera Case</p>'
-    assert playlist[0]['label']['images'][0]['image_file_xs'] == '/cache/sample.jpg'
+    assert playlist[0]['label']['images'][0]['image_file_l'] == '/cache/sample.jpg'

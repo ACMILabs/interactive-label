@@ -32,7 +32,7 @@ def cache_image(image_url):
 
     if not os.path.isfile(CACHE_DIR+name):
         print('Downloading: ' + image_url)
-        response = requests.get(image_url)
+        response = requests.get(image_url, timeout=15)
         with open(CACHE_DIR + name, 'wb') as cache_file:
             cache_file.write(response.content)
 

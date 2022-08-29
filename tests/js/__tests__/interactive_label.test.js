@@ -10,6 +10,7 @@ window.data.background_dimensions =
   require("../../data/playlist.json").background_dimensions;
 
 global.EventSource = function dummyEventSource() {};
+global.panzoom = function dummyPanZoom() {};
 
 document.body.innerHTML = "<div id='root'></div>";
 require("../../../app/static/app");
