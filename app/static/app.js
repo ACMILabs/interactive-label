@@ -342,16 +342,8 @@ for (let i = 0; i < labels.length; i++) {
   if (should_show_image_and_caption) {
     image_container.appendChild(active_image_cont);
     active_image_cont.className = `modal_active_image_cont ${
-      !should_show_image_list && num_description_columns === 1
-        ? "large_image_cont"
-        : ""
+      num_description_columns === 1 ? "large_image_cont" : ""
     }`;
-  }
-
-  const image_list = document.createElement("div");
-  if (should_show_image_list) {
-    image_container.appendChild(image_list);
-    image_list.className = "modal_image_list";
   }
 
   const back_button = document.createElement("div");
@@ -383,10 +375,8 @@ for (let i = 0; i < labels.length; i++) {
 
       const active_image = document.createElement("div");
       active_image_and_caption.appendChild(active_image);
-      active_image.className = `modal_active_image${
-        !should_show_image_list ? " large_image" : ""
-      }`;
-      active_image.style.backgroundImage = `url(${label_image.image_file_xs})`;
+      active_image.className = "modal_active_image large_image";
+      active_image.style.backgroundImage = `url(${label_image.image_file_m})`;
 
       if (label.is_group) {
         const caption = document.createElement("div");
@@ -394,21 +384,64 @@ for (let i = 0; i < labels.length; i++) {
         caption.className = "modal_caption";
         caption.innerHTML = `${label_image.caption}`;
       }
-
-      if (should_show_image_list) {
-        const image = document.createElement("div");
-        image_list.appendChild(image);
-        image.className = `modal_image${
-          label.images.length > 6 ? " small_image" : ""
-        }`;
-        image.style.backgroundImage = `url(${label_image.image_file_xs})`;
-        image.addEventListener("click", function image_click() {
-          current_active_image.style.opacity = 0;
-          current_active_image = active_image_and_caption;
-          current_active_image.style.opacity = 1;
-        });
-      }
     }
+  }
+
+  if (should_show_image_list) {
+    // Add left/right arrows for more than 1 image
+    const left_arrow_container = document.createElement("div");
+    active_image_cont.appendChild(left_arrow_container);
+    left_arrow_container.className = "arrow_container left";
+    const left_arrow = document.createElement("div");
+    left_arrow_container.appendChild(left_arrow);
+    left_arrow.className = "arrow_left";
+    left_arrow_container.addEventListener("click", function () {
+      const image_modals = this.parentNode.getElementsByClassName(
+        "modal_active_image_and_caption"
+      );
+      for (let index = 0; index < image_modals.length; index++) {
+        const element = image_modals[index];
+        if (element.style.opacity === "1") {
+          element.style.opacity = "0";
+          let previousElementIndex = 0;
+          if (index === 0) {
+            previousElementIndex = image_modals.length - 1;
+          } else {
+            previousElementIndex = index - 1;
+          }
+          current_active_image = image_modals[previousElementIndex];
+          current_active_image.style.opacity = "1";
+          break;
+        }
+      }
+    });
+
+    const right_arrow_container = document.createElement("div");
+    active_image_cont.appendChild(right_arrow_container);
+    right_arrow_container.className = "arrow_container right";
+    const right_arrow = document.createElement("div");
+    right_arrow_container.appendChild(right_arrow);
+    right_arrow.className = "arrow_right";
+    right_arrow_container.addEventListener("click", function () {
+      const image_modals = this.parentNode.getElementsByClassName(
+        "modal_active_image_and_caption"
+      );
+      for (let index = 0; index < image_modals.length; index++) {
+        const element = image_modals[index];
+        if (element.style.opacity === "1") {
+          element.style.opacity = "0";
+          let nextElementIndex = 0;
+          if (index === image_modals.length - 1) {
+            nextElementIndex = 0;
+          } else {
+            nextElementIndex = index + 1;
+          }
+          current_active_image = image_modals[nextElementIndex];
+          current_active_image.style.opacity = "1";
+          break;
+        }
+      }
+    });
   }
 }
 

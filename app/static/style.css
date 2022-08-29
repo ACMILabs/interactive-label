@@ -243,8 +243,13 @@ cite {
 }
 
 .modal_caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   font-size: 18px;
   line-height: 25px;
+  padding: 45px;
+  vertical-align: baseline;
 }
 
 .modal_active_image {
@@ -448,10 +453,6 @@ p:last-child {
   margin-bottom: 5px;
 }
 
-.child_work {
-  margin-bottom: 20px;
-}
-
 .child_work_title {
   font-weight: bold;
   font-size: 1.4rem;
@@ -536,4 +537,41 @@ p:last-child {
 .notification_bar p {
   margin: 0;
   padding: 12px 0 0 0;
+}
+
+.arrow_container {
+  position: absolute;
+  bottom: 0px;
+  z-index: 2;
+  height: 100%;
+  width: 100px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.arrow_left {
+  position: relative;
+  left: 0px;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  background: center/contain no-repeat url('right-black.svg');
+  background-color: white;
+  transform: rotate(-180deg);
+}
+
+.arrow_right {
+  position: relative;
+  left: 50px;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  background: center/contain no-repeat url('right-black.svg');
+  background-color: white;
 }
