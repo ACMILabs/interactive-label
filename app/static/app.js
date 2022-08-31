@@ -490,10 +490,7 @@ function handle_path_touchmove(event) {
 window.addEventListener(
   "touchmove",
   function handle_touchmove(event) {
-    if (
-      event.touches.length !== 1 &&
-      !event.target.className.includes("modal_active_image")
-    ) {
+    if (event.touches.length !== 1) {
       event.preventDefault();
       return false;
     }
