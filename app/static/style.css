@@ -135,8 +135,13 @@ cite {
   float: none;
 }
 
-.large_text_button {
+.large_text_button_container {
   float: right;
+  padding: 3rem;
+  margin-top: -3rem;
+}
+
+.large_text_button {
   font-family: PxGrotesk;
   font-size: 23px;
   margin-top: -10px;
@@ -159,8 +164,9 @@ cite {
 
 .large_text_button_close {
   position: fixed;
-  top: 45px;
-  right: 0px;
+  top: 0px;
+  right: -3rem;
+  padding: 3rem;
 }
 
 .large_text_button_close:before {

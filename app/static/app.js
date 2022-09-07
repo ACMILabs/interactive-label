@@ -279,11 +279,14 @@ for (let i = 0; i < labels.length; i++) {
   item.appendChild(left_col);
   left_col.className = `modal_left_col_${num_description_columns}`;
 
+  const large_text_button_container = document.createElement("div");
+  large_text_button_container.className = "large_text_button_container";
+  left_col.appendChild(large_text_button_container);
   const large_text_button = document.createElement("div");
-  left_col.appendChild(large_text_button);
+  large_text_button_container.appendChild(large_text_button);
   large_text_button.className = "large_text_button";
   large_text_button.innerHTML = LARGE_TEXT;
-  large_text_button.addEventListener("click", toggle_large_text);
+  large_text_button_container.addEventListener("click", toggle_large_text);
 
   const title = document.createElement("div");
   left_col.appendChild(title);
