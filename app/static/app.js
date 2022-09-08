@@ -160,7 +160,7 @@ function toggle_large_text() {
 
 function setPanZoom(element) {
   // eslint-disable-next-line no-undef
-  panzoom(element, {
+  return panzoom(element, {
     bounds: true,
     boundsPadding: 0.5,
     minZoom: 1,
@@ -168,17 +168,36 @@ function setPanZoom(element) {
   });
 }
 
+function resetPanZoom(element) {
+  element.image_zoom.moveTo(0, 0);
+  element.image_zoom.zoomAbs(null, null, 1);
+  const slider_containers =
+    element.parentElement.parentElement.getElementsByClassName("zoom_slider");
+  for (let index = 0; index < slider_containers.length; index++) {
+    const slider_container = slider_containers[index];
+    slider_container.children[0].value = 1;
+    slider_container.style.opacity = "0";
+    slider_container.style.visibility = "hidden";
+  }
+}
+
 function close_modal() {
   close_large_text();
+  if (current_active_image) {
+    current_active_image.style.opacity = 0;
+    current_active_image.style.visibility = "hidden";
+    resetPanZoom(current_active_image.firstChild);
+    current_active_image.parentElement.getElementsByClassName(
+      "zoom_slider"
+    )[0].style.opacity = "0";
+    current_active_image.parentElement.getElementsByClassName(
+      "zoom_slider"
+    )[0].style.visibility = "hidden";
+  }
   current_modal.style.opacity = 0;
   current_modal.style.pointerEvents = "none";
   modal_cont.style.opacity = 0;
   modal_cont.style.pointerEvents = "none";
-  if (current_active_image) {
-    current_active_image.style.opacity = 0;
-    current_active_image.style.visibility = "hidden";
-    setPanZoom(current_active_image.firstChild);
-  }
   active_collect_element = null;
   active_path.classList.remove("active");
   active_path = null;
@@ -394,7 +413,7 @@ for (let i = 0; i < labels.length; i++) {
       active_image.className = "modal_active_image large_image";
       active_image.style.backgroundImage = `url(${label_image.image_file_l})`;
 
-      setPanZoom(active_image);
+      active_image.image_zoom = setPanZoom(active_image);
 
       if (label.is_group && label_image.caption) {
         const caption = document.createElement("div");
@@ -402,6 +421,19 @@ for (let i = 0; i < labels.length; i++) {
         caption.className = "modal_caption";
         caption.innerHTML = `${label_image.caption}`;
       }
+
+      const zoom_slider = document.createElement("div");
+      active_image_cont.appendChild(zoom_slider);
+      zoom_slider.className = "zoom_slider";
+      zoom_slider.innerHTML =
+        '<input type="range" name="zoom_slider" min="1" max="5" step="0.1" value="1">';
+      zoom_slider.addEventListener("input", (event) => {
+        active_image.image_zoom.smoothZoomAbs(
+          event.currentTarget.parentElement.offsetWidth / 2,
+          event.currentTarget.parentElement.offsetHeight / 2,
+          event.target.value
+        );
+      });
     }
   }
 
@@ -422,7 +454,7 @@ for (let i = 0; i < labels.length; i++) {
         if (element.style.opacity === "1") {
           element.style.opacity = "0";
           element.style.visibility = "hidden";
-          setPanZoom(element.firstChild);
+          resetPanZoom(element.firstChild);
           let previousElementIndex = 0;
           if (index === 0) {
             previousElementIndex = image_modals.length - 1;
@@ -432,6 +464,8 @@ for (let i = 0; i < labels.length; i++) {
           current_active_image = image_modals[previousElementIndex];
           current_active_image.style.opacity = "1";
           current_active_image.style.visibility = "visible";
+          current_active_image.nextSibling.style.opacity = "1";
+          current_active_image.nextSibling.style.visibility = "visible";
           break;
         }
       }
@@ -452,7 +486,7 @@ for (let i = 0; i < labels.length; i++) {
         if (element.style.opacity === "1") {
           element.style.opacity = "0";
           element.style.visibility = "hidden";
-          setPanZoom(element.firstChild);
+          resetPanZoom(element.firstChild);
           let nextElementIndex = 0;
           if (index === image_modals.length - 1) {
             nextElementIndex = 0;
@@ -462,6 +496,8 @@ for (let i = 0; i < labels.length; i++) {
           current_active_image = image_modals[nextElementIndex];
           current_active_image.style.opacity = "1";
           current_active_image.style.visibility = "visible";
+          current_active_image.nextSibling.style.opacity = "1";
+          current_active_image.nextSibling.style.visibility = "visible";
           break;
         }
       }
@@ -527,6 +563,12 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
     if (current_active_image) {
       current_active_image.style.opacity = 1;
       current_active_image.style.visibility = "visible";
+      current_active_image.parentElement.getElementsByClassName(
+        "zoom_slider"
+      )[0].style.opacity = "1";
+      current_active_image.parentElement.getElementsByClassName(
+        "zoom_slider"
+      )[0].style.visibility = "visible";
     }
     current_modal = modals[i];
     left_cols[i].scrollTop = 0;
