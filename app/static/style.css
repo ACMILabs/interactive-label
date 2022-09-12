@@ -40,6 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 blockquote {
@@ -115,7 +116,8 @@ cite {
 .modal_left_col_1,
 .modal_left_col_2,
 .modal_left_col_3 {
-  float: left;
+  position: fixed;
+  right: 0;
   box-sizing: border-box;
   padding: 45px;
   padding-bottom: 0;
@@ -133,10 +135,67 @@ cite {
   float: none;
 }
 
+.large_text_button_container {
+  float: right;
+  padding: 3rem;
+  margin-top: -3rem;
+}
+
+.large_text_button {
+  font-family: PxGrotesk;
+  font-size: 23px;
+  margin-top: -10px;
+  margin-right: 3rem;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+}
+
+.large_text_button:before {
+  position: relative;
+  top: 2px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: url('accessibility-icon.svg') center/contain no-repeat;
+  content: " ";
+  display: inline-block;
+  border: none;
+}
+
+.large_text_button_close {
+  position: fixed;
+  top: 0px;
+  right: -3rem;
+  padding: 3rem;
+}
+
+.large_text_button_close:before {
+  width: 40px;
+  height: 40px;
+  background: url('close-black.svg') center/contain no-repeat;
+  content: " ";
+  display: inline-block;
+}
+
+.large_text {
+  background-color: white;
+  color: black;
+  width: 1360px;
+  height: 100%;
+  z-index: 10;
+  padding: 60px;
+  box-shadow: -100px 0px 200px 0px black;
+}
+
+.large_text .modal_title {
+  padding-top: 0;
+}
+
 .modal_title {
   font-size: 34px;
   line-height: 40px;
   font-family: PxGrotesk;
+  padding-top: 3rem;
 }
 
 .modal_title_annotation {
@@ -159,6 +218,15 @@ cite {
   margin-top: 36px;
 }
 
+.modal_image_container {
+  position: relative;
+  top: 45px;
+  left: 45px;
+  width: 815px;
+  height: calc(100% - 84px - 135px);
+  border: 1px solid #757575;
+}
+
 .modal_active_image_cont {
   height: 100%;
   float: left;
@@ -168,7 +236,7 @@ cite {
 }
 
 .large_image_cont {
-  width: 633px;
+  width: 100%;
 }
 
 .modal_active_image_and_caption {
@@ -178,22 +246,29 @@ cite {
   width: 100%;
   height: 100%;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 200ms;
 }
 
 .modal_caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   font-size: 18px;
   line-height: 25px;
+  padding: 45px;
+  vertical-align: baseline;
+  width: calc(100% - 90px);
+  background: linear-gradient(transparent, black);
 }
 
 .modal_active_image {
   height: 50%;
-  margin: 60px 0 25px;
   background: center/contain no-repeat;
 }
 
 .large_image {
-  height: 65%;
+  height: 100%;
 }
 
 .modal_image_list {
@@ -388,10 +463,6 @@ p:last-child {
   margin-bottom: 5px;
 }
 
-.child_work {
-  margin-bottom: 20px;
-}
-
 .child_work_title {
   font-weight: bold;
   font-size: 1.4rem;
@@ -476,4 +547,76 @@ p:last-child {
 .notification_bar p {
   margin: 0;
   padding: 12px 0 0 0;
+}
+
+.arrow_container {
+  position: absolute;
+  bottom: 0px;
+  z-index: 2;
+  height: 100%;
+  width: 100px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.arrow_left {
+  position: relative;
+  left: 0px;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  background: center/contain no-repeat url('right-black.svg');
+  background-color: white;
+  transform: rotate(-180deg);
+}
+
+.arrow_right {
+  position: relative;
+  left: 50px;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  background: center/contain no-repeat url('right-black.svg');
+  background-color: white;
+}
+
+.zoom_slider {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms;
+  width: 300px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  position: relative;
+  top: -1rem;
+  padding: 1rem;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #757575, 0px 0px 0px #757575;
+  background: transparent;
+  border-radius: 1px;
+  border: 1px solid #757575;
+  margin: 3rem;
 }
