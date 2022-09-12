@@ -15,6 +15,7 @@ from sentry_sdk.integrations.flask import FlaskIntegration
 
 from app.errors import HTTPError
 
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 XOS_API_ENDPOINT = os.getenv('XOS_API_ENDPOINT')
 XOS_TAPS_ENDPOINT = os.getenv('XOS_TAPS_ENDPOINT', f'{XOS_API_ENDPOINT}taps/')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
@@ -73,10 +74,10 @@ def render_playlist():
     for item in list(json_data['playlist_labels']):
         if item['label'] is None:
             json_data['playlist_labels'].remove(item)
-
     return render_template(
         'index.html',
         playlist_json=json_data,
+        debug=DEBUG,
         xos={
             'playlist_endpoint': f'{XOS_API_ENDPOINT}playlists/',
         }

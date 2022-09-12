@@ -1,0 +1,13 @@
+.path {
+  stroke: rgba(0, 80, 0, 0.8);
+  fill: rgba(0, 255, 255, 0.1);
+}
+
+.screen_touched_icon {
+  pointer-events: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 255, 0.5);
+  border-radius: 50%;
+}
