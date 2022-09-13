@@ -136,9 +136,11 @@ cite {
 }
 
 .large_text_button_container {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
   padding: 3rem;
-  margin-top: -3rem;
 }
 
 .large_text_button {
