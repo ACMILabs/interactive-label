@@ -63,6 +63,7 @@ const collect_elements = [];
 let current_modal = null;
 const COLLECT_TEXT = "TO COLLECT TAP LENS ON READER";
 const NOTIFICATION_TEXT = "Tap an object to learn more";
+const LARGE_TEXT = "LARGE TEXT";
 const NOTIFICATION_BAR_TIMEOUT = 20000;
 const MODAL_TIMEOUT = 60000;
 
@@ -103,14 +104,100 @@ const modal_cont = document.createElement("div");
 modal_cont.className = "modal_cont";
 root.appendChild(modal_cont);
 
+function open_large_text() {
+  const textBox = current_modal.querySelectorAll("[class^=modal_left_col_]")[0];
+  const largeTextButton =
+    current_modal.getElementsByClassName("large_text_button")[0];
+  if (largeTextButton.innerHTML === LARGE_TEXT) {
+    largeTextButton.innerHTML = "";
+    largeTextButton.classList.add("large_text_button_close");
+    textBox.classList.add("large_text");
+    for (let index = 0; index < textBox.children.length; index++) {
+      const element = textBox.children[index];
+      const cssFontSize =
+        getComputedStyle(element).getPropertyValue("font-size");
+      const fontSize = parseFloat(cssFontSize);
+      element.style.fontSize = `${fontSize * 1.5}px`;
+      const cssLineHeight =
+        getComputedStyle(element).getPropertyValue("line-height");
+      const lineHeight = parseFloat(cssLineHeight);
+      element.style.lineHeight = `${lineHeight * 1.5}px`;
+    }
+  }
+}
+
+function close_large_text() {
+  const textBox = current_modal.querySelectorAll("[class^=modal_left_col_]")[0];
+  const largeTextButton =
+    current_modal.getElementsByClassName("large_text_button")[0];
+  if (largeTextButton.innerHTML === "") {
+    largeTextButton.innerHTML = LARGE_TEXT;
+    largeTextButton.classList.remove("large_text_button_close");
+    textBox.classList.remove("large_text");
+    for (let index = 0; index < textBox.children.length; index++) {
+      const element = textBox.children[index];
+      const cssFontSize =
+        getComputedStyle(element).getPropertyValue("font-size");
+      const fontSize = parseFloat(cssFontSize);
+      element.style.fontSize = `${fontSize / 1.5}px`;
+      const cssLineHeight =
+        getComputedStyle(element).getPropertyValue("line-height");
+      const lineHeight = parseFloat(cssLineHeight);
+      element.style.lineHeight = `${lineHeight / 1.5}px`;
+    }
+  }
+}
+
+function toggle_large_text() {
+  const largeTextButton =
+    current_modal.getElementsByClassName("large_text_button")[0];
+  if (largeTextButton.innerHTML === LARGE_TEXT) {
+    open_large_text();
+  } else {
+    close_large_text();
+  }
+}
+
+function setPanZoom(element) {
+  // eslint-disable-next-line no-undef
+  return panzoom(element, {
+    bounds: true,
+    boundsPadding: 0.5,
+    minZoom: 1,
+    maxZoom: 5,
+  });
+}
+
+function resetPanZoom(element) {
+  element.image_zoom.moveTo(0, 0);
+  element.image_zoom.zoomAbs(null, null, 1);
+  const slider_containers =
+    element.parentElement.parentElement.getElementsByClassName("zoom_slider");
+  for (let index = 0; index < slider_containers.length; index++) {
+    const slider_container = slider_containers[index];
+    slider_container.children[0].value = 1;
+    slider_container.style.opacity = "0";
+    slider_container.style.visibility = "hidden";
+  }
+}
+
 function close_modal() {
+  close_large_text();
+  if (current_active_image) {
+    current_active_image.style.opacity = 0;
+    current_active_image.style.visibility = "hidden";
+    resetPanZoom(current_active_image.firstChild);
+    current_active_image.parentElement.getElementsByClassName(
+      "zoom_slider"
+    )[0].style.opacity = "0";
+    current_active_image.parentElement.getElementsByClassName(
+      "zoom_slider"
+    )[0].style.visibility = "hidden";
+  }
   current_modal.style.opacity = 0;
   current_modal.style.pointerEvents = "none";
   modal_cont.style.opacity = 0;
   modal_cont.style.pointerEvents = "none";
-  if (current_active_image) {
-    current_active_image.style.opacity = 0;
-  }
   active_collect_element = null;
   active_path.classList.remove("active");
   active_path = null;
@@ -211,6 +298,15 @@ for (let i = 0; i < labels.length; i++) {
   item.appendChild(left_col);
   left_col.className = `modal_left_col_${num_description_columns}`;
 
+  const large_text_button_container = document.createElement("div");
+  large_text_button_container.className = "large_text_button_container";
+  left_col.appendChild(large_text_button_container);
+  const large_text_button = document.createElement("div");
+  large_text_button_container.appendChild(large_text_button);
+  large_text_button.className = "large_text_button";
+  large_text_button.innerHTML = LARGE_TEXT;
+  large_text_button_container.addEventListener("click", toggle_large_text);
+
   const title = document.createElement("div");
   left_col.appendChild(title);
   title.className = "modal_title";
@@ -272,20 +368,16 @@ for (let i = 0; i < labels.length; i++) {
     description_3.innerHTML = label.description_column_3;
   }
 
+  const image_container = document.createElement("div");
+  item.appendChild(image_container);
+  image_container.className = "modal_image_container";
+
   const active_image_cont = document.createElement("div");
   if (should_show_image_and_caption) {
-    item.appendChild(active_image_cont);
+    image_container.appendChild(active_image_cont);
     active_image_cont.className = `modal_active_image_cont ${
-      !should_show_image_list && num_description_columns === 1
-        ? "large_image_cont"
-        : ""
+      num_description_columns === 1 ? "large_image_cont" : ""
     }`;
-  }
-
-  const image_list = document.createElement("div");
-  if (should_show_image_list) {
-    item.appendChild(image_list);
-    image_list.className = "modal_image_list";
   }
 
   const back_button = document.createElement("div");
@@ -314,35 +406,102 @@ for (let i = 0; i < labels.length; i++) {
       active_image_cont.appendChild(active_image_and_caption);
       active_image_and_caption.className = "modal_active_image_and_caption";
       active_images[i][j] = active_image_and_caption;
+      active_image_cont.style.overflow = "hidden";
 
       const active_image = document.createElement("div");
       active_image_and_caption.appendChild(active_image);
-      active_image.className = `modal_active_image${
-        !should_show_image_list ? " large_image" : ""
-      }`;
-      active_image.style.backgroundImage = `url(${label_image.image_file_xs})`;
+      active_image.className = "modal_active_image large_image";
+      active_image.style.backgroundImage = `url(${label_image.image_file_l})`;
 
-      if (label.is_group) {
+      active_image.image_zoom = setPanZoom(active_image);
+
+      if (label.is_group && label_image.caption) {
         const caption = document.createElement("div");
         active_image_and_caption.appendChild(caption);
         caption.className = "modal_caption";
         caption.innerHTML = `${label_image.caption}`;
       }
 
-      if (should_show_image_list) {
-        const image = document.createElement("div");
-        image_list.appendChild(image);
-        image.className = `modal_image${
-          label.images.length > 6 ? " small_image" : ""
-        }`;
-        image.style.backgroundImage = `url(${label_image.image_file_xs})`;
-        image.addEventListener("click", function image_click() {
-          current_active_image.style.opacity = 0;
-          current_active_image = active_image_and_caption;
-          current_active_image.style.opacity = 1;
-        });
-      }
+      const zoom_slider = document.createElement("div");
+      active_image_cont.appendChild(zoom_slider);
+      zoom_slider.className = "zoom_slider";
+      zoom_slider.innerHTML =
+        '<input type="range" name="zoom_slider" min="1" max="5" step="0.1" value="1">';
+      zoom_slider.addEventListener("input", (event) => {
+        active_image.image_zoom.smoothZoomAbs(
+          event.currentTarget.parentElement.offsetWidth / 2,
+          event.currentTarget.parentElement.offsetHeight / 2,
+          event.target.value
+        );
+      });
     }
+  }
+
+  if (should_show_image_list) {
+    // Add left/right arrows for more than 1 image
+    const left_arrow_container = document.createElement("div");
+    active_image_cont.appendChild(left_arrow_container);
+    left_arrow_container.className = "arrow_container left";
+    const left_arrow = document.createElement("div");
+    left_arrow_container.appendChild(left_arrow);
+    left_arrow.className = "arrow_left";
+    left_arrow_container.addEventListener("click", function () {
+      const image_modals = this.parentNode.getElementsByClassName(
+        "modal_active_image_and_caption"
+      );
+      for (let index = 0; index < image_modals.length; index++) {
+        const element = image_modals[index];
+        if (element.style.opacity === "1") {
+          element.style.opacity = "0";
+          element.style.visibility = "hidden";
+          resetPanZoom(element.firstChild);
+          let previousElementIndex = 0;
+          if (index === 0) {
+            previousElementIndex = image_modals.length - 1;
+          } else {
+            previousElementIndex = index - 1;
+          }
+          current_active_image = image_modals[previousElementIndex];
+          current_active_image.style.opacity = "1";
+          current_active_image.style.visibility = "visible";
+          current_active_image.nextSibling.style.opacity = "1";
+          current_active_image.nextSibling.style.visibility = "visible";
+          break;
+        }
+      }
+    });
+
+    const right_arrow_container = document.createElement("div");
+    active_image_cont.appendChild(right_arrow_container);
+    right_arrow_container.className = "arrow_container right";
+    const right_arrow = document.createElement("div");
+    right_arrow_container.appendChild(right_arrow);
+    right_arrow.className = "arrow_right";
+    right_arrow_container.addEventListener("click", function () {
+      const image_modals = this.parentNode.getElementsByClassName(
+        "modal_active_image_and_caption"
+      );
+      for (let index = 0; index < image_modals.length; index++) {
+        const element = image_modals[index];
+        if (element.style.opacity === "1") {
+          element.style.opacity = "0";
+          element.style.visibility = "hidden";
+          resetPanZoom(element.firstChild);
+          let nextElementIndex = 0;
+          if (index === image_modals.length - 1) {
+            nextElementIndex = 0;
+          } else {
+            nextElementIndex = index + 1;
+          }
+          current_active_image = image_modals[nextElementIndex];
+          current_active_image.style.opacity = "1";
+          current_active_image.style.visibility = "visible";
+          current_active_image.nextSibling.style.opacity = "1";
+          current_active_image.nextSibling.style.visibility = "visible";
+          break;
+        }
+      }
+    });
   }
 }
 
@@ -403,6 +562,13 @@ for (let i = 0; i < window.data.playlist_labels.length; i++) {
     [current_active_image] = active_images[i];
     if (current_active_image) {
       current_active_image.style.opacity = 1;
+      current_active_image.style.visibility = "visible";
+      current_active_image.parentElement.getElementsByClassName(
+        "zoom_slider"
+      )[0].style.opacity = "1";
+      current_active_image.parentElement.getElementsByClassName(
+        "zoom_slider"
+      )[0].style.visibility = "visible";
     }
     current_modal = modals[i];
     left_cols[i].scrollTop = 0;

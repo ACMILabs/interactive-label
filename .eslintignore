@@ -5,3 +5,4 @@ frontends/react/constellations/build/**
 frontends/react/constellations/node_modules/**
 frontends/static/**
 venv/**
+app/static/lib/**
