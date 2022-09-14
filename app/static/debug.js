@@ -1,7 +1,7 @@
-const root = document.getElementById("root");
+const debugRoot = document.getElementById("root");
 
 const screenTouchedIcon = document.createElement("div");
-root.appendChild(screenTouchedIcon);
+debugRoot.appendChild(screenTouchedIcon);
 screenTouchedIcon.className = "screen_touched_icon";
 
 /** Show where the user last clicked */
