@@ -2,11 +2,17 @@
 <html>
   <head>
     <link rel='stylesheet' href='/static/style.css'/>
+    {% if debug == True %}
+      <link rel='stylesheet' href='/static/debug.css'/>
+    {% endif %}
   </head>
   <body>
     <div id='root'></div>
     <script>window.data = {{ playlist_json|tojson }}</script>
     <script src='/static/lib/panzoom.min.js'></script>
     <script src='/static/app.js'></script>
+    {% if debug == True %}
+      <script src='/static/debug.js'></script>
+    {% endif %}
   </body>
 </html>
