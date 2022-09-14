@@ -1,6 +1,6 @@
 .path {
-  stroke: rgba(0, 80, 0, 0.8);
-  fill: rgba(0, 255, 255, 0.1);
+  stroke: rgb(107, 149, 255, 1);
+  fill: rgb(107, 149, 255, 0.2);
 }
 
 .screen_touched_icon {
@@ -8,6 +8,6 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: rgba(0, 0, 255, 0.5);
+  background-color: rgba(255, 176, 0, 0.8);
   border-radius: 50%;
 }

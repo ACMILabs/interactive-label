@@ -6,8 +6,8 @@ screenTouchedIcon.className = "screen_touched_icon";
 
 /** Show where the user last clicked */
 function debugTouchscreenEvent(event) {
-  const mouseX = event.clientX - 15; // Minus half the width of the icon
-  const mouseY = event.clientY - 15; // Minus half the height of the icon
+  const mouseX = event.clientX - screenTouchedIcon.offsetWidth / 2;
+  const mouseY = event.clientY - screenTouchedIcon.offsetHeight / 2;
 
   screenTouchedIcon.style.left = `${mouseX}px`;
   screenTouchedIcon.style.top = `${mouseY}px`;
