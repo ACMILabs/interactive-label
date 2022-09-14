@@ -74,6 +74,7 @@ def render_playlist():
     for item in list(json_data['playlist_labels']):
         if item['label'] is None:
             json_data['playlist_labels'].remove(item)
+
     return render_template(
         'index.html',
         playlist_json=json_data,
