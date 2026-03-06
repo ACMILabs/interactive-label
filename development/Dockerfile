@@ -1,4 +1,4 @@
-FROM balenalib/intel-nuc-python:3.7-buster-run
+FROM balenalib/intel-nuc-python:3.11-bookworm-run
 
 RUN install_packages apt-utils g++ build-essential
 

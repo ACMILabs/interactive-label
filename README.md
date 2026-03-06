@@ -42,19 +42,19 @@ Using your favourite graphics program, load up the background image for referenc
 * Run `cp config.tmpl.env config.env`
 * Edit `config.env` to include auth token for connecting to a playlist API
 * Run `cd development`
-* Run `docker-compose up --build`
+* Run `docker compose up --build`
 * Open a browser and visit: http://localhost:8081
 
 ## Run Javascript tests with docker
 
 * Run `cd testing`
-* Run `docker-compose up --build`
+* Run `docker compose up --build`
 * In another Terminal run `docker exec -it javascripttests make linttestjs`
 
 ## Run Python tests with docker
 
 * Run `cd development`
-* Run `docker-compose up --build`
+* Run `docker compose up --build`
 * In another Terminal run `docker exec -it labelinteractive make linttest`
 
 ## Run Python tests without docker
